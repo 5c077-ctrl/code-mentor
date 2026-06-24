@@ -1,0 +1,251 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String          @id @default(uuid())
+  username          String          @unique
+  email             String?         @unique
+  passwordHash      String
+  avatarUrl         String?
+  preferredLanguage String          @default("en")
+  theme             String          @default("dark")
+  totalXp           Int             @default(0)
+  level             Int             @default(1)
+  currentStreak     Int             @default(0)
+  lastLoginAt       DateTime?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  progress          UserProgress[]
+  quizAttempts      QuizAttempt[]
+  bookmarks         Bookmark[]
+  notes             Note[]
+  certificates      Certificate[]
+  aiConversations   AiConversation[]
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  slug        String   @unique
+  description String
+  icon        String
+  color       String
+  sortOrder   Int
+  courses     Course[]
+}
+
+model Course {
+  id             String           @id @default(uuid())
+  categoryId     String
+  title          String
+  slug           String           @unique
+  description    String
+  difficulty     String           // "beginner" | "intermediate" | "advanced"
+  language       String           @default("en")
+  thumbnailUrl   String?
+  estimatedHours Int
+  totalLessons   Int
+  isPublished    Boolean          @default(true)
+  createdAt      DateTime         @default(now())
+
+  category       Category         @relation(fields: [categoryId], references: [id])
+  modules        Module[]
+  resources      CourseResource[]
+  certificates   Certificate[]
+}
+
+model Module {
+  id          String   @id @default(uuid())
+  courseId    String
+  title       String
+  description String?
+  sortOrder   Int
+  xpRequired  Int      @default(0)
+
+  course      Course   @relation(fields: [courseId], references: [id])
+  lessons     Lesson[]
+}
+
+model Lesson {
+  id               String         @id @default(uuid())
+  moduleId         String
+  title            String
+  slug             String
+  contentMarkdown  String         // Full lesson content in Markdown
+  starterCode      String?        // Pre-filled code for exercises
+  solutionCode     String?        // Solution code
+  codeLanguage     String?        // "python" | "javascript" | "java" | etc.
+  sortOrder        Int
+  estimatedMinutes Int            @default(15)
+  xpReward         Int            @default(50)
+
+  module           Module         @relation(fields: [moduleId], references: [id])
+  quizzes          Quiz[]
+  progress         UserProgress[]
+  bookmarks        Bookmark[]
+  notes            Note[]
+  aiConversations  AiConversation[]
+}
+
+model Quiz {
+  id               String        @id @default(uuid())
+  lessonId         String        @unique
+  title            String
+  passingScore     Int           @default(70) // Percentage
+  timeLimitSeconds Int?          // null = no time limit
+
+  lesson           Lesson        @relation(fields: [lessonId], references: [id])
+  questions        Question[]
+  attempts         QuizAttempt[]
+}
+
+model Question {
+  id           String   @id @default(uuid())
+  quizId       String
+  questionText String
+  questionType String   // "multiple_choice" | "true_false" | "code_completion" | "code_output"
+  codeSnippet  String?  // Optional code block for the question
+  explanation  String?  // Shown after answering
+  points       Int      @default(10)
+  sortOrder    Int
+
+  quiz         Quiz     @relation(fields: [quizId], references: [id])
+  answers      Answer[]
+}
+
+model Answer {
+  id         String          @id @default(uuid())
+  questionId String
+  answerText String
+  isCorrect  Boolean         @default(false)
+  sortOrder  Int
+
+  question   Question        @relation(fields: [questionId], references: [id])
+  attempts   AttemptAnswer[]
+}
+
+model CourseResource {
+  id           String @id @default(uuid())
+  courseId     String
+  resourceType String // "youtube" | "ebook" | "article" | "cheatsheet"
+  title        String
+  url          String
+  author       String?
+  platform     String? // "YouTube" | "OpenStax" | "MIT OCW" | etc.
+  sortOrder    Int
+
+  course       Course @relation(fields: [courseId], references: [id])
+}
+
+model UserProgress {
+  id              String    @id @default(uuid())
+  userId          String
+  lessonId        String
+  status          String    @default("not_started") // "not_started" | "in_progress" | "completed"
+  timeSpentSecs   Int       @default(0)
+  startedAt       DateTime?
+  completedAt     DateTime?
+
+  user            User      @relation(fields: [userId], references: [id])
+  lesson          Lesson    @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+}
+
+model QuizAttempt {
+  id             String          @id @default(uuid())
+  userId         String
+  quizId         String
+  score          Int
+  maxScore       Int
+  passed         Boolean
+  xpEarned       Int             @default(0)
+  timeTakenSecs  Int?
+  attemptedAt    DateTime        @default(now())
+
+  user           User            @relation(fields: [userId], references: [id])
+  quiz           Quiz            @relation(fields: [quizId], references: [id])
+  answers        AttemptAnswer[]
+}
+
+model AttemptAnswer {
+  id               String      @id @default(uuid())
+  attemptId        String
+  questionId       String
+  selectedAnswerId String?
+  isCorrect        Boolean
+
+  attempt          QuizAttempt @relation(fields: [attemptId], references: [id])
+  question         Question    @relation(fields: [questionId], references: [id])
+  selectedAnswer   Answer?     @relation(fields: [selectedAnswerId], references: [id])
+}
+
+model Bookmark {
+  id        String   @id @default(uuid())
+  userId    String
+  lessonId  String
+  note      String?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+  lesson    Lesson   @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+}
+
+model Note {
+  id        String   @id @default(uuid())
+  userId    String
+  lessonId  String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id])
+  lesson    Lesson   @relation(fields: [lessonId], references: [id])
+}
+
+model Certificate {
+  id                String   @id @default(uuid())
+  userId            String
+  courseId          String
+  certificateNumber String   @unique
+  finalScore        Int
+  issuedAt          DateTime @default(now())
+
+  user              User     @relation(fields: [userId], references: [id])
+  course            Course   @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+}
+
+model AiConversation {
+  id        String       @id @default(uuid())
+  userId    String
+  lessonId  String?
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  user      User         @relation(fields: [userId], references: [id])
+  lesson    Lesson?      @relation(fields: [lessonId], references: [id])
+  messages  AiMessage[]
+}
+
+model AiMessage {
+  id             String         @id @default(uuid())
+  conversationId String
+  role           String         // "user" | "assistant" | "system"
+  content        String
+  createdAt      DateTime       @default(now())
+
+  conversation   AiConversation @relation(fields: [conversationId], references: [id])
+}
