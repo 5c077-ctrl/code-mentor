@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Code Mentor
+
+Code Mentor is an enterprise-grade, AI-driven interactive learning platform designed for the modern developer. It bridges the gap between theory and practice by offering interactive coding environments directly in the browser, powered by real-time AI assistance to help learners overcome roadblocks.
+
+## Features
+
+- **Interactive Lessons**: Learn by doing with step-by-step interactive lessons.
+- **In-Browser Code Execution**: Write and execute Python and JavaScript code without leaving the platform.
+- **AI Mentor**: Get real-time streaming hints, code reviews, and explanations from an integrated AI tutor.
+- **Quizzes & Progress Tracking**: Validate your knowledge and track your progress across modules.
+- **Glassmorphism Design**: Enjoy a premium, visually stunning UI built with pure CSS modules.
+- **Verifiable Certificates**: Earn certificates upon course completion.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Vanilla CSS Modules (no Tailwind)
+- **Database ORM**: Prisma
+- **Database**: SQLite (Development) / PostgreSQL (Production)
+- **Authentication**: JWT via `jose` and Next.js Middleware
+- **State Management**: Zustand
+- **Animations**: Framer Motion
+- **Code Editor**: Monaco Editor (`@monaco-editor/react`)
+- **AI Integration**: Anthropic Claude SDK
 
 ## Getting Started
 
-First, run the development server:
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Configure Environment Variables**
+   Rename `.env.local` to `.env` and provide the required variables:
+   ```env
+   DATABASE_URL="file:./dev.db"
+   JWT_SECRET="your_secret_here"
+   ANTHROPIC_API_KEY="your_anthropic_key"
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Initialize Database**
+   ```bash
+   npx prisma db push
+   npx prisma db seed
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Run the Development Server**
+   ```bash
+   npm run dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+Please adhere to standard enterprise practices when contributing: maintain tests, follow the existing Next.js 15 App Router architecture, and keep styling constrained to CSS modules.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
