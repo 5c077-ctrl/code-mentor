@@ -1,0 +1,33 @@
+.footer {
+  padding: 2rem;
+  margin-top: auto;
+  border-top: 1px solid var(--glass-border);
+  background: var(--bg-primary);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.links a:hover {
+  color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
