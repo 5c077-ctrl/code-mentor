@@ -120,6 +120,7 @@ model Question {
 
   quiz         Quiz     @relation(fields: [quizId], references: [id])
   answers      Answer[]
+  attemptAnswers AttemptAnswer[]
 }
 
 model Answer {
