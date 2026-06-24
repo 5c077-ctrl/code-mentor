@@ -65,7 +65,7 @@ export async function POST(req: Request) {
 
     const pdfBytes = await pdfDoc.save();
 
-    return new Response(pdfBytes, {
+    return new Response(pdfBytes as any, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
