@@ -1,19 +1,29 @@
+'use client';
+
+import { useState } from 'react';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
 import { ArrowLeft, PlayCircle, Code2, HelpCircle } from 'lucide-react';
+import CodeEditor from '@/components/learn/CodeEditor';
+import AiChatPanel from '@/components/learn/AiChatPanel';
+import QuizEngine from '@/components/learn/QuizEngine';
 
-export default async function LessonViewPage({ params }: { params: Promise<{ slug: string, lessonId: string }> }) {
-  const p = await params;
-  const courseName = p.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+export default function LessonViewPage({ params }: { params: Promise<{ slug: string, lessonId: string }> }) {
+  const [activeTab, setActiveTab] = useState<'editor' | 'quiz' | 'ai'>('editor');
+  const [code, setCode] = useState('print("Hello, World!")');
+  
+  // Unwrap params using React.use (since it's a promise in Next 15 page props)
+  // Mock data for now since we don't have DB integrated yet
+  const courseName = "Python for Beginners";
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 400px', gap: '1.5rem', height: 'calc(100vh - 140px)' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 450px', gap: '1.5rem', height: 'calc(100vh - 140px)' }}>
       {/* Left Panel: Content */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', overflowY: 'auto' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', overflowY: 'auto', paddingRight: '0.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-          <Link href={`/courses/${p.slug}`}>
+          <Link href="/courses">
             <Button variant="secondary" style={{ padding: '0.5rem' }}><ArrowLeft size={20} /></Button>
           </Link>
           <span style={{ color: 'var(--text-secondary)' }}>{courseName} / Lesson 1</span>
@@ -35,32 +45,43 @@ export default async function LessonViewPage({ params }: { params: Promise<{ slu
 
           <div style={{ marginTop: 'auto', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
             <Button variant="secondary" disabled>Previous Lesson</Button>
-            <Button>Next Lesson</Button>
+            <Button onClick={() => setActiveTab('quiz')}>Take Quiz</Button>
           </div>
         </Card>
       </div>
 
-      {/* Right Panel: Interactive (Editor / AI) */}
+      {/* Right Panel: Interactive (Editor / AI / Quiz) */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Card style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-          <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.5rem' }}>
-            <button style={{ background: 'none', border: 'none', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: 'bold' }}>
+        <Card style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '0', overflow: 'hidden' }}>
+          <div style={{ display: 'flex', gap: '1.5rem', borderBottom: '1px solid var(--glass-border)', padding: '1rem' }}>
+            <button 
+              onClick={() => setActiveTab('editor')}
+              style={{ background: 'none', border: 'none', color: activeTab === 'editor' ? 'var(--accent-primary)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: activeTab === 'editor' ? 'bold' : 'normal' }}>
               <Code2 size={18} /> Editor
             </button>
-            <button style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+            <button 
+              onClick={() => setActiveTab('quiz')}
+              style={{ background: 'none', border: 'none', color: activeTab === 'quiz' ? 'var(--accent-warning)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: activeTab === 'quiz' ? 'bold' : 'normal' }}>
               <PlayCircle size={18} /> Quiz
             </button>
-            <button style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+            <button 
+              onClick={() => setActiveTab('ai')}
+              style={{ background: 'none', border: 'none', color: activeTab === 'ai' ? 'var(--accent-info)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: activeTab === 'ai' ? 'bold' : 'normal' }}>
               <HelpCircle size={18} /> AI Tutor
             </button>
           </div>
           
-          <div style={{ flex: 1, background: 'rgba(0,0,0,0.5)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}>
-            [Monaco Editor Placeholder]
-          </div>
-
-          <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="primary">Run Code</Button>
+          <div style={{ flex: 1, padding: activeTab === 'editor' ? '0' : '1rem', overflowY: 'auto' }}>
+            {activeTab === 'editor' && <CodeEditor initialCode={code} language="python" />}
+            {activeTab === 'ai' && <AiChatPanel currentCode={code} lessonContext="Python Hello World" />}
+            {activeTab === 'quiz' && (
+              <QuizEngine 
+                questions={[
+                  { id: 'q1', text: 'Which function is used to output text in Python?', options: [{ id: 'a', text: 'echo()' }, { id: 'b', text: 'print()' }, { id: 'c', text: 'write()' }], correctId: 'b' }
+                ]} 
+                onComplete={(score, passed) => console.log('Quiz finished', score, passed)} 
+              />
+            )}
           </div>
         </Card>
       </div>
