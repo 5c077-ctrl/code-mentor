@@ -1,17 +1,39 @@
 import Link from 'next/link';
-import { BookOpen, GitBranch, Database, Shield, Brain, LayoutDashboard, Settings } from 'lucide-react';
+import { 
+  LayoutDashboard, 
+  BookOpen, 
+  Trophy, 
+  HelpCircle, 
+  Settings,
+  Code2,
+  Globe,
+  GitBranch,
+  Database,
+  Shield,
+  Brain,
+  Smartphone,
+  Cloud
+} from 'lucide-react';
 import styles from './Sidebar.module.css';
 
 export default function Sidebar() {
-  const links = [
+  const mainLinks = [
     { href: '/dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
     { href: '/courses', label: 'All Courses', icon: <BookOpen size={20} /> },
-    { href: '/courses?category=programming', label: 'Programming', icon: <BookOpen size={20} /> },
-    { href: '/courses?category=git', label: 'Git & Versioning', icon: <GitBranch size={20} /> },
-    { href: '/courses?category=databases', label: 'Databases', icon: <Database size={20} /> },
-    { href: '/courses?category=hacking', label: 'Ethical Hacking', icon: <Shield size={20} /> },
-    { href: '/courses?category=ai', label: 'AI & Machine Learning', icon: <Brain size={20} /> },
+    { href: '/leaderboard', label: 'Leaderboard', icon: <Trophy size={20} /> },
+    { href: '/faq', label: 'FAQ', icon: <HelpCircle size={20} /> },
     { href: '/settings', label: 'Settings', icon: <Settings size={20} /> },
+  ];
+
+  const categoryLinks = [
+    { href: '/courses?category=programming', label: 'Programming', icon: <Code2 size={18} /> },
+    { href: '/courses?category=web-development', label: 'Web Development', icon: <Globe size={18} /> },
+    { href: '/courses?category=devops', label: 'DevOps & Tools', icon: <GitBranch size={18} /> },
+    { href: '/courses?category=databases', label: 'Databases', icon: <Database size={18} /> },
+    { href: '/courses?category=ethical-hacking', label: 'Ethical Hacking', icon: <Shield size={18} /> },
+    { href: '/courses?category=ai-ml', label: 'AI & Machine Learning', icon: <Brain size={18} /> },
+    { href: '/courses?category=mobile-dev', label: 'Mobile Dev', icon: <Smartphone size={18} /> },
+    { href: '/courses?category=cloud', label: 'Cloud Computing', icon: <Cloud size={18} /> },
   ];
 
   return (
@@ -24,8 +46,17 @@ export default function Sidebar() {
       </div>
       
       <nav className={styles.nav}>
-        {links.map((link, idx) => (
+        <div className={styles.sectionTitle}>Menu</div>
+        {mainLinks.map((link, idx) => (
           <Link key={idx} href={link.href} className={styles.navLink}>
+            {link.icon}
+            <span>{link.label}</span>
+          </Link>
+        ))}
+
+        <div className={styles.sectionTitle} style={{ marginTop: '1rem' }}>Categories</div>
+        {categoryLinks.map((link, idx) => (
+          <Link key={idx} href={link.href} className={`${styles.navLink} ${styles.subLink}`}>
             {link.icon}
             <span>{link.label}</span>
           </Link>

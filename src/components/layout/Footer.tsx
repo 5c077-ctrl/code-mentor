@@ -8,6 +8,9 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} Code-Mentor. All rights reserved.</p>
         <div className={styles.links}>
           <Link href="/about">About</Link>
+          <Link href="/faq">FAQ</Link>
+          <Link href="/leaderboard">Leaderboard</Link>
+          <Link href="/settings">Settings</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>
         </div>
