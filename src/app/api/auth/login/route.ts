@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { comparePasswords, encrypt } from '@/lib/auth';
-import { cookies } from 'next/headers';
 
 export async function POST(request: Request) {
   try {
@@ -24,12 +23,12 @@ export async function POST(request: Request) {
     });
 
     if (!user) {
-      return NextResponse.json({ error: 'Invalid email or password' }, { status: 401 });
+      return NextResponse.json({ error: 'Invalid email/username or password' }, { status: 401 });
     }
 
     const isMatch = await comparePasswords(password, user.passwordHash);
     if (!isMatch) {
-      return NextResponse.json({ error: 'Invalid email or password' }, { status: 401 });
+      return NextResponse.json({ error: 'Invalid email/username or password' }, { status: 401 });
     }
 
     // Update last login timestamp
@@ -40,16 +39,9 @@ export async function POST(request: Request) {
 
     // Create session token
     const sessionToken = await encrypt({ userId: user.id, username: user.username });
-    const cookieStore = await cookies();
-    cookieStore.set('session', sessionToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 7 * 24 * 60 * 60, // 1 week
-      path: '/',
-    });
-
-    return NextResponse.json({
+    
+    // Construct response with cookie
+    const response = NextResponse.json({
       user: {
         id: user.id,
         username: user.username,
@@ -59,8 +51,21 @@ export async function POST(request: Request) {
         currentStreak: user.currentStreak,
       },
     });
-  } catch (error) {
+
+    response.cookies.set('session', sessionToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60, // 1 week
+      path: '/',
+    });
+
+    return response;
+  } catch (error: any) {
     console.error('Login error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: error?.message || 'Login failed. Please try again.' },
+      { status: 500 }
+    );
   }
 }

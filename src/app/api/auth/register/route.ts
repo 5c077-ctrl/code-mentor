@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { hashPassword, encrypt } from '@/lib/auth';
-import { cookies } from 'next/headers';
 
 export async function POST(request: Request) {
   try {
@@ -14,6 +13,14 @@ export async function POST(request: Request) {
     const cleanEmail = email.trim().toLowerCase();
     const cleanUsername = username.trim();
 
+    if (cleanUsername.length < 3) {
+      return NextResponse.json({ error: 'Username must be at least 3 characters long' }, { status: 400 });
+    }
+
+    if (password.length < 6) {
+      return NextResponse.json({ error: 'Password must be at least 6 characters long' }, { status: 400 });
+    }
+
     // Check if user exists
     const existingUser = await prisma.user.findFirst({
       where: {
@@ -22,7 +29,10 @@ export async function POST(request: Request) {
     });
 
     if (existingUser) {
-      return NextResponse.json({ error: 'User already exists' }, { status: 400 });
+      if (existingUser.email === cleanEmail) {
+        return NextResponse.json({ error: 'An account with this email already exists' }, { status: 400 });
+      }
+      return NextResponse.json({ error: 'Username is already taken' }, { status: 400 });
     }
 
     // Create user
@@ -35,10 +45,18 @@ export async function POST(request: Request) {
       },
     });
 
-    // Create session
+    // Create session token
     const sessionToken = await encrypt({ userId: user.id, username: user.username });
-    const cookieStore = await cookies();
-    cookieStore.set('session', sessionToken, {
+    
+    // Construct response with cookie
+    const response = NextResponse.json(
+      {
+        user: { id: user.id, username: user.username, email: user.email },
+      },
+      { status: 201 }
+    );
+
+    response.cookies.set('session', sessionToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -46,14 +64,12 @@ export async function POST(request: Request) {
       path: '/',
     });
 
-    return NextResponse.json(
-      {
-        user: { id: user.id, username: user.username, email: user.email },
-      },
-      { status: 201 }
-    );
-  } catch (error) {
+    return response;
+  } catch (error: any) {
     console.error('Registration error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: error?.message || 'Failed to create account. Please try again.' },
+      { status: 500 }
+    );
   }
 }
