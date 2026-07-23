@@ -11,10 +11,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanUsername = username.trim();
+
     // Check if user exists
     const existingUser = await prisma.user.findFirst({
       where: {
-        OR: [{ email }, { username }],
+        OR: [{ email: cleanEmail }, { username: cleanUsername }],
       },
     });
 
@@ -26,8 +29,8 @@ export async function POST(request: Request) {
     const passwordHash = await hashPassword(password);
     const user = await prisma.user.create({
       data: {
-        email,
-        username,
+        email: cleanEmail,
+        username: cleanUsername,
         passwordHash,
       },
     });
@@ -43,10 +46,12 @@ export async function POST(request: Request) {
       path: '/',
     });
 
-    return NextResponse.json({
-      user: { id: user.id, username: user.username, email: user.email }
-    }, { status: 201 });
-
+    return NextResponse.json(
+      {
+        user: { id: user.id, username: user.username, email: user.email },
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error('Registration error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

@@ -11,26 +11,34 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing credentials' }, { status: 400 });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email },
+    const cleanInput = email.trim();
+
+    // Support login by email OR username (case-insensitive)
+    const user = await prisma.user.findFirst({
+      where: {
+        OR: [
+          { email: { equals: cleanInput.toLowerCase() } },
+          { username: { equals: cleanInput } },
+        ],
+      },
     });
 
     if (!user) {
-      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
+      return NextResponse.json({ error: 'Invalid email or password' }, { status: 401 });
     }
 
     const isMatch = await comparePasswords(password, user.passwordHash);
     if (!isMatch) {
-      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
+      return NextResponse.json({ error: 'Invalid email or password' }, { status: 401 });
     }
 
-    // Update last login
+    // Update last login timestamp
     await prisma.user.update({
       where: { id: user.id },
-      data: { lastLoginAt: new Date() }
+      data: { lastLoginAt: new Date() },
     });
 
-    // Create session
+    // Create session token
     const sessionToken = await encrypt({ userId: user.id, username: user.username });
     const cookieStore = await cookies();
     cookieStore.set('session', sessionToken, {
@@ -48,10 +56,9 @@ export async function POST(request: Request) {
         email: user.email,
         totalXp: user.totalXp,
         level: user.level,
-        currentStreak: user.currentStreak
-      }
+        currentStreak: user.currentStreak,
+      },
     });
-
   } catch (error) {
     console.error('Login error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
