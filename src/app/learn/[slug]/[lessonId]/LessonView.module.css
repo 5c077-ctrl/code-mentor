@@ -1,0 +1,233 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: calc(100vh - 140px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.toolButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.actionBtn:hover {
+  background: var(--bg-card);
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.actionBtn.active {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.mainLayout {
+  display: grid;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.mainLayout.full {
+  grid-template-columns: 1fr;
+}
+
+.mainLayout.split {
+  grid-template-columns: 1fr 480px;
+}
+
+.contentCard {
+  padding: 2.5rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.lessonHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.lessonTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.markdownBody {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  padding-bottom: 2.5rem;
+}
+
+.markdownBody h1, .markdownBody h2, .markdownBody h3 {
+  color: var(--text-primary);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdownBody p {
+  margin-bottom: 1.25rem;
+}
+
+.markdownBody ul, .markdownBody ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.markdownBody li {
+  margin-bottom: 0.5rem;
+}
+
+.markdownBody pre {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+}
+
+.markdownBody code {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.markdownBody pre code {
+  background: transparent;
+  padding: 0;
+  color: #e2e8f0;
+}
+
+.markdownBody blockquote {
+  border-left: 4px solid var(--accent-primary);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.markdownBody table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.markdownBody th, .markdownBody td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--glass-border);
+  text-align: left;
+}
+
+.markdownBody th {
+  background: rgba(30, 41, 59, 0.6);
+  color: var(--text-primary);
+}
+
+.navigationFooter {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panelCard {
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+  position: sticky;
+  top: 90px;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.panelTitle {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  transition: var(--transition-fast);
+}
+
+.closeBtn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .mainLayout.split {
+    grid-template-columns: 1fr;
+  }
+}
