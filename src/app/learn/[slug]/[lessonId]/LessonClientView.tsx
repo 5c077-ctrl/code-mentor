@@ -5,10 +5,11 @@ import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
-import { ArrowLeft, PlayCircle, Code2, HelpCircle } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Code2, HelpCircle, FileText } from 'lucide-react';
 import CodeEditor from '@/components/learn/CodeEditor';
 import AiChatPanel from '@/components/learn/AiChatPanel';
 import QuizEngine from '@/components/learn/QuizEngine';
+import NotesPanel from '@/components/learn/NotesPanel';
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/navigation';
 import CertificateModal from '@/components/learn/CertificateModal';
@@ -26,7 +27,10 @@ export default function LessonClientView({
   prevLesson: any;
   nextLesson: any;
 }) {
-  const [activeTab, setActiveTab] = useState<'editor' | 'quiz' | 'ai'>('editor');
+  // Default to editor if starterCode exists, otherwise notes
+  const [activeTab, setActiveTab] = useState<'editor' | 'notes' | 'quiz' | 'ai'>(
+    lesson.starterCode ? 'editor' : 'notes'
+  );
   const [showCertificate, setShowCertificate] = useState(false);
   const router = useRouter();
 
@@ -56,8 +60,8 @@ export default function LessonClientView({
   };
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 450px', gap: '1.5rem', height: 'calc(100vh - 140px)' }}>
-      {/* Left Panel: Content */}
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 480px', gap: '1.5rem', height: 'calc(100vh - 140px)' }}>
+      {/* Left Panel: Lesson Explanation & Content */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', overflowY: 'auto', paddingRight: '0.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
           <Link href={`/courses/${courseSlug}`}>
@@ -103,32 +107,40 @@ export default function LessonClientView({
         courseTitle={courseTitle}
       />
 
-      {/* Right Panel: Interactive (Editor / AI / Quiz) */}
+      {/* Right Panel: Interactive (Notes / Editor / Quiz / AI) */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <Card style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '0', overflow: 'hidden' }}>
-          <div style={{ display: 'flex', gap: '1.5rem', borderBottom: '1px solid var(--glass-border)', padding: '1rem' }}>
+          <div style={{ display: 'flex', gap: '1rem', borderBottom: '1px solid var(--glass-border)', padding: '0.75rem 1rem', flexWrap: 'wrap' }}>
             <button 
               onClick={() => setActiveTab('editor')}
-              style={{ background: 'none', border: 'none', color: activeTab === 'editor' ? 'var(--accent-primary)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: activeTab === 'editor' ? 'bold' : 'normal' }}>
+              style={{ background: 'none', border: 'none', color: activeTab === 'editor' ? 'var(--accent-primary)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', fontWeight: activeTab === 'editor' ? 'bold' : 'normal', padding: '0.25rem 0.5rem' }}>
               <Code2 size={18} /> Editor
+            </button>
+            <button 
+              onClick={() => setActiveTab('notes')}
+              style={{ background: 'none', border: 'none', color: activeTab === 'notes' ? '#10b981' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', fontWeight: activeTab === 'notes' ? 'bold' : 'normal', padding: '0.25rem 0.5rem' }}>
+              <FileText size={18} /> My Notes
             </button>
             {quizQuestions && quizQuestions.length > 0 && (
               <button 
                 onClick={() => setActiveTab('quiz')}
-                style={{ background: 'none', border: 'none', color: activeTab === 'quiz' ? 'var(--accent-warning)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: activeTab === 'quiz' ? 'bold' : 'normal' }}>
+                style={{ background: 'none', border: 'none', color: activeTab === 'quiz' ? 'var(--accent-warning)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', fontWeight: activeTab === 'quiz' ? 'bold' : 'normal', padding: '0.25rem 0.5rem' }}>
                 <PlayCircle size={18} /> Quiz
               </button>
             )}
             <button 
               onClick={() => setActiveTab('ai')}
-              style={{ background: 'none', border: 'none', color: activeTab === 'ai' ? 'var(--accent-info)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: activeTab === 'ai' ? 'bold' : 'normal' }}>
+              style={{ background: 'none', border: 'none', color: activeTab === 'ai' ? 'var(--accent-info)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', fontWeight: activeTab === 'ai' ? 'bold' : 'normal', padding: '0.25rem 0.5rem' }}>
               <HelpCircle size={18} /> AI Tutor
             </button>
           </div>
           
-          <div style={{ flex: 1, padding: activeTab === 'editor' ? '0' : '1rem', overflowY: 'auto' }}>
+          <div style={{ flex: 1, padding: activeTab === 'editor' || activeTab === 'notes' ? '0' : '1rem', overflowY: 'auto' }}>
             {activeTab === 'editor' && (
               <CodeEditor initialCode={lesson.starterCode || ''} language={lesson.codeLanguage || 'javascript'} />
+            )}
+            {activeTab === 'notes' && (
+              <NotesPanel lessonId={lesson.id} lessonTitle={lesson.title} />
             )}
             {activeTab === 'ai' && (
               <AiChatPanel currentCode={lesson.starterCode || ''} lessonContext={`${courseTitle} - ${lesson.title}`} />
