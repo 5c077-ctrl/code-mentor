@@ -5,7 +5,7 @@ import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
-import { ArrowLeft, PlayCircle, Code2, HelpCircle, FileText, X, BookOpen } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Code2, HelpCircle, FileText, X, Lock, CheckCircle2 } from 'lucide-react';
 import CodeEditor from '@/components/learn/CodeEditor';
 import AiChatPanel from '@/components/learn/AiChatPanel';
 import QuizEngine from '@/components/learn/QuizEngine';
@@ -29,9 +29,9 @@ export default function LessonClientView({
   prevLesson: any;
   nextLesson: any;
 }) {
-  // Default to null so page displays JUST the course content full-width
   const [activeTool, setActiveTool] = useState<ActiveTool>(null);
   const [showCertificate, setShowCertificate] = useState(false);
+  const [isQuizPassed, setIsQuizPassed] = useState<boolean>(false);
 
   const quiz = lesson.quizzes?.[0];
   const quizQuestions = quiz?.questions.map((q: any) => {
@@ -44,8 +44,11 @@ export default function LessonClientView({
     };
   });
 
+  const hasQuiz = quizQuestions && quizQuestions.length > 0;
+
   const handleQuizComplete = async (score: number, passed: boolean) => {
     if (passed) {
+      setIsQuizPassed(true);
       try {
         await fetch('/api/progress', {
           method: 'POST',
@@ -66,6 +69,8 @@ export default function LessonClientView({
     }
   };
 
+  const isNextUnlocked = !hasQuiz || isQuizPassed;
+
   return (
     <div className={styles.container}>
       {/* Top Header & Tool Buttons */}
@@ -79,7 +84,7 @@ export default function LessonClientView({
           <span>{courseTitle} / <strong>{lesson.title}</strong></span>
         </div>
 
-        {/* Action Buttons to open Editor, Notes, Quiz, or AI on demand */}
+        {/* Action Buttons */}
         <div className={styles.toolButtons}>
           {lesson.starterCode && (
             <button
@@ -97,12 +102,13 @@ export default function LessonClientView({
             <FileText size={16} /> My Notes
           </button>
 
-          {quizQuestions && quizQuestions.length > 0 && (
+          {hasQuiz && (
             <button
-              className={`${styles.actionBtn} ${activeTool === 'quiz' ? styles.active : ''}`}
+              className={`${styles.actionBtn} ${activeTool === 'quiz' ? styles.active : ''} ${isQuizPassed ? styles.passedBtn : ''}`}
               onClick={() => toggleTool('quiz')}
             >
-              <PlayCircle size={16} /> Quiz
+              {isQuizPassed ? <CheckCircle2 size={16} color="#10b981" /> : <PlayCircle size={16} />}
+              {isQuizPassed ? 'Quiz Passed ✓' : 'Take Quiz'}
             </button>
           )}
 
@@ -115,7 +121,7 @@ export default function LessonClientView({
         </div>
       </div>
 
-      {/* Main Layout: Default is 100% full course display, Split view when a tool is opened */}
+      {/* Main Layout */}
       <div className={`${styles.mainLayout} ${activeTool ? styles.split : styles.full}`}>
         {/* Full Course Lesson Content */}
         <div className={`glass-panel ${styles.contentCard}`}>
@@ -128,6 +134,29 @@ export default function LessonClientView({
             <ReactMarkdown>{lesson.contentMarkdown}</ReactMarkdown>
           </div>
 
+          {/* Locked Notice if Quiz not completed */}
+          {hasQuiz && !isQuizPassed && (
+            <div style={{
+              margin: '1.5rem 0',
+              padding: '1rem 1.25rem',
+              borderRadius: '10px',
+              background: 'rgba(245, 158, 11, 0.12)',
+              border: '1px solid rgba(245, 158, 11, 0.3)',
+              color: '#fbbf24',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              fontSize: '0.925rem'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600 }}>
+                <Lock size={18} /> Complete and pass the Lesson Quiz to unlock the Next Lesson!
+              </div>
+              <Button size="sm" variant="secondary" onClick={() => setActiveTool('quiz')}>
+                Take Quiz Now
+              </Button>
+            </div>
+          )}
+
           <div className={styles.navigationFooter}>
             {prevLesson ? (
               <Link href={`/learn/${courseSlug}/${prevLesson.slug}`}>
@@ -138,9 +167,15 @@ export default function LessonClientView({
             )}
 
             {nextLesson ? (
-              <Link href={`/learn/${courseSlug}/${nextLesson.slug}`}>
-                <Button variant="primary">Next Lesson →</Button>
-              </Link>
+              isNextUnlocked ? (
+                <Link href={`/learn/${courseSlug}/${nextLesson.slug}`}>
+                  <Button variant="primary">Next Lesson →</Button>
+                </Link>
+              ) : (
+                <Button variant="secondary" onClick={() => setActiveTool('quiz')} style={{ gap: '0.35rem', opacity: 0.8 }}>
+                  <Lock size={16} /> Complete Quiz to Unlock
+                </Button>
+              )
             ) : (
               <Button variant="primary" onClick={() => setShowCertificate(true)}>Complete Course 🎓</Button>
             )}

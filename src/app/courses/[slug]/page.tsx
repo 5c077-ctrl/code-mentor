@@ -15,6 +15,8 @@ import {
 import Link from 'next/link';
 import { getCourseWithModules } from '@/lib/db';
 import { notFound } from 'next/navigation';
+import AuthorBanner from '@/components/ui/AuthorBanner';
+import CourseUpdatesBanner from '@/components/ui/CourseUpdatesBanner';
 
 export default async function CourseDetailPage({
   params,
@@ -105,14 +107,14 @@ export default async function CourseDetailPage({
           <Badge variant="secondary">{course.category.name}</Badge>
         </div>
 
-        <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>
+        <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem', fontWeight: 800 }}>
           {course.title}
         </h1>
         <p
           style={{
             color: 'var(--text-secondary)',
             fontSize: '1.125rem',
-            maxWidth: '600px',
+            maxWidth: '650px',
             margin: '0 auto 2rem',
             lineHeight: 1.6,
           }}
@@ -126,6 +128,7 @@ export default async function CourseDetailPage({
             justifyContent: 'center',
             gap: '2rem',
             marginBottom: '2rem',
+            flexWrap: 'wrap',
           }}
         >
           <div
@@ -369,14 +372,15 @@ export default async function CourseDetailPage({
                   gap: '0.5rem',
                 }}
               >
-                <Video size={18} color="var(--accent-danger)" /> Learning
-                Resources
+                <Video size={18} color="var(--accent-danger)" /> Video Courses & Notes ({course.resources.length})
               </h3>
               <div
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '0.6rem',
+                  maxHeight: '400px',
+                  overflowY: 'auto',
                 }}
               >
                 {course.resources.map((res) => (
@@ -419,6 +423,12 @@ export default async function CourseDetailPage({
           )}
         </aside>
       </div>
+
+      {/* Curriculum Updates */}
+      <CourseUpdatesBanner />
+
+      {/* About the Author Banner */}
+      <AuthorBanner />
     </div>
   );
 }

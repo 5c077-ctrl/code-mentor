@@ -5,9 +5,15 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
-        <p>&copy; {new Date().getFullYear()} Code-Mentor. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} <strong>Code-Mentor</strong>. Created by{' '}
+          <Link href="/about" style={{ color: 'var(--accent-primary)', textDecoration: 'underline' }}>
+            Scott Yann
+          </Link>{' '}
+          with Gemini AI. All rights reserved.
+        </p>
         <div className={styles.links}>
-          <Link href="/about">About</Link>
+          <Link href="/about">About the Author</Link>
           <Link href="/faq">FAQ</Link>
           <Link href="/leaderboard">Leaderboard</Link>
           <Link href="/settings">Settings</Link>
