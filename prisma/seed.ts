@@ -113,10 +113,11 @@ async function main() {
 
             for (let a = 0; a < qDef.answers.length; a++) {
               const ans = qDef.answers[a];
+              const textVal = ans.text || (ans as any).answerText || 'Option';
               await prisma.answer.create({
                 data: {
                   questionId: question.id,
-                  answerText: ans.text,
+                  answerText: textVal,
                   isCorrect: ans.isCorrect,
                   sortOrder: a + 1,
                 },

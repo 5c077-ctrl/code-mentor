@@ -19,1471 +19,619 @@ export const programmingCategory: CategoryDef = {
       estimatedHours: 20,
       resources: [
         { resourceType: 'youtube', title: 'Python Full Course for Beginners', url: 'https://www.youtube.com/watch?v=_uQrJ0TkZlc', author: 'Programming with Mosh', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Python for Everybody Specialization', url: 'https://www.youtube.com/watch?v=8DvywoWv6fI', author: 'Dr. Chuck (freeCodeCamp)', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Python OOP Tutorial (Classes & Instances)', url: 'https://www.youtube.com/watch?v=ZDa-Z5JzLYM', author: 'Corey Schafer', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Python 100 Days of Code Bootcamp', url: 'https://www.youtube.com/watch?v=mDKM-JtU4cM', author: 'Angela Yu', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Python Projects for Beginners', url: 'https://www.youtube.com/watch?v=pdy3nh1168U', author: 'Kylie Ying', platform: 'YouTube' },
         { resourceType: 'ebook', title: 'Automate the Boring Stuff with Python', url: 'https://automatetheboringstuff.com/', author: 'Al Sweigart' },
-        { resourceType: 'article', title: 'Python Official Tutorial', url: 'https://docs.python.org/3/tutorial/', author: 'Python.org' },
-        { resourceType: 'cheatsheet', title: 'Python Cheat Sheet', url: 'https://www.pythoncheatsheet.org/', author: 'pythoncheatsheet.org' },
+        { resourceType: 'article', title: 'Python 3.12 Official Tutorial & Documentation', url: 'https://docs.python.org/3/tutorial/', author: 'Python Software Foundation' },
+        { resourceType: 'cheatsheet', title: 'Python Quick Reference Cheat Sheet', url: 'https://www.pythoncheatsheet.org/', author: 'pythoncheatsheet.org' },
+        { resourceType: 'article', title: 'Real Python In-Depth Tutorials', url: 'https://realpython.com/', author: 'Real Python Team' },
+        { resourceType: 'cheatsheet', title: 'Python Syntax & Data Structures Reference', url: 'https://quickref.me/python', author: 'QuickRef' },
       ],
       modules: [
         {
-          title: 'Getting Started',
-          description: 'Install Python and write your very first program.',
+          title: 'Module 1: Fundamentals & Control Flow',
           lessons: [
             setupLesson('Python for Beginners', 'python-for-beginners', 'python',
-              `1. Download Python 3 from [python.org](https://python.org/downloads/)
-2. Run the installer — **check "Add Python to PATH"**
-3. Open a terminal and type \`python --version\`
-4. Install VS Code and the Python extension`,
-              `# Verify Python is working\nprint("Hello, Code Mentor!")`,
-              `# Solution — just run the starter code!\nprint("Hello, Code Mentor!")`,
+              `1. Download Python 3 from [python.org](https://python.org/downloads/)\n2. Check "Add Python to PATH"\n3. Run: \`python --version\`\n4. Install VS Code and the Python extension`,
+              `print("Hello, Code Mentor!")`,
+              `print("Hello, Code Mentor!")`,
               '- Python 3.10+ recommended'
             ),
-            lesson('Variables & Data Types', 'variables-data-types', `# Variables & Data Types
-
-Python is **dynamically typed** — you don't need to declare types.
-
-## Creating Variables
-
-\`\`\`python
-name = "Alice"          # str
-age = 25                # int
-height = 5.7            # float
-is_student = True       # bool
-\`\`\`
-
-## Type Conversion
-
-\`\`\`python
-x = int("42")           # str → int
-y = float(10)           # int → float
-z = str(3.14)           # float → str
-\`\`\`
-
-## String Operations
-
-\`\`\`python
-greeting = "Hello"
-name = "World"
-message = f"{greeting}, {name}!"   # f-string (Python 3.6+)
-print(message)                      # Hello, World!
-print(len(message))                 # 13
-\`\`\`
-
-## Key Rules
-- Variable names are **case-sensitive** (\`age\` ≠ \`Age\`)
-- Names must start with a letter or underscore
-- Use \`snake_case\` by convention`, {
-              starterCode: `# Create variables of each type\nname = ___\nage = ___\nheight = ___\nis_student = ___\n\n# Print their types\nprint(type(name))\nprint(type(age))\nprint(type(height))\nprint(type(is_student))\n\n# Build a greeting with an f-string\ngreeting = f"Hi, my name is {___} and I am {___} years old."\nprint(greeting)`,
-              solutionCode: `name = "Alice"\nage = 25\nheight = 5.7\nis_student = True\n\nprint(type(name))\nprint(type(age))\nprint(type(height))\nprint(type(is_student))\n\ngreeting = f"Hi, my name is {name} and I am {age} years old."\nprint(greeting)`,
+            lesson('Variables & Data Types', 'variables-data-types', `# Variables & Data Types\n\nPython is dynamically typed: \`name = "Alice"\`, \`age = 25\`, \`height = 5.7\`, \`is_student = True\`.`, {
+              starterCode: `name = "Alice"\nage = 25\nheight = 5.7\nis_student = True\n\nprint(f"Hi, {name}! Age: {age}")`,
+              solutionCode: `name = "Alice"\nage = 25\nheight = 5.7\nis_student = True\n\nprint(f"Hi, {name}! Age: {age}")`,
               codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
-              quiz: quiz('Variables & Data Types Quiz', [
-                mcq('What is the type of `x = 3.14`?', 'float', ['int', 'str'], 'Decimal numbers are floats in Python.'),
-                mcq('Which f-string is correct?', 'f"Hello {name}"', ['f(Hello {name})', '"Hello {name}"'], 'F-strings start with `f` before the opening quote.'),
-                trueFalse('Python variables must be declared with a type keyword.', false, 'Python is dynamically typed — no type declarations needed.'),
+              quiz: quiz('Variables Quiz', [
+                mcq('What type is `x = 3.14`?', 'float', ['int', 'str'], 'Decimals are floats in Python.'),
               ]),
             }),
-            lesson('Input & Output', 'input-output', `# Input & Output
-
-## Printing to the Console
-
-\`\`\`python
-print("Hello!")
-print("Name:", "Alice", "Age:", 25)   # Multiple values
-print(f"Score: {95.5:.1f}%")           # Formatted output
-\`\`\`
-
-## Reading User Input
-
-\`\`\`python
-name = input("Enter your name: ")     # Always returns a string
-age = int(input("Enter your age: "))   # Convert to int
-\`\`\`
-
-## The \`print()\` Function Options
-
-\`\`\`python
-print("A", "B", "C", sep="-")    # A-B-C
-print("Loading", end="...")       # No newline at end
-\`\`\`
-
-## Common Pattern: Interactive Programs
-
-\`\`\`python
-name = input("Name: ")
-age = int(input("Age: "))
-print(f"Hello {name}, you will be {age + 1} next year!")
-\`\`\``, {
-              starterCode: `# Ask the user for their name and birth year\nname = input("What is your name? ")\nbirth_year = int(input("What year were you born? "))\n\n# Calculate their age (approximate)\ncurrent_year = 2026\nage = current_year - birth_year\n\n# Print a greeting\nprint(f"Hello {name}! You are approximately {age} years old.")`,
-              solutionCode: `name = input("What is your name? ")\nbirth_year = int(input("What year were you born? "))\n\ncurrent_year = 2026\nage = current_year - birth_year\n\nprint(f"Hello {name}! You are approximately {age} years old.")`,
+            lesson('Input & Output (`input()`, `print()`)', 'input-output', `# Input & Output\n\nRead input with \`input()\` and format output with f-strings: \`f"Hello {name}"\`.`, {
+              starterCode: `name = input("Enter name: ")\nprint(f"Welcome, {name}!")`,
+              solutionCode: `name = "User"\nprint(f"Welcome, {name}!")`,
               codeLanguage: 'python',
-              estimatedMinutes: 15,
-              xpReward: 40,
-              quiz: quiz('Input & Output Quiz', [
-                mcq('What does `input()` always return?', 'A string', ['An integer', 'A boolean'], '`input()` always returns a string. Use `int()` or `float()` to convert.'),
-                trueFalse('`print("A", "B", sep="-")` outputs `A-B`.', true, 'The `sep` parameter controls what goes between values.'),
+              quiz: quiz('Input Quiz', [
+                mcq('What data type does `input()` always return?', 'str', ['int', 'float'], '`input()` returns user input as a string.'),
               ]),
             }),
-          ],
-        },
-        {
-          title: 'Control Flow',
-          description: 'Make decisions and repeat actions with if/else and loops.',
-          lessons: [
-            lesson('Conditionals (if/elif/else)', 'conditionals', `# Conditionals
-
-## if Statement
-
-\`\`\`python
-age = 18
-if age >= 18:
-    print("You can vote!")
-\`\`\`
-
-## if/else
-
-\`\`\`python
-temperature = 30
-if temperature > 25:
-    print("It's hot outside!")
-else:
-    print("It's cool outside.")
-\`\`\`
-
-## if/elif/else Chain
-
-\`\`\`python
-score = 85
-if score >= 90:
-    grade = "A"
-elif score >= 80:
-    grade = "B"
-elif score >= 70:
-    grade = "C"
-else:
-    grade = "F"
-print(f"Your grade: {grade}")
-\`\`\`
-
-## Comparison Operators
-| Operator | Meaning |
-|----------|---------|
-| \`==\` | Equal to |
-| \`!=\` | Not equal |
-| \`>\`, \`<\` | Greater / Less |
-| \`>=\`, \`<=\` | Greater or equal / Less or equal |
-
-## Logical Operators
-
-\`\`\`python
-age = 25
-has_id = True
-if age >= 18 and has_id:
-    print("Access granted")
-\`\`\``, {
-              starterCode: `# Write a grade calculator\nscore = int(input("Enter your score (0-100): "))\n\n# Add if/elif/else to assign a grade\n# A: 90+, B: 80-89, C: 70-79, D: 60-69, F: below 60\n\n# Print the result\nprint(f"Score: {score}, Grade: {grade}")`,
-              solutionCode: `score = int(input("Enter your score (0-100): "))\n\nif score >= 90:\n    grade = "A"\nelif score >= 80:\n    grade = "B"\nelif score >= 70:\n    grade = "C"\nelif score >= 60:\n    grade = "D"\nelse:\n    grade = "F"\n\nprint(f"Score: {score}, Grade: {grade}")`,
+            lesson('Conditional Statements (`if/elif/else`)', 'conditionals', `# Conditionals\n\nBranch logic using \`if\`, \`elif\`, and \`else\` blocks with logical operators (\`and\`, \`or\`, \`not\`).`, {
+              starterCode: `score = 85\nif score >= 90:\n    grade = "A"\nelif score >= 80:\n    grade = "B"\nelse:\n    grade = "C"\nprint(grade)`,
+              solutionCode: `score = 85\nif score >= 90:\n    grade = "A"\nelif score >= 80:\n    grade = "B"\nelse:\n    grade = "C"\nprint(grade)`,
               codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
               quiz: quiz('Conditionals Quiz', [
-                mcq('What keyword follows `if` for additional conditions?', 'elif', ['else if', 'elseif'], 'Python uses `elif` (short for else-if).'),
-                mcq('What does `and` do?', 'Both conditions must be True', ['Either condition must be True', 'Negates a condition'], '`and` requires both sides to be True.'),
-                trueFalse('`if x = 5:` is valid Python.', false, 'Single `=` is assignment. Use `==` for comparison.'),
+                mcq('What keyword follows `if` for additional conditions?', 'elif', ['else if', 'elseif'], 'Python uses `elif`.'),
               ]),
             }),
-            lesson('For Loops', 'for-loops', `# For Loops
-
-## Iterating Over a Range
-
-\`\`\`python
-for i in range(5):       # 0, 1, 2, 3, 4
-    print(i)
-
-for i in range(1, 6):    # 1, 2, 3, 4, 5
-    print(i)
-
-for i in range(0, 10, 2): # 0, 2, 4, 6, 8
-    print(i)
-\`\`\`
-
-## Iterating Over a List
-
-\`\`\`python
-fruits = ["apple", "banana", "cherry"]
-for fruit in fruits:
-    print(fruit)
-\`\`\`
-
-## Using \`enumerate()\`
-
-\`\`\`python
-colors = ["red", "green", "blue"]
-for index, color in enumerate(colors):
-    print(f"{index}: {color}")
-\`\`\`
-
-## Nested Loops
-
-\`\`\`python
-for i in range(3):
-    for j in range(3):
-        print(f"({i},{j})", end=" ")
-    print()  # Newline after each row
-\`\`\`
-
-## List Comprehension
-
-\`\`\`python
-squares = [x**2 for x in range(10)]
-print(squares)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
-\`\`\``, {
-              starterCode: `# Print the multiplication table for a number\nnumber = 7\n\nfor i in range(1, 11):\n    result = number * i\n    print(f"{number} x {i} = {result}")\n\n# Bonus: Create a list of even numbers from 1-20 using list comprehension\nevens = [x for x in range(1, 21) if x % 2 == 0]\nprint(f"\\nEven numbers: {evens}")`,
-              solutionCode: `number = 7\n\nfor i in range(1, 11):\n    result = number * i\n    print(f"{number} x {i} = {result}")\n\nevens = [x for x in range(1, 21) if x % 2 == 0]\nprint(f"\\nEven numbers: {evens}")`,
+            lesson('For Loops & `range()`', 'for-loops', `# For Loops\n\nIterate over sequences and ranges using \`for i in range(5):\`.`, {
+              starterCode: `for i in range(1, 6):\n    print(f"Count: {i}")`,
+              solutionCode: `for i in range(1, 6):\n    print(f"Count: {i}")`,
               codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
               quiz: quiz('For Loops Quiz', [
-                mcq('What does `range(3)` produce?', '0, 1, 2', ['1, 2, 3', '0, 1, 2, 3'], '`range(n)` starts at 0 and goes up to n-1.'),
-                trueFalse('List comprehensions can include `if` conditions.', true, 'Example: `[x for x in range(10) if x > 5]`'),
+                mcq('What numbers does `range(3)` generate?', '0, 1, 2', ['1, 2, 3', '0, 1, 2, 3'], '`range(n)` generates integers from 0 to n-1.'),
               ]),
             }),
-            lesson('While Loops & Loop Control', 'while-loops', `# While Loops & Loop Control
-
-## While Loop
-
-\`\`\`python
-count = 0
-while count < 5:
-    print(count)
-    count += 1
-\`\`\`
-
-## \`break\` — Exit the Loop
-
-\`\`\`python
-while True:
-    user_input = input("Type 'quit' to exit: ")
-    if user_input == "quit":
-        break
-    print(f"You typed: {user_input}")
-\`\`\`
-
-## \`continue\` — Skip to Next Iteration
-
-\`\`\`python
-for i in range(10):
-    if i % 2 == 0:
-        continue  # Skip even numbers
-    print(i)       # Only prints odd numbers
-\`\`\`
-
-## Common Pattern: Validation Loop
-
-\`\`\`python
-while True:
-    age = input("Enter your age: ")
-    if age.isdigit() and int(age) > 0:
-        age = int(age)
-        break
-    print("Please enter a valid positive number.")
-\`\`\`
-
-## Avoiding Infinite Loops
-Always ensure the while condition will eventually become False, or use \`break\`.`, {
-              starterCode: `# Guessing game\nimport random\n\nsecret = random.randint(1, 100)\nattempts = 0\n\nprint("I'm thinking of a number between 1 and 100.")\n\nwhile True:\n    guess = int(input("Your guess: "))\n    attempts += 1\n    \n    if guess < secret:\n        print("Too low!")\n    elif guess > secret:\n        print("Too high!")\n    else:\n        print(f"Correct! You got it in {attempts} attempts!")\n        break`,
-              solutionCode: `import random\n\nsecret = random.randint(1, 100)\nattempts = 0\n\nprint("I'm thinking of a number between 1 and 100.")\n\nwhile True:\n    guess = int(input("Your guess: "))\n    attempts += 1\n    \n    if guess < secret:\n        print("Too low!")\n    elif guess > secret:\n        print("Too high!")\n    else:\n        print(f"Correct! You got it in {attempts} attempts!")\n        break`,
-              codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
-              quiz: quiz('While Loops Quiz', [
-                mcq('What does `break` do?', 'Exits the loop immediately', ['Skips to the next iteration', 'Restarts the loop'], '`break` completely exits the nearest enclosing loop.'),
-                mcq('What does `continue` do?', 'Skips to the next iteration', ['Exits the loop', 'Pauses the loop'], '`continue` skips the rest of the current iteration.'),
-                trueFalse('`while True:` creates an infinite loop unless `break` is used.', true),
-              ]),
-            }),
-          ],
+          ]
         },
         {
-          title: 'Functions',
-          description: 'Write reusable code with functions, parameters, and return values.',
+          title: 'Module 2: Data Structures & Functions',
           lessons: [
-            lesson('Defining Functions', 'defining-functions', `# Defining Functions
-
-## Basic Function
-
-\`\`\`python
-def greet():
-    print("Hello, World!")
-
-greet()   # Call the function
-\`\`\`
-
-## Parameters & Arguments
-
-\`\`\`python
-def greet(name):
-    print(f"Hello, {name}!")
-
-greet("Alice")
-greet("Bob")
-\`\`\`
-
-## Return Values
-
-\`\`\`python
-def add(a, b):
-    return a + b
-
-result = add(3, 5)
-print(result)   # 8
-\`\`\`
-
-## Default Parameters
-
-\`\`\`python
-def greet(name, greeting="Hello"):
-    return f"{greeting}, {name}!"
-
-print(greet("Alice"))              # Hello, Alice!
-print(greet("Bob", "Good morning")) # Good morning, Bob!
-\`\`\`
-
-## Multiple Return Values
-
-\`\`\`python
-def get_min_max(numbers):
-    return min(numbers), max(numbers)
-
-lo, hi = get_min_max([3, 1, 4, 1, 5, 9])
-print(f"Min: {lo}, Max: {hi}")   # Min: 1, Max: 9
-\`\`\``, {
-              starterCode: `# Write a function that calculates the area of a rectangle\ndef area(width, height):\n    return width * height\n\n# Write a function with a default parameter\ndef greet(name, greeting="Hello"):\n    return f"{greeting}, {name}!"\n\n# Test your functions\nprint(area(5, 3))           # Expected: 15\nprint(greet("Alice"))       # Expected: Hello, Alice!\nprint(greet("Bob", "Hi"))   # Expected: Hi, Bob!`,
-              solutionCode: `def area(width, height):\n    return width * height\n\ndef greet(name, greeting="Hello"):\n    return f"{greeting}, {name}!"\n\nprint(area(5, 3))\nprint(greet("Alice"))\nprint(greet("Bob", "Hi"))`,
+            lesson('While Loops & Loop Control (`break`, `continue`)', 'while-loops', `# While Loops\n\nExecute code while a condition is True. Use \`break\` to exit and \`continue\` to skip iterations.`, {
+              starterCode: `count = 0\nwhile count < 5:\n    count += 1\n    if count == 3:\n        continue\n    print(count)`,
+              solutionCode: `count = 0\nwhile count < 5:\n    count += 1\n    if count == 3:\n        continue\n    print(count)`,
               codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
+              quiz: quiz('While Quiz', [
+                mcq('What does `break` do inside a loop?', 'Exits the loop immediately', ['Skips current iteration', 'Restarts loop'], '`break` terminates loop execution.'),
+              ]),
+            }),
+            lesson('Lists & List Operations', 'lists', `# Lists\n\nMutable ordered sequences: \`fruits = ["apple", "banana"]\`. Use \`append()\`, \`pop()\`, and slicing.`, {
+              starterCode: `fruits = ["apple", "banana"]\nfruits.append("cherry")\nprint(fruits[0:2])`,
+              solutionCode: `fruits = ["apple", "banana"]\nfruits.append("cherry")\nprint(fruits[0:2])`,
+              codeLanguage: 'python',
+              quiz: quiz('Lists Quiz', [
+                mcq('How do you add an element to the end of a list?', 'list.append(item)', ['list.add(item)', 'list.push(item)'], '`append()` appends items to lists.'),
+              ]),
+            }),
+            lesson('Tuples & Sets', 'tuples-sets', `# Tuples & Sets\n\nTuples are immutable (\`(1, 2)\`). Sets hold unique elements (\`{1, 2, 3}\`).`, {
+              starterCode: `coords = (10, 20)\nunique_nums = {1, 2, 2, 3}\nprint(unique_nums)`,
+              solutionCode: `coords = (10, 20)\nunique_nums = {1, 2, 2, 3}\nprint(unique_nums)`,
+              codeLanguage: 'python',
+              quiz: quiz('Tuples Sets Quiz', [
+                trueFalse('Sets automatically remove duplicate values.', true),
+              ]),
+            }),
+            lesson('Dictionaries & Key-Value Pairs', 'dictionaries', `# Dictionaries\n\nKey-value mapping: \`user = {"name": "Alice", "age": 25}\`. Access via \`user["name"]\` or \`user.get()\`.`, {
+              starterCode: `user = {"name": "Alice", "role": "Dev"}\nprint(user.get("role"))`,
+              solutionCode: `user = {"name": "Alice", "role": "Dev"}\nprint(user.get("role"))`,
+              codeLanguage: 'python',
+              quiz: quiz('Dict Quiz', [
+                mcq('Which method safely retrieves a dict value without throwing KeyError?', 'dict.get(key)', ['dict.find(key)', 'dict.fetch(key)'], '`.get()` returns None if key is absent.'),
+              ]),
+            }),
+            lesson('Defining Functions (`def`, arguments, returns)', 'functions-basics', `# Functions\n\nDefine reusable code blocks with \`def greet(name="User"):\` and return values with \`return\`.`, {
+              starterCode: `def add(a, b):\n    return a + b\n\nprint(add(5, 10))`,
+              solutionCode: `def add(a, b):\n    return a + b\n\nprint(add(5, 10))`,
+              codeLanguage: 'python',
               quiz: quiz('Functions Quiz', [
-                mcq('What keyword defines a function in Python?', 'def', ['function', 'func'], 'Python uses `def` to define functions.'),
-                trueFalse('A function can return multiple values using a tuple.', true, 'Use `return a, b` and unpack with `x, y = func()`.'),
-                mcq('What happens if a function has no `return` statement?', 'It returns None', ['It raises an error', 'It returns 0'], 'Functions without `return` implicitly return `None`.'),
+                mcq('What keyword returns a value from a function?', 'return', ['output', 'yield'], '`return` sends back values to callers.'),
               ]),
             }),
-            lesson('*args, **kwargs & Lambda', 'args-kwargs-lambda', `# *args, **kwargs & Lambda
-
-## \`*args\` — Variable Positional Arguments
-
-\`\`\`python
-def total(*args):
-    return sum(args)
-
-print(total(1, 2, 3))       # 6
-print(total(10, 20, 30, 40)) # 100
-\`\`\`
-
-## \`**kwargs\` — Variable Keyword Arguments
-
-\`\`\`python
-def profile(**kwargs):
-    for key, value in kwargs.items():
-        print(f"{key}: {value}")
-
-profile(name="Alice", age=25, city="Paris")
-\`\`\`
-
-## Lambda Functions
-
-\`\`\`python
-square = lambda x: x ** 2
-print(square(5))   # 25
-
-# Useful with sorted(), map(), filter()
-names = ["Charlie", "Alice", "Bob"]
-sorted_names = sorted(names, key=lambda n: len(n))
-print(sorted_names)  # ['Bob', 'Alice', 'Charlie']
-\`\`\`
-
-## Combining with Built-in Functions
-
-\`\`\`python
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-evens = list(filter(lambda x: x % 2 == 0, numbers))
-doubled = list(map(lambda x: x * 2, numbers))
-print(evens)    # [2, 4, 6, 8, 10]
-print(doubled)  # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-\`\`\``, {
-              starterCode: `# Write a function that accepts any number of scores and returns the average\ndef average(*args):\n    if len(args) == 0:\n        return 0\n    return sum(args) / len(args)\n\nprint(average(90, 85, 92))      # Expected: 89.0\nprint(average(100, 80, 70, 95)) # Expected: 86.25\n\n# Use a lambda to sort students by their score\nstudents = [("Alice", 92), ("Bob", 85), ("Charlie", 98)]\nstudents_sorted = sorted(students, key=lambda s: s[1], reverse=True)\nprint(students_sorted)`,
-              solutionCode: `def average(*args):\n    if len(args) == 0:\n        return 0\n    return sum(args) / len(args)\n\nprint(average(90, 85, 92))\nprint(average(100, 80, 70, 95))\n\nstudents = [("Alice", 92), ("Bob", 85), ("Charlie", 98)]\nstudents_sorted = sorted(students, key=lambda s: s[1], reverse=True)\nprint(students_sorted)`,
-              codeLanguage: 'python',
-              estimatedMinutes: 25,
-              xpReward: 60,
-              quiz: quiz('args/kwargs/lambda Quiz', [
-                mcq('What does `*args` collect?', 'Positional arguments into a tuple', ['Keyword arguments into a dict', 'All arguments into a list'], '`*args` packs extra positional arguments into a tuple.'),
-                trueFalse('A lambda function can contain multiple statements.', false, 'Lambda functions are limited to a single expression.'),
-              ]),
-            }),
-          ],
+          ]
         },
         {
-          title: 'Data Structures',
-          description: 'Master lists, dictionaries, sets, and tuples.',
+          title: 'Module 3: Modules, Files & Object-Oriented Programming',
           lessons: [
-            lesson('Lists & Tuples', 'lists-tuples', `# Lists & Tuples
-
-## Lists — Mutable Ordered Collections
-
-\`\`\`python
-fruits = ["apple", "banana", "cherry"]
-fruits.append("date")          # Add to end
-fruits.insert(1, "blueberry")  # Insert at index
-fruits.remove("banana")        # Remove by value
-popped = fruits.pop()          # Remove last item
-\`\`\`
-
-## List Slicing
-
-\`\`\`python
-numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-print(numbers[2:5])    # [2, 3, 4]
-print(numbers[:3])     # [0, 1, 2]
-print(numbers[::2])    # [0, 2, 4, 6, 8]
-print(numbers[::-1])   # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-\`\`\`
-
-## Tuples — Immutable Ordered Collections
-
-\`\`\`python
-point = (3, 4)
-x, y = point          # Tuple unpacking
-# point[0] = 5        # ERROR! Tuples are immutable
-\`\`\`
-
-## Useful List Methods
-
-| Method | Description |
-|--------|-------------|
-| \`.append(x)\` | Add to end |
-| \`.extend(lst)\` | Add multiple items |
-| \`.sort()\` | Sort in-place |
-| \`.reverse()\` | Reverse in-place |
-| \`.index(x)\` | Find index of x |
-| \`.count(x)\` | Count occurrences |`, {
-              starterCode: `# Working with lists\nnumbers = [5, 2, 8, 1, 9, 3, 7, 4, 6]\n\n# Sort the list\nnumbers.sort()\nprint("Sorted:", numbers)\n\n# Get a slice of the first 3 elements\nfirst_three = numbers[:3]\nprint("First three:", first_three)\n\n# Reverse the list\nnumbers.reverse()\nprint("Reversed:", numbers)\n\n# Tuple unpacking\ncoordinates = (10, 20, 30)\nx, y, z = coordinates\nprint(f"x={x}, y={y}, z={z}")`,
-              solutionCode: `numbers = [5, 2, 8, 1, 9, 3, 7, 4, 6]\n\nnumbers.sort()\nprint("Sorted:", numbers)\n\nfirst_three = numbers[:3]\nprint("First three:", first_three)\n\nnumbers.reverse()\nprint("Reversed:", numbers)\n\ncoordinates = (10, 20, 30)\nx, y, z = coordinates\nprint(f"x={x}, y={y}, z={z}")`,
+            lesson('List Comprehensions', 'list-comprehensions', `# List Comprehensions\n\nConcise syntax for creating lists: \`squares = [x**2 for x in range(10) if x % 2 == 0]\`.`, {
+              starterCode: `squares = [x**2 for x in range(10) if x % 2 == 0]\nprint(squares)`,
+              solutionCode: `squares = [x**2 for x in range(10) if x % 2 == 0]\nprint(squares)`,
               codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
-              quiz: quiz('Lists & Tuples Quiz', [
-                mcq('Which is mutable?', 'List', ['Tuple', 'Both'], 'Lists are mutable; tuples are immutable.'),
-                mcq('What does `numbers[::-1]` do?', 'Reverses the list', ['Sorts the list', 'Removes the last element'], 'Step of -1 reverses the sequence.'),
-                trueFalse('Tuples can be used as dictionary keys.', true, 'Because tuples are immutable (hashable), they can be dict keys.'),
+              quiz: quiz('Comprehensions Quiz', [
+                trueFalse('List comprehensions combine looping and filtering in a single line.', true),
               ]),
             }),
-            lesson('Dictionaries & Sets', 'dicts-sets', `# Dictionaries & Sets
-
-## Dictionaries — Key-Value Pairs
-
-\`\`\`python
-student = {
-    "name": "Alice",
-    "age": 25,
-    "courses": ["Python", "Math"]
-}
-
-print(student["name"])          # Alice
-student["gpa"] = 3.8            # Add new key
-del student["age"]              # Remove key
-print(student.get("email", "N/A"))  # Safe access
-\`\`\`
-
-## Iterating Over Dictionaries
-
-\`\`\`python
-for key, value in student.items():
-    print(f"{key}: {value}")
-\`\`\`
-
-## Dictionary Comprehension
-
-\`\`\`python
-squares = {x: x**2 for x in range(6)}
-# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
-\`\`\`
-
-## Sets — Unique, Unordered Collections
-
-\`\`\`python
-colors = {"red", "green", "blue", "red"}  # duplicates removed
-print(colors)  # {'red', 'green', 'blue'}
-
-a = {1, 2, 3, 4}
-b = {3, 4, 5, 6}
-print(a | b)   # Union: {1, 2, 3, 4, 5, 6}
-print(a & b)   # Intersection: {3, 4}
-print(a - b)   # Difference: {1, 2}
-\`\`\``, {
-              starterCode: `# Create a word frequency counter\ntext = "the quick brown fox jumps over the lazy dog the fox"\nwords = text.split()\n\n# Count word frequencies using a dictionary\nfreq = {}\nfor word in words:\n    freq[word] = freq.get(word, 0) + 1\n\nprint("Word frequencies:", freq)\n\n# Find unique words using a set\nunique_words = set(words)\nprint(f"Unique words ({len(unique_words)}): {unique_words}")`,
-              solutionCode: `text = "the quick brown fox jumps over the lazy dog the fox"\nwords = text.split()\n\nfreq = {}\nfor word in words:\n    freq[word] = freq.get(word, 0) + 1\n\nprint("Word frequencies:", freq)\n\nunique_words = set(words)\nprint(f"Unique words ({len(unique_words)}): {unique_words}")`,
+            lesson('File Reading & Writing (`with open()`)', 'file-handling', `# File I/O\n\nRead and write files safely using \`with open("file.txt", "w") as f:\`.`, {
+              starterCode: `with open("notes.txt", "w") as f:\n    f.write("Code Mentor Notes")\nprint("File written")`,
+              solutionCode: `with open("notes.txt", "w") as f:\n    f.write("Code Mentor Notes")\nprint("File written")`,
               codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
-              quiz: quiz('Dicts & Sets Quiz', [
-                mcq('What does `dict.get(key, default)` return if key is missing?', 'The default value', ['None', 'Raises KeyError'], '`.get()` returns the default instead of raising an error.'),
-                trueFalse('Sets automatically remove duplicate values.', true, 'Sets only store unique elements.'),
-              ]),
-            }),
-          ],
-        },
-        {
-          title: 'Object-Oriented Programming',
-          description: 'Learn classes, objects, inheritance, and encapsulation.',
-          lessons: [
-            lesson('Classes & Objects', 'classes-objects', `# Classes & Objects
-
-## Defining a Class
-
-\`\`\`python
-class Dog:
-    def __init__(self, name, breed):
-        self.name = name
-        self.breed = breed
-    
-    def bark(self):
-        return f"{self.name} says Woof!"
-    
-    def __str__(self):
-        return f"{self.name} ({self.breed})"
-
-# Creating objects
-rex = Dog("Rex", "German Shepherd")
-print(rex.bark())    # Rex says Woof!
-print(rex)           # Rex (German Shepherd)
-\`\`\`
-
-## Key Concepts
-- **\`__init__\`**: Constructor — called when creating an object
-- **\`self\`**: Reference to the current instance
-- **\`__str__\`**: String representation of the object
-- **Instance variables**: Unique to each object (\`self.name\`)
-
-## Class vs Instance Variables
-
-\`\`\`python
-class Student:
-    school = "Code Academy"    # Class variable (shared)
-    
-    def __init__(self, name):
-        self.name = name       # Instance variable (unique)
-\`\`\``, {
-              starterCode: `# Create a BankAccount class\nclass BankAccount:\n    def __init__(self, owner, balance=0):\n        self.owner = owner\n        self.balance = balance\n    \n    def deposit(self, amount):\n        self.balance += amount\n        return f"Deposited \\\${amount}. Balance: \\\${self.balance}"\n    \n    def withdraw(self, amount):\n        if amount > self.balance:\n            return "Insufficient funds!"\n        self.balance -= amount\n        return f"Withdrew \\\${amount}. Balance: \\\${self.balance}"\n    \n    def __str__(self):\n        return f"Account({self.owner}: \\\${self.balance})"\n\n# Test it\naccount = BankAccount("Alice", 1000)\nprint(account)\nprint(account.deposit(500))\nprint(account.withdraw(200))\nprint(account.withdraw(2000))`,
-              solutionCode: `class BankAccount:\n    def __init__(self, owner, balance=0):\n        self.owner = owner\n        self.balance = balance\n    \n    def deposit(self, amount):\n        self.balance += amount\n        return f"Deposited \\\${amount}. Balance: \\\${self.balance}"\n    \n    def withdraw(self, amount):\n        if amount > self.balance:\n            return "Insufficient funds!"\n        self.balance -= amount\n        return f"Withdrew \\\${amount}. Balance: \\\${self.balance}"\n    \n    def __str__(self):\n        return f"Account({self.owner}: \\\${self.balance})"\n\naccount = BankAccount("Alice", 1000)\nprint(account)\nprint(account.deposit(500))\nprint(account.withdraw(200))\nprint(account.withdraw(2000))`,
-              codeLanguage: 'python',
-              estimatedMinutes: 25,
-              xpReward: 60,
-              quiz: quiz('Classes & Objects Quiz', [
-                mcq('What is `__init__` in a Python class?', 'The constructor method', ['The destructor', 'A static method'], '`__init__` is called automatically when creating a new object.'),
-                mcq('What does `self` refer to?', 'The current instance', ['The class itself', 'The parent class'], '`self` is a reference to the instance calling the method.'),
-                trueFalse('Class variables are shared across all instances.', true, 'Class variables belong to the class, not individual instances.'),
-              ]),
-            }),
-            lesson('Inheritance & Polymorphism', 'inheritance', `# Inheritance & Polymorphism
-
-## Basic Inheritance
-
-\`\`\`python
-class Animal:
-    def __init__(self, name):
-        self.name = name
-    
-    def speak(self):
-        return "..."
-
-class Dog(Animal):
-    def speak(self):
-        return f"{self.name} says Woof!"
-
-class Cat(Animal):
-    def speak(self):
-        return f"{self.name} says Meow!"
-\`\`\`
-
-## Polymorphism — Same Interface, Different Behavior
-
-\`\`\`python
-animals = [Dog("Rex"), Cat("Whiskers"), Dog("Buddy")]
-for animal in animals:
-    print(animal.speak())
-\`\`\`
-
-## \`super()\` — Call the Parent
-
-\`\`\`python
-class SavingsAccount(BankAccount):
-    def __init__(self, owner, balance, interest_rate):
-        super().__init__(owner, balance)
-        self.interest_rate = interest_rate
-    
-    def add_interest(self):
-        interest = self.balance * self.interest_rate
-        self.deposit(interest)
-        return f"Added \\\${interest:.2f} interest"
-\`\`\`
-
-## \`isinstance()\` Check
-
-\`\`\`python
-rex = Dog("Rex")
-print(isinstance(rex, Dog))     # True
-print(isinstance(rex, Animal))  # True (inheritance chain)
-\`\`\``, {
-              starterCode: `# Create a Shape hierarchy\nclass Shape:\n    def area(self):\n        return 0\n    \n    def __str__(self):\n        return f"{self.__class__.__name__}: area = {self.area():.2f}"\n\nclass Circle(Shape):\n    def __init__(self, radius):\n        self.radius = radius\n    \n    def area(self):\n        return 3.14159 * self.radius ** 2\n\nclass Rectangle(Shape):\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n    \n    def area(self):\n        return self.width * self.height\n\n# Polymorphism in action\nshapes = [Circle(5), Rectangle(4, 6), Circle(3)]\nfor shape in shapes:\n    print(shape)`,
-              solutionCode: `class Shape:\n    def area(self):\n        return 0\n    def __str__(self):\n        return f"{self.__class__.__name__}: area = {self.area():.2f}"\n\nclass Circle(Shape):\n    def __init__(self, radius):\n        self.radius = radius\n    def area(self):\n        return 3.14159 * self.radius ** 2\n\nclass Rectangle(Shape):\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n    def area(self):\n        return self.width * self.height\n\nshapes = [Circle(5), Rectangle(4, 6), Circle(3)]\nfor shape in shapes:\n    print(shape)`,
-              codeLanguage: 'python',
-              estimatedMinutes: 25,
-              xpReward: 60,
-              quiz: quiz('Inheritance Quiz', [
-                mcq('What does `super().__init__()` do?', 'Calls the parent class constructor', ['Creates a new class', 'Deletes the parent'], '`super()` gives access to the parent class methods.'),
-                trueFalse('Polymorphism means different classes can have methods with the same name.', true),
-              ]),
-            }),
-          ],
-        },
-        {
-          title: 'File I/O & Error Handling',
-          description: 'Read/write files and handle errors gracefully.',
-          lessons: [
-            lesson('File Operations', 'file-operations', `# File Operations
-
-## Writing to a File
-
-\`\`\`python
-with open("output.txt", "w") as f:
-    f.write("Hello, File!\\n")
-    f.write("Second line\\n")
-\`\`\`
-
-## Reading a File
-
-\`\`\`python
-with open("output.txt", "r") as f:
-    content = f.read()        # Read entire file
-    print(content)
-
-# Read line by line
-with open("output.txt", "r") as f:
-    for line in f:
-        print(line.strip())
-\`\`\`
-
-## File Modes
-| Mode | Description |
-|------|-------------|
-| \`"r"\` | Read (default) |
-| \`"w"\` | Write (overwrites) |
-| \`"a"\` | Append |
-| \`"x"\` | Create (fails if exists) |
-
-## Working with CSV Data
-
-\`\`\`python
-import csv
-
-with open("data.csv", "w", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["Name", "Age", "City"])
-    writer.writerow(["Alice", 25, "Paris"])
-\`\`\`
-
-## The \`with\` Statement
-Always use \`with\` for file operations — it automatically closes the file, even if an error occurs.`, {
-              starterCode: `# File I/O demo (simulated)\ndata = [\n    {"name": "Alice", "score": 92},\n    {"name": "Bob", "score": 85},\n    {"name": "Charlie", "score": 98},\n]\n\n# Simulate writing a report\nreport = "Student Report\\n" + "=" * 30 + "\\n"\nfor student in data:\n    report += f"{student['name']}: {student['score']}%\\n"\n\navg = sum(s['score'] for s in data) / len(data)\nreport += f"\\nAverage: {avg:.1f}%"\n\nprint(report)`,
-              solutionCode: `data = [\n    {"name": "Alice", "score": 92},\n    {"name": "Bob", "score": 85},\n    {"name": "Charlie", "score": 98},\n]\n\nreport = "Student Report\\n" + "=" * 30 + "\\n"\nfor student in data:\n    report += f"{student['name']}: {student['score']}%\\n"\n\navg = sum(s['score'] for s in data) / len(data)\nreport += f"\\nAverage: {avg:.1f}%"\n\nprint(report)`,
-              codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
               quiz: quiz('File I/O Quiz', [
-                mcq('What does `open("file.txt", "a")` do?', 'Opens for appending', ['Opens for reading', 'Opens and overwrites'], 'Mode `"a"` appends to the end of the file.'),
-                trueFalse('The `with` statement automatically closes the file.', true, '`with` manages the file context and ensures proper cleanup.'),
+                mcq('Why use the `with` statement for opening files?', 'It automatically closes the file when finished', ['It makes files read-only', 'It compresses files'], '`with` manages resources automatically.'),
               ]),
             }),
-            lesson('Exception Handling', 'exception-handling', `# Exception Handling
-
-## try/except
-
-\`\`\`python
-try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("Cannot divide by zero!")
-\`\`\`
-
-## Multiple Exceptions
-
-\`\`\`python
-try:
-    value = int(input("Enter a number: "))
-    result = 100 / value
-except ValueError:
-    print("That's not a valid number!")
-except ZeroDivisionError:
-    print("Cannot divide by zero!")
-\`\`\`
-
-## try/except/else/finally
-
-\`\`\`python
-try:
-    f = open("data.txt", "r")
-    content = f.read()
-except FileNotFoundError:
-    print("File not found!")
-else:
-    print(f"File content: {content}")  # Runs if no exception
-finally:
-    print("Cleanup done.")             # Always runs
-\`\`\`
-
-## Raising Exceptions
-
-\`\`\`python
-def set_age(age):
-    if age < 0:
-        raise ValueError("Age cannot be negative!")
-    return age
-\`\`\`
-
-## Custom Exceptions
-
-\`\`\`python
-class InsufficientFundsError(Exception):
-    pass
-
-def withdraw(balance, amount):
-    if amount > balance:
-        raise InsufficientFundsError(f"Need \\\${amount}, have \\\${balance}")
-    return balance - amount
-\`\`\``, {
-              starterCode: `# Safe division function with error handling\ndef safe_divide(a, b):\n    try:\n        result = a / b\n    except ZeroDivisionError:\n        return "Error: Cannot divide by zero!"\n    except TypeError:\n        return "Error: Invalid types for division!"\n    else:\n        return f"{a} / {b} = {result}"\n\n# Test cases\nprint(safe_divide(10, 3))\nprint(safe_divide(10, 0))\nprint(safe_divide("10", 3))\n\n# Custom exception example\nclass NegativeValueError(Exception):\n    pass\n\ndef calculate_square_root(n):\n    if n < 0:\n        raise NegativeValueError(f"Cannot compute square root of {n}")\n    return n ** 0.5\n\ntry:\n    print(calculate_square_root(16))\n    print(calculate_square_root(-4))\nexcept NegativeValueError as e:\n    print(f"Caught: {e}")`,
-              solutionCode: `def safe_divide(a, b):\n    try:\n        result = a / b\n    except ZeroDivisionError:\n        return "Error: Cannot divide by zero!"\n    except TypeError:\n        return "Error: Invalid types for division!"\n    else:\n        return f"{a} / {b} = {result}"\n\nprint(safe_divide(10, 3))\nprint(safe_divide(10, 0))\nprint(safe_divide("10", 3))\n\nclass NegativeValueError(Exception):\n    pass\n\ndef calculate_square_root(n):\n    if n < 0:\n        raise NegativeValueError(f"Cannot compute square root of {n}")\n    return n ** 0.5\n\ntry:\n    print(calculate_square_root(16))\n    print(calculate_square_root(-4))\nexcept NegativeValueError as e:\n    print(f"Caught: {e}")`,
+            lesson('Exception Handling (`try/except/finally`)', 'exception-handling', `# Exception Handling\n\nCatch errors gracefully: \`try ... except ValueError as e: ... finally:\`.`, {
+              starterCode: `try:\n    num = int("abc")\nexcept ValueError:\n    print("Invalid integer string!")`,
+              solutionCode: `try:\n    num = int("abc")\nexcept ValueError:\n    print("Invalid integer string!")`,
               codeLanguage: 'python',
-              estimatedMinutes: 20,
-              xpReward: 50,
-              quiz: quiz('Exception Handling Quiz', [
-                mcq('When does the `finally` block execute?', 'Always, regardless of exceptions', ['Only when an exception occurs', 'Only when no exception occurs'], '`finally` always executes — for cleanup like closing files.'),
-                mcq('What keyword raises an exception?', 'raise', ['throw', 'error'], 'Python uses `raise` to throw exceptions.'),
-                trueFalse('You can create custom exception classes by inheriting from Exception.', true),
+              quiz: quiz('Exception Quiz', [
+                mcq('Which block executes regardless of whether an exception occurred?', 'finally', ['except', 'else'], '`finally` always executes.'),
               ]),
             }),
-          ],
-        },
-      ],
+            lesson('Object-Oriented Programming (Classes & `__init__`)', 'oop-basics', `# Classes & Objects\n\nDefine classes with constructors: \`class Person: def __init__(self, name): self.name = name\`.`, {
+              starterCode: `class Student:\n    def __init__(self, name):\n        self.name = name\n    def speak(self):\n        print(f"I am {self.name}")\n\ns = Student("Alice")\ns.speak()`,
+              solutionCode: `class Student:\n    def __init__(self, name):\n        self.name = name\n    def speak(self):\n        print(f"I am {self.name}")\n\ns = Student("Alice")\ns.speak()`,
+              codeLanguage: 'python',
+              quiz: quiz('OOP Quiz', [
+                mcq('What does `self` represent inside a class method?', 'The current instance of the class', ['The class constructor', 'Global scope'], '`self` binds attributes to the specific object instance.'),
+              ]),
+            }),
+            lesson('Python Capstone Project: Command-Line Task Tracker', 'python-capstone', `# Python Capstone\n\nBuild a CLI task manager that adds, lists, and saves tasks to a JSON file.`, {
+              starterCode: `import json\n\ntasks = [{"id": 1, "task": "Learn Python", "done": True}]\nprint(json.dumps(tasks, indent=2))`,
+              solutionCode: `import json\n\ntasks = [{"id": 1, "task": "Learn Python", "done": True}]\nprint(json.dumps(tasks, indent=2))`,
+              codeLanguage: 'python',
+              quiz: quiz('Python Capstone Quiz', [
+                mcq('Which standard library module serializes Python dictionaries to JSON format?', 'json', ['sys', 'os'], 'The `json` module parses and serializes JSON.'),
+              ]),
+            }),
+          ]
+        }
+      ]
     },
 
-    // ━━━━━━━━━━━━━━━━━━━ JAVA ESSENTIALS ━━━━━━━━━━━━━━━━━━━
+    // ━━━━━━━━━━━━━━━━━━━ JAVA FUNDAMENTALS ━━━━━━━━━━━━━━━━━━━
     {
-      title: 'Java Essentials',
-      slug: 'java-essentials',
-      description: 'Master Java fundamentals — types, OOP, collections, exceptions, and streams. Build a strong foundation for enterprise development.',
-      difficulty: 'intermediate',
+      title: 'Java Fundamentals',
+      slug: 'java-fundamentals',
+      description: 'Master Java syntax, object-oriented principles, collections framework, exception handling, and modern Java features.',
+      difficulty: 'beginner',
       language: 'en',
-      estimatedHours: 25,
+      estimatedHours: 20,
       resources: [
         { resourceType: 'youtube', title: 'Java Tutorial for Beginners', url: 'https://www.youtube.com/watch?v=eIrMbAQSU34', author: 'Programming with Mosh', platform: 'YouTube' },
-        { resourceType: 'ebook', title: 'Think Java (Free)', url: 'https://greenteapress.com/wp/think-java-2e/', author: 'Allen B. Downey' },
-        { resourceType: 'article', title: 'Java Documentation', url: 'https://docs.oracle.com/en/java/', author: 'Oracle' },
+        { resourceType: 'youtube', title: 'Java Full Course in 12 Hours', url: 'https://www.youtube.com/watch?v=A74TOX803D0', author: 'Bro Code', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Java Object Oriented Programming (OOP) Tutorial', url: 'https://www.youtube.com/watch?v=IUqCuwFYEIM', author: 'FreeCodeCamp', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Java Collections Framework Deep Dive', url: 'https://www.youtube.com/watch?v=viTHc_4Xflk', author: 'Telusko', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Java Streams API & Functional Programming', url: 'https://www.youtube.com/watch?v=1OpAuz54B34', author: 'Amigoscode', platform: 'YouTube' },
+        { resourceType: 'ebook', title: 'Official Java Documentation & API Specs', url: 'https://docs.oracle.com/en/java/', author: 'Oracle' },
+        { resourceType: 'article', title: 'Baeldung Java Tutorials & Best Practices', url: 'https://www.baeldung.com/', author: 'Baeldung Team' },
+        { resourceType: 'cheatsheet', title: 'Java Syntax Quick Reference Cheat Sheet', url: 'https://introcs.cs.princeton.edu/java/11cheatsheet/', author: 'Princeton University' },
+        { resourceType: 'article', title: 'GeeksforGeeks Java Programming Language', url: 'https://www.geeksforgeeks.org/java/', author: 'GeeksforGeeks' },
+        { resourceType: 'cheatsheet', title: 'Java Collections & Streams Cheat Sheet', url: 'https://quickref.me/java', author: 'QuickRef' },
       ],
       modules: [
         {
-          title: 'Java Foundations',
-          description: 'Set up Java and learn syntax basics.',
+          title: 'Module 1: Java Basics & Syntax',
           lessons: [
-            setupLesson('Java Essentials', 'java-essentials', 'java',
-              `1. Download JDK 21+ from [adoptium.net](https://adoptium.net/)
-2. Install and verify: \`java --version\` and \`javac --version\`
-3. Install VS Code with the "Extension Pack for Java"`,
+            setupLesson('Java Fundamentals', 'java-fundamentals', 'java',
+              `1. Install OpenJDK 17 or 21\n2. Set \`JAVA_HOME\` environment variable\n3. Run \`java -version\` and \`javac -version\`\n4. Install VS Code Java Extension Pack`,
               `public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, Java!");\n    }\n}`,
-              `public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, Java!");\n    }\n}`,
-              '- JDK 17+ required'
+              `public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, Java!");\n    }\n}`
             ),
-            lesson('Variables & Types', 'java-variables-types', `# Variables & Types in Java
-
-Java is **statically typed** — every variable must have a declared type.
-
-## Primitive Types
-
-\`\`\`java
-int age = 25;
-double price = 19.99;
-boolean isActive = true;
-char grade = 'A';
-long bigNumber = 1_000_000_000L;
-\`\`\`
-
-## Strings (Reference Type)
-
-\`\`\`java
-String name = "Alice";
-String greeting = "Hello, " + name + "!";
-int length = name.length();         // 5
-String upper = name.toUpperCase();  // "ALICE"
-\`\`\`
-
-## Type Casting
-
-\`\`\`java
-// Widening (automatic)
-int x = 10;
-double y = x;  // 10.0
-
-// Narrowing (explicit)
-double pi = 3.14;
-int rounded = (int) pi;  // 3
-\`\`\`
-
-## Constants
-
-\`\`\`java
-final double PI = 3.14159;
-// PI = 3.14;  // ERROR! final variables cannot be reassigned
-\`\`\``, {
-              starterCode: `public class Main {\n    public static void main(String[] args) {\n        // Declare variables of different types\n        String name = "Alice";\n        int age = 25;\n        double gpa = 3.85;\n        boolean isStudent = true;\n\n        // Print a formatted message\n        System.out.println("Name: " + name);\n        System.out.println("Age: " + age);\n        System.out.printf("GPA: %.2f%n", gpa);\n        System.out.println("Student: " + isStudent);\n    }\n}`,
-              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        String name = "Alice";\n        int age = 25;\n        double gpa = 3.85;\n        boolean isStudent = true;\n\n        System.out.println("Name: " + name);\n        System.out.println("Age: " + age);\n        System.out.printf("GPA: %.2f%n", gpa);\n        System.out.println("Student: " + isStudent);\n    }\n}`,
+            lesson('Primitive Data Types & Variables', 'java-variables', `# Data Types in Java\n\nJava is strongly typed: \`int age = 25;\`, \`double pi = 3.14159;\`, \`boolean isReady = true;\`, \`char grade = 'A';\`.`, {
+              starterCode: `public class Main {\n    public static void main(String[] args) {\n        int age = 25;\n        double score = 98.5;\n        System.out.println("Age: " + age + ", Score: " + score);\n    }\n}`,
+              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        int age = 25;\n        double score = 98.5;\n        System.out.println("Age: " + age + ", Score: " + score);\n    }\n}`,
               codeLanguage: 'java',
-              estimatedMinutes: 20,
-              xpReward: 50,
-              quiz: quiz('Java Variables Quiz', [
-                mcq('Which is NOT a primitive type in Java?', 'String', ['int', 'boolean'], 'String is a reference type (class), not a primitive.'),
-                trueFalse('Java is dynamically typed like Python.', false, 'Java is statically typed — types must be declared.'),
-                mcq('What does `final` mean for a variable?', 'It cannot be reassigned', ['It can only be used once', 'It is automatically deleted'], '`final` creates a constant in Java.'),
+              quiz: quiz('Java Types Quiz', [
+                mcq('Which primitive type holds double-precision floating point numbers?', 'double', ['float', 'int'], '`double` is default for decimal numbers in Java.'),
               ]),
             }),
-            lesson('Control Flow in Java', 'java-control-flow', `# Control Flow in Java
-
-## if/else
-
-\`\`\`java
-int score = 85;
-if (score >= 90) {
-    System.out.println("A");
-} else if (score >= 80) {
-    System.out.println("B");
-} else {
-    System.out.println("C or below");
-}
-\`\`\`
-
-## Switch (Enhanced)
-
-\`\`\`java
-String day = "Monday";
-switch (day) {
-    case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ->
-        System.out.println("Weekday");
-    case "Saturday", "Sunday" ->
-        System.out.println("Weekend");
-}
-\`\`\`
-
-## For Loop
-
-\`\`\`java
-for (int i = 0; i < 5; i++) {
-    System.out.println(i);
-}
-\`\`\`
-
-## Enhanced For Loop
-
-\`\`\`java
-String[] fruits = {"apple", "banana", "cherry"};
-for (String fruit : fruits) {
-    System.out.println(fruit);
-}
-\`\`\`
-
-## While / Do-While
-
-\`\`\`java
-int count = 0;
-while (count < 3) {
-    System.out.println(count++);
-}
-
-// do-while runs at least once
-do {
-    System.out.println("Runs at least once");
-} while (false);
-\`\`\``, {
-              starterCode: `public class Main {\n    public static void main(String[] args) {\n        // FizzBuzz: print 1-20\n        // If divisible by 3: "Fizz"\n        // If divisible by 5: "Buzz"\n        // If divisible by both: "FizzBuzz"\n        // Otherwise: the number\n        \n        for (int i = 1; i <= 20; i++) {\n            if (i % 15 == 0) {\n                System.out.println("FizzBuzz");\n            } else if (i % 3 == 0) {\n                System.out.println("Fizz");\n            } else if (i % 5 == 0) {\n                System.out.println("Buzz");\n            } else {\n                System.out.println(i);\n            }\n        }\n    }\n}`,
-              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        for (int i = 1; i <= 20; i++) {\n            if (i % 15 == 0) {\n                System.out.println("FizzBuzz");\n            } else if (i % 3 == 0) {\n                System.out.println("Fizz");\n            } else if (i % 5 == 0) {\n                System.out.println("Buzz");\n            } else {\n                System.out.println(i);\n            }\n        }\n    }\n}`,
+            lesson('Control Flow (`if/else`, `switch`)', 'java-control-flow', `# Control Flow\n\nBranch code execution using \`if-else\` statements and modern pattern-matching \`switch\` expressions.`, {
+              starterCode: `public class Main {\n    public static void main(String[] args) {\n        int score = 85;\n        if (score >= 90) System.out.println("A");\n        else System.out.println("B");\n    }\n}`,
+              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        int score = 85;\n        if (score >= 90) System.out.println("A");\n        else System.out.println("B");\n    }\n}`,
               codeLanguage: 'java',
-              estimatedMinutes: 20,
-              xpReward: 50,
               quiz: quiz('Java Control Flow Quiz', [
-                mcq('What does `break` do in a switch statement?', 'Exits the switch block', ['Skips to the next case', 'Ends the program'], 'Without `break`, execution falls through to subsequent cases.'),
-                trueFalse('A do-while loop always executes at least once.', true, 'The condition is checked after the first iteration.'),
+                trueFalse('Java requires boolean expressions in if conditions (e.g. `if (x > 0)`).', true),
               ]),
             }),
-          ],
+            lesson('Loops (`for`, `while`, `do-while`)', 'java-loops', `# Loops\n\nIterate with indexed \`for\` loops and enhanced for-each loops: \`for (String item : list)\`.`, {
+              starterCode: `public class Main {\n    public static void main(String[] args) {\n        for (int i = 1; i <= 5; i++) {\n            System.out.println("Count: " + i);\n        }\n    }\n}`,
+              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        for (int i = 1; i <= 5; i++) {\n            System.out.println("Count: " + i);\n        }\n    }\n}`,
+              codeLanguage: 'java',
+              quiz: quiz('Java Loops Quiz', [
+                mcq('What loop guarantees execution at least once?', 'do-while', ['for', 'while'], '`do-while` checks condition at the end of the block.'),
+              ]),
+            }),
+            lesson('Methods & Overloading', 'java-methods', `# Methods\n\nDefine static and instance methods with explicit parameter types and return signatures.`, {
+              starterCode: `public class Main {\n    static int add(int a, int b) {\n        return a + b;\n    }\n    public static void main(String[] args) {\n        System.out.println(add(10, 20));\n    }\n}`,
+              solutionCode: `public class Main {\n    static int add(int a, int b) {\n        return a + b;\n    }\n    public static void main(String[] args) {\n        System.out.println(add(10, 20));\n    }\n}`,
+              codeLanguage: 'java',
+              quiz: quiz('Java Methods Quiz', [
+                mcq('What allows two methods in the same class to share a name?', 'Method overloading (different parameter signatures)', ['Method overriding', 'Inheritance'], 'Overloading requires different parameter counts or types.'),
+              ]),
+            }),
+          ]
         },
         {
-          title: 'Object-Oriented Java',
-          description: 'Master classes, inheritance, interfaces, and abstract classes.',
+          title: 'Module 2: Object-Oriented Java',
           lessons: [
-            lesson('Classes & Methods', 'java-classes', `# Classes & Methods in Java
-
-## Defining a Class
-
-\`\`\`java
-public class Car {
-    // Fields (instance variables)
-    private String make;
-    private String model;
-    private int year;
-
-    // Constructor
-    public Car(String make, String model, int year) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-    }
-
-    // Methods
-    public String getInfo() {
-        return year + " " + make + " " + model;
-    }
-
-    // Getters and Setters
-    public String getMake() { return make; }
-    public void setMake(String make) { this.make = make; }
-    
-    @Override
-    public String toString() {
-        return getInfo();
-    }
-}
-\`\`\`
-
-## Encapsulation
-- Use \`private\` for fields
-- Provide \`public\` getters/setters
-- Control access to internal state
-
-## Static Members
-
-\`\`\`java
-public class MathHelper {
-    public static int add(int a, int b) {
-        return a + b;
-    }
-}
-// Call without creating an object:
-int sum = MathHelper.add(3, 5);
-\`\`\``, {
-              starterCode: `public class Main {\n    public static void main(String[] args) {\n        // Simple class demo\n        System.out.println("=== Car Class Demo ===");\n        \n        String make = "Toyota";\n        String model = "Camry";\n        int year = 2024;\n        \n        String info = year + " " + make + " " + model;\n        System.out.println("Car: " + info);\n        \n        // Static method demo\n        int sum = add(10, 20);\n        System.out.println("Sum: " + sum);\n    }\n    \n    public static int add(int a, int b) {\n        return a + b;\n    }\n}`,
-              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        System.out.println("=== Car Class Demo ===");\n        String make = "Toyota";\n        String model = "Camry";\n        int year = 2024;\n        String info = year + " " + make + " " + model;\n        System.out.println("Car: " + info);\n        int sum = add(10, 20);\n        System.out.println("Sum: " + sum);\n    }\n    public static int add(int a, int b) {\n        return a + b;\n    }\n}`,
+            lesson('Classes, Constructors & Encapsulation', 'java-classes', `# Encapsulation\n\nUse \`private\` fields with public getters and setters to protect internal state.`, {
+              starterCode: `public class Person {\n    private String name;\n    public Person(String name) { this.name = name; }\n    public String getName() { return name; }\n}`,
+              solutionCode: `public class Person {\n    private String name;\n    public Person(String name) { this.name = name; }\n    public String getName() { return name; }\n}`,
               codeLanguage: 'java',
-              estimatedMinutes: 25,
-              xpReward: 60,
-              quiz: quiz('Java Classes Quiz', [
-                mcq('What does `private` mean for a field?', 'Accessible only within the class', ['Accessible anywhere', 'Accessible in the package'], 'Private fields enforce encapsulation.'),
-                mcq('What is `this` in Java?', 'Reference to the current object', ['Reference to the parent class', 'A keyword for static methods'], '`this` refers to the current instance.'),
-                trueFalse('Static methods can be called without creating an object.', true),
+              quiz: quiz('Encapsulation Quiz', [
+                mcq('Which access modifier restricts visibility to the defining class only?', 'private', ['public', 'protected'], '`private` fields are accessible only within the class.'),
               ]),
             }),
-            lesson('Inheritance & Interfaces', 'java-inheritance', `# Inheritance & Interfaces
-
-## Inheritance with \`extends\`
-
-\`\`\`java
-public class Animal {
-    protected String name;
-    public Animal(String name) { this.name = name; }
-    public String speak() { return "..."; }
-}
-
-public class Dog extends Animal {
-    public Dog(String name) { super(name); }
-    @Override
-    public String speak() { return name + " says Woof!"; }
-}
-\`\`\`
-
-## Interfaces — Contracts
-
-\`\`\`java
-public interface Drawable {
-    void draw();
-    default void erase() {
-        System.out.println("Erasing...");
-    }
-}
-
-public class Circle implements Drawable {
-    @Override
-    public void draw() {
-        System.out.println("Drawing a circle");
-    }
-}
-\`\`\`
-
-## Abstract Classes
-
-\`\`\`java
-public abstract class Shape {
-    public abstract double area();
-    
-    public void describe() {
-        System.out.println("Area: " + area());
-    }
-}
-\`\`\`
-
-## Key Differences
-| Feature | Abstract Class | Interface |
-|---------|---------------|-----------|
-| Fields | Yes | Constants only |
-| Constructors | Yes | No |
-| Multiple | Single | Multiple |
-| Methods | Abstract + concrete | Abstract + default |`, {
-              starterCode: `public class Main {\n    public static void main(String[] args) {\n        // Demonstrate polymorphism\n        System.out.println("=== Polymorphism Demo ===");\n        \n        // Simulating different shapes\n        double circleArea = 3.14159 * 5 * 5;\n        double rectArea = 4.0 * 6.0;\n        double triangleArea = 0.5 * 8 * 3;\n        \n        System.out.printf("Circle (r=5): %.2f%n", circleArea);\n        System.out.printf("Rectangle (4x6): %.2f%n", rectArea);\n        System.out.printf("Triangle (b=8,h=3): %.2f%n", triangleArea);\n    }\n}`,
-              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        System.out.println("=== Polymorphism Demo ===");\n        double circleArea = 3.14159 * 5 * 5;\n        double rectArea = 4.0 * 6.0;\n        double triangleArea = 0.5 * 8 * 3;\n        System.out.printf("Circle (r=5): %.2f%n", circleArea);\n        System.out.printf("Rectangle (4x6): %.2f%n", rectArea);\n        System.out.printf("Triangle (b=8,h=3): %.2f%n", triangleArea);\n    }\n}`,
+            lesson('Inheritance & Polymorphism', 'java-inheritance', `# Inheritance\n\nExtend base classes using \`extends\` and override virtual methods with \`@Override\`.`, {
+              starterCode: `class Animal { void speak() { System.out.println("Animal sound"); } }\nclass Dog extends Animal { @Override void speak() { System.out.println("Bark!"); } }`,
+              solutionCode: `class Animal { void speak() { System.out.println("Animal sound"); } }\nclass Dog extends Animal { @Override void speak() { System.out.println("Bark!"); } }`,
               codeLanguage: 'java',
-              estimatedMinutes: 25,
-              xpReward: 60,
-              quiz: quiz('Java Inheritance Quiz', [
-                mcq('Can a Java class implement multiple interfaces?', 'Yes', ['No', 'Only with abstract classes'], 'Java supports multiple interface implementation.'),
-                trueFalse('Abstract classes can have constructors.', true, 'Abstract classes can have constructors called by subclasses via `super()`.'),
-                mcq('What does `@Override` do?', 'Marks a method as overriding a parent method', ['Creates a new method', 'Makes the method final'], '`@Override` is an annotation for compile-time checking.'),
+              quiz: quiz('Inheritance Quiz', [
+                mcq('What keyword establishes inheritance in Java?', 'extends', ['implements', 'inherits'], 'Classes extend superclasses in Java.'),
               ]),
             }),
-          ],
-        },
-        {
-          title: 'Collections & Streams',
-          description: 'Work with lists, maps, and functional-style stream processing.',
-          lessons: [
-            lesson('Collections Framework', 'java-collections', `# Collections Framework
-
-## ArrayList
-
-\`\`\`java
-import java.util.*;
-
-List<String> names = new ArrayList<>();
-names.add("Alice");
-names.add("Bob");
-names.add("Charlie");
-names.remove("Bob");
-System.out.println(names.get(0));  // Alice
-System.out.println(names.size());  // 2
-\`\`\`
-
-## HashMap
-
-\`\`\`java
-Map<String, Integer> scores = new HashMap<>();
-scores.put("Alice", 92);
-scores.put("Bob", 85);
-int aliceScore = scores.get("Alice");  // 92
-scores.getOrDefault("Eve", 0);         // 0
-
-for (Map.Entry<String, Integer> entry : scores.entrySet()) {
-    System.out.println(entry.getKey() + ": " + entry.getValue());
-}
-\`\`\`
-
-## HashSet
-
-\`\`\`java
-Set<String> colors = new HashSet<>();
-colors.add("red");
-colors.add("blue");
-colors.add("red");   // Duplicate ignored
-System.out.println(colors.size());  // 2
-\`\`\`
-
-## Collections Hierarchy
-- **List**: Ordered, allows duplicates (ArrayList, LinkedList)
-- **Set**: Unordered, no duplicates (HashSet, TreeSet)
-- **Map**: Key-value pairs (HashMap, TreeMap)`, {
-              starterCode: `import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        // ArrayList demo\n        List<String> students = new ArrayList<>(Arrays.asList(\n            "Alice", "Bob", "Charlie", "Diana"\n        ));\n        \n        System.out.println("Students: " + students);\n        students.add("Eve");\n        students.remove("Bob");\n        System.out.println("Updated: " + students);\n        \n        // HashMap demo\n        Map<String, Integer> grades = new HashMap<>();\n        grades.put("Alice", 95);\n        grades.put("Charlie", 88);\n        grades.put("Diana", 92);\n        \n        for (var entry : grades.entrySet()) {\n            System.out.println(entry.getKey() + ": " + entry.getValue());\n        }\n    }\n}`,
-              solutionCode: `import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        List<String> students = new ArrayList<>(Arrays.asList(\n            "Alice", "Bob", "Charlie", "Diana"\n        ));\n        System.out.println("Students: " + students);\n        students.add("Eve");\n        students.remove("Bob");\n        System.out.println("Updated: " + students);\n        \n        Map<String, Integer> grades = new HashMap<>();\n        grades.put("Alice", 95);\n        grades.put("Charlie", 88);\n        grades.put("Diana", 92);\n        for (var entry : grades.entrySet()) {\n            System.out.println(entry.getKey() + ": " + entry.getValue());\n        }\n    }\n}`,
+            lesson('Interfaces & Abstract Classes', 'java-interfaces', `# Interfaces\n\nDefine contracts using \`interface\` and implement them across multiple class hierarchies.`, {
+              starterCode: `interface Printable { void print(); }\nclass Document implements Printable {\n    public void print() { System.out.println("Printing doc..."); }\n}`,
+              solutionCode: `interface Printable { void print(); }\nclass Document implements Printable {\n    public void print() { System.out.println("Printing doc..."); }\n}`,
               codeLanguage: 'java',
-              estimatedMinutes: 25,
-              xpReward: 60,
+              quiz: quiz('Interface Quiz', [
+                trueFalse('A Java class can implement multiple interfaces.', true),
+              ]),
+            }),
+            lesson('Exception Handling (`try/catch/throw`)', 'java-exceptions', `# Exceptions\n\nHandle checked and unchecked exceptions with \`try-catch-finally\` blocks.`, {
+              starterCode: `public class Main {\n    public static void main(String[] args) {\n        try {\n            int res = 10 / 0;\n        } catch (ArithmeticException e) {\n            System.out.println("Caught division by zero!");\n        }\n    }\n}`,
+              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        try {\n            int res = 10 / 0;\n        } catch (ArithmeticException e) {\n            System.out.println("Caught division by zero!");\n        }\n    }\n}`,
+              codeLanguage: 'java',
+              quiz: quiz('Java Exception Quiz', [
+                mcq('Which class is the superclass of all errors and exceptions in Java?', 'Throwable', ['Exception', 'Error'], '`Throwable` is the root of Java exception hierarchy.'),
+              ]),
+            }),
+            lesson('Java Collections Framework (`List`, `Set`, `Map`)', 'java-collections', `# Collections\n\nUse \`ArrayList\`, \`HashSet\`, and \`HashMap\` to manage grouped objects in memory.`, {
+              starterCode: `import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        List<String> list = new ArrayList<>();\n        list.add("Java");\n        System.out.println(list.get(0));\n    }\n}`,
+              solutionCode: `import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        List<String> list = new ArrayList<>();\n        list.add("Java");\n        System.out.println(list.get(0));\n    }\n}`,
+              codeLanguage: 'java',
               quiz: quiz('Collections Quiz', [
-                mcq('Which allows duplicates?', 'ArrayList', ['HashSet', 'HashMap keys'], 'Lists allow duplicates; Sets and Map keys do not.'),
-                trueFalse('HashMap maintains insertion order.', false, 'HashMap does not guarantee order. Use LinkedHashMap for insertion order.'),
+                mcq('Which interface provides key-value pair lookups?', 'Map', ['List', 'Set'], '`Map` maps keys to values.'),
               ]),
             }),
-          ],
+          ]
         },
-      ],
+        {
+          title: 'Module 3: Modern Java & Streams',
+          lessons: [
+            lesson('Java Lambdas & Functional Interfaces', 'java-lambdas', `# Lambdas\n\nWrite compact anonymous functions using lambda expressions: \`(a, b) -> a + b\`.`, {
+              starterCode: `import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        List<String> names = Arrays.asList("Alice", "Bob");\n        names.forEach(name -> System.out.println(name));\n    }\n}`,
+              solutionCode: `import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        List<String> names = Arrays.asList("Alice", "Bob");\n        names.forEach(name -> System.out.println(name));\n    }\n}`,
+              codeLanguage: 'java',
+              quiz: quiz('Lambda Quiz', [
+                trueFalse('Lambdas can be used wherever a functional interface (single abstract method) is expected.', true),
+              ]),
+            }),
+            lesson('Java Streams API (`filter`, `map`, `collect`)', 'java-streams', `# Streams API\n\nProcess sequences of elements declaratively: \`list.stream().filter(...).collect(...)\`.`, {
+              starterCode: `import java.util.*;\nimport java.util.stream.*;\npublic class Main {\n    public static void main(String[] args) {\n        List<Integer> nums = List.of(1, 2, 3, 4, 5);\n        List<Integer> evens = nums.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());\n        System.out.println(evens);\n    }\n}`,
+              solutionCode: `import java.util.*;\nimport java.util.stream.*;\npublic class Main {\n    public static void main(String[] args) {\n        List<Integer> nums = List.of(1, 2, 3, 4, 5);\n        List<Integer> evens = nums.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());\n        System.out.println(evens);\n    }\n}`,
+              codeLanguage: 'java',
+              quiz: quiz('Streams Quiz', [
+                mcq('Is `filter()` an intermediate or terminal operation in Java Streams?', 'Intermediate', ['Terminal', 'Final'], '`filter()` returns a new Stream (intermediate operation).'),
+              ]),
+            }),
+            lesson('Java Records & Pattern Matching', 'java-records', `# Java Records\n\nDefine immutable data carrier classes concisely with \`record Point(int x, int y) {}\`.`, {
+              starterCode: `public record User(String username, String email) {}\npublic class Main {\n    public static void main(String[] args) {\n        User user = new User("scott", "scott@example.com");\n        System.out.println(user.username());\n    }\n}`,
+              solutionCode: `public record User(String username, String email) {}\npublic class Main {\n    public static void main(String[] args) {\n        User user = new User("scott", "scott@example.com");\n        System.out.println(user.username());\n    }\n}`,
+              codeLanguage: 'java',
+              quiz: quiz('Records Quiz', [
+                trueFalse('Java Records automatically generate constructor, getters, equals(), hashCode(), and toString().', true),
+              ]),
+            }),
+            lesson('Multithreading & Concurrency Basics', 'java-multithreading', `# Threads\n\nCreate background threads with \`Thread\` or \`ExecutorService\`.`, {
+              starterCode: `public class Main {\n    public static void main(String[] args) {\n        Thread thread = new Thread(() -> System.out.println("Running in background thread!"));\n        thread.start();\n    }\n}`,
+              solutionCode: `public class Main {\n    public static void main(String[] args) {\n        Thread thread = new Thread(() -> System.out.println("Running in background thread!"));\n        thread.start();\n    }\n}`,
+              codeLanguage: 'java',
+              quiz: quiz('Threads Quiz', [
+                mcq('Which method initiates thread execution in Java?', 'thread.start()', ['thread.run()', 'thread.execute()'], '`start()` spawns a new OS thread and invokes `run()`.'),
+              ]),
+            }),
+            lesson('Java Capstone: Student Management CLI System', 'java-capstone', `# Java Capstone\n\nBuild a complete CLI app managing student records using classes, collections, and streams.`, {
+              starterCode: `import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println("=== STUDENT MANAGEMENT SYSTEM ===");\n    }\n}`,
+              solutionCode: `import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println("=== STUDENT MANAGEMENT SYSTEM ===");\n    }\n}`,
+              codeLanguage: 'java',
+              quiz: quiz('Java Capstone Quiz', [
+                mcq('What design paradigm organizing code into objects and classes is Java based on?', 'Object-Oriented Programming (OOP)', ['Procedural Programming', 'Functional Assembly'], 'Java is built around Object-Oriented design.'),
+              ]),
+            }),
+          ]
+        }
+      ]
     },
 
-    // ━━━━━━━━━━━━━━━━━━━ C++ FUNDAMENTALS ━━━━━━━━━━━━━━━━━━━
+    // ━━━━━━━━━━━━━━━━━━━ C++ MASTERCLASS ━━━━━━━━━━━━━━━━━━━
     {
-      title: 'C++ Fundamentals',
-      slug: 'cpp-fundamentals',
-      description: 'Learn C++ from the ground up — memory management, pointers, templates, and the STL. Build performance-critical applications.',
-      difficulty: 'intermediate',
+      title: 'C++ Masterclass',
+      slug: 'cpp-masterclass',
+      description: 'Master low-level programming in C++ — pointers, manual memory management, RAII, templates, and STL algorithms.',
+      difficulty: 'advanced',
       language: 'en',
       estimatedHours: 25,
       resources: [
-        { resourceType: 'youtube', title: 'C++ Full Course', url: 'https://www.youtube.com/watch?v=vLnPwxZdW4Y', author: 'Bro Code', platform: 'YouTube' },
-        { resourceType: 'ebook', title: 'learncpp.com', url: 'https://www.learncpp.com/', author: 'Alex' },
-        { resourceType: 'article', title: 'C++ Reference', url: 'https://en.cppreference.com/', author: 'cppreference.com' },
+        { resourceType: 'youtube', title: 'C++ Full Course for Beginners', url: 'https://www.youtube.com/watch?v=vLnPwxZdW4Y', author: 'FreeCodeCamp', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'The Cherno C++ Series (Best C++ Tutorials)', url: 'https://www.youtube.com/watch?v=18c3MTX0PK0', author: 'The Cherno', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'C++ Pointers & Memory Management Explained', url: 'https://www.youtube.com/watch?v=2ypU3lvwTbg', author: 'Fireship', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Modern C++ (C++11 to C++20) Features', url: 'https://www.youtube.com/watch?v=PocJ5jXv8No', author: 'CppCon', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'C++ Standard Template Library (STL) Crash Course', url: 'https://www.youtube.com/watch?v=g-1cn3m7kCg', author: 'Luv', platform: 'YouTube' },
+        { resourceType: 'ebook', title: 'cppreference.com (Official C++ Reference)', url: 'https://en.cppreference.com/w/', author: 'cppreference' },
+        { resourceType: 'article', title: 'ISO C++ FAQ & Guidelines', url: 'https://isocpp.org/faq', author: 'Standard C++ Foundation' },
+        { resourceType: 'cheatsheet', title: 'C++ Syntax & STL Cheat Sheet', url: 'https://quickref.me/cpp', author: 'QuickRef' },
+        { resourceType: 'article', title: 'Modern C++ Core Guidelines by Bjarne Stroustrup', url: 'https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines', author: 'Bjarne Stroustrup' },
+        { resourceType: 'cheatsheet', title: 'C++ STL Containers Quick Reference', url: 'https://cheatsheet.md/cpp-cheat-sheet/', author: 'CheatSheet.md' },
       ],
       modules: [
         {
-          title: 'C++ Basics',
-          description: 'Write your first C++ programs with variables, I/O, and control flow.',
+          title: 'Module 1: C++ Core Syntax & Pointers',
           lessons: [
-            setupLesson('C++ Fundamentals', 'cpp-fundamentals', 'cpp',
-              `1. Install a C++ compiler (g++ via MinGW on Windows, or Xcode CLI on macOS)
-2. Verify: \`g++ --version\`
-3. Install VS Code with the C/C++ extension`,
-              `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, C++!" << endl;\n    return 0;\n}`,
-              `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, C++!" << endl;\n    return 0;\n}`,
-              '- g++ or clang++ compiler required'
+            setupLesson('C++ Masterclass', 'cpp-masterclass', 'cpp',
+              `1. Install GCC/G++ or Clang compiler\n2. On Windows: Install MSYS2 or Visual Studio C++\n3. Run \`g++ --version\`\n4. Compile with: \`g++ -std=c++20 main.cpp -o main\``,
+              `#include <iostream>\nint main() {\n    std::cout << "Hello, C++20!" << std::endl;\n    return 0;\n}`,
+              `#include <iostream>\nint main() {\n    std::cout << "Hello, C++20!" << std::endl;\n    return 0;\n}`
             ),
-            lesson('Variables & Memory', 'cpp-variables-memory', `# Variables & Memory in C++
-
-## Basic Types
-
-\`\`\`cpp
-int age = 25;
-double pi = 3.14159;
-char letter = 'A';
-bool isActive = true;
-std::string name = "Alice";
-\`\`\`
-
-## Memory Sizes
-
-\`\`\`cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-    cout << "int: " << sizeof(int) << " bytes" << endl;       // 4
-    cout << "double: " << sizeof(double) << " bytes" << endl; // 8
-    cout << "char: " << sizeof(char) << " bytes" << endl;     // 1
-    cout << "bool: " << sizeof(bool) << " bytes" << endl;     // 1
-    return 0;
-}
-\`\`\`
-
-## Pointers — Addresses in Memory
-
-\`\`\`cpp
-int x = 42;
-int* ptr = &x;     // ptr stores the address of x
-cout << *ptr;       // 42 (dereference — get the value at address)
-cout << ptr;        // Memory address (e.g., 0x7fff5fbff8ac)
-\`\`\`
-
-## References
-
-\`\`\`cpp
-int x = 10;
-int& ref = x;   // ref is an alias for x
-ref = 20;
-cout << x;       // 20 (x was modified through ref)
-\`\`\``, {
-              starterCode: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int x = 42;\n    int* ptr = &x;\n    \n    cout << "Value of x: " << x << endl;\n    cout << "Address of x: " << ptr << endl;\n    cout << "Value via pointer: " << *ptr << endl;\n    \n    // Modify through pointer\n    *ptr = 100;\n    cout << "Modified x: " << x << endl;\n    \n    return 0;\n}`,
-              solutionCode: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int x = 42;\n    int* ptr = &x;\n    \n    cout << "Value of x: " << x << endl;\n    cout << "Address of x: " << ptr << endl;\n    cout << "Value via pointer: " << *ptr << endl;\n    \n    *ptr = 100;\n    cout << "Modified x: " << x << endl;\n    \n    return 0;\n}`,
+            lesson('Primitive Types & Console I/O (`std::cin`, `std::cout`)', 'cpp-io', `# C++ Console I/O\n\nUse \`std::cout <<\` for printing and \`std::cin >>\` for reading formatted user input.`, {
+              starterCode: `#include <iostream>\nint main() {\n    int x = 10;\n    std::cout << "Value of x: " << x << std::endl;\n    return 0;\n}`,
+              solutionCode: `#include <iostream>\nint main() {\n    int x = 10;\n    std::cout << "Value of x: " << x << std::endl;\n    return 0;\n}`,
               codeLanguage: 'cpp',
-              estimatedMinutes: 25,
-              xpReward: 60,
-              quiz: quiz('C++ Memory Quiz', [
-                mcq('What does `&x` return?', 'The memory address of x', ['The value of x', 'A copy of x'], '`&` is the address-of operator.'),
-                mcq('What does `*ptr` do?', 'Dereferences the pointer (gets the value)', ['Gets the address', 'Multiplies by pointer'], '`*` on a pointer gives you the value stored at that address.'),
-                trueFalse('References in C++ can be reassigned to another variable after initialization.', false, 'References are bound at initialization and cannot be reseated.'),
+              quiz: quiz('CPP I/O Quiz', [
+                mcq('Which stream insertion operator is used with `std::cout`?', '<<', ['>>', '<='], '`<<` inserts data into output streams.'),
               ]),
             }),
-          ],
+            lesson('Pointers & Memory Addresses (`*`, `&`)', 'cpp-pointers', `# Pointers\n\nPointers store memory addresses of variables: \`int* ptr = &val;\`. Dereference using \`*ptr\`.`, {
+              starterCode: `#include <iostream>\nint main() {\n    int val = 42;\n    int* ptr = &val;\n    std::cout << "Value: " << *ptr << ", Address: " << ptr << std::endl;\n    return 0;\n}`,
+              solutionCode: `#include <iostream>\nint main() {\n    int val = 42;\n    int* ptr = &val;\n    std::cout << "Value: " << *ptr << ", Address: " << ptr << std::endl;\n    return 0;\n}`,
+              codeLanguage: 'cpp',
+              quiz: quiz('Pointers Quiz', [
+                mcq('What operator gets the memory address of a variable?', '&', ['*', '->'], '`&` is the address-of operator.'),
+              ]),
+            }),
+            lesson('References vs Pointers', 'cpp-references', `# References\n\nReferences (\`int& ref = val;\`) act as immutable aliases for existing objects without nullability.`, {
+              starterCode: `#include <iostream>\nvoid increment(int& num) { num++; }\nint main() {\n    int x = 5;\n    increment(x);\n    std::cout << "x: " << x << std::endl;\n    return 0;\n}`,
+              solutionCode: `#include <iostream>\nvoid increment(int& num) { num++; }\nint main() {\n    int x = 5;\n    increment(x);\n    std::cout << "x: " << x << std::endl;\n    return 0;\n}`,
+              codeLanguage: 'cpp',
+              quiz: quiz('References Quiz', [
+                trueFalse('References in C++ cannot be reassigned to refer to another object after initialization.', true),
+              ]),
+            }),
+            lesson('Dynamic Memory Allocation (`new`, `delete`)', 'cpp-dynamic-memory', `# Dynamic Memory\n\nAllocate heap memory using \`new\` and free memory using \`delete\` to prevent memory leaks.`, {
+              starterCode: `#include <iostream>\nint main() {\n    int* arr = new int[5];\n    arr[0] = 100;\n    delete[] arr;\n    std::cout << "Memory freed successfully" << std::endl;\n    return 0;\n}`,
+              solutionCode: `#include <iostream>\nint main() {\n    int* arr = new int[5];\n    arr[0] = 100;\n    delete[] arr;\n    std::cout << "Memory freed successfully" << std::endl;\n    return 0;\n}`,
+              codeLanguage: 'cpp',
+              quiz: quiz('Dynamic Memory Quiz', [
+                mcq('What keyword frees heap arrays allocated with `new int[N]`?', 'delete[]', ['free()', 'delete'], '`delete[]` must be used for dynamic array deallocations.'),
+              ]),
+            }),
+          ]
         },
         {
-          title: 'OOP & Templates',
-          description: 'Object-oriented design and generic programming with templates.',
+          title: 'Module 2: Object-Oriented C++ & RAII',
           lessons: [
-            lesson('Classes in C++', 'cpp-classes', `# Classes in C++
-
-## Defining a Class
-
-\`\`\`cpp
-class Rectangle {
-private:
-    double width, height;
-
-public:
-    // Constructor
-    Rectangle(double w, double h) : width(w), height(h) {}
-    
-    // Methods
-    double area() const { return width * height; }
-    double perimeter() const { return 2 * (width + height); }
-    
-    // Getter
-    double getWidth() const { return width; }
-};
-\`\`\`
-
-## Constructors & Destructors
-
-\`\`\`cpp
-class MyClass {
-public:
-    MyClass() { cout << "Created!" << endl; }   // Constructor
-    ~MyClass() { cout << "Destroyed!" << endl; } // Destructor
-};
-\`\`\`
-
-## Operator Overloading
-
-\`\`\`cpp
-class Vector2D {
-public:
-    double x, y;
-    Vector2D(double x, double y) : x(x), y(y) {}
-    
-    Vector2D operator+(const Vector2D& other) const {
-        return Vector2D(x + other.x, y + other.y);
-    }
-};
-\`\`\``, {
-              starterCode: `#include <iostream>\nusing namespace std;\n\n// Simple class demo\nint main() {\n    double width = 5.0, height = 3.0;\n    double area = width * height;\n    double perimeter = 2 * (width + height);\n    \n    cout << "Rectangle " << width << " x " << height << endl;\n    cout << "Area: " << area << endl;\n    cout << "Perimeter: " << perimeter << endl;\n    \n    return 0;\n}`,
-              solutionCode: `#include <iostream>\nusing namespace std;\n\nint main() {\n    double width = 5.0, height = 3.0;\n    double area = width * height;\n    double perimeter = 2 * (width + height);\n    \n    cout << "Rectangle " << width << " x " << height << endl;\n    cout << "Area: " << area << endl;\n    cout << "Perimeter: " << perimeter << endl;\n    \n    return 0;\n}`,
+            lesson('Classes, Destructors & RAII', 'cpp-classes-raii', `# RAII\n\nResource Acquisition Is Initialization: Manage resources via constructor/destructor pairs automatically.`, {
+              starterCode: `#include <iostream>\nclass FileHandler {\npublic:\n    FileHandler() { std::cout << "File opened\\n"; }\n    ~FileHandler() { std::cout << "File closed\\n"; }\n};\nint main() { FileHandler fh; return 0; }`,
+              solutionCode: `#include <iostream>\nclass FileHandler {\npublic:\n    FileHandler() { std::cout << "File opened\\n"; }\n    ~FileHandler() { std::cout << "File closed\\n"; }\n};\nint main() { FileHandler fh; return 0; }`,
               codeLanguage: 'cpp',
-              estimatedMinutes: 25,
-              xpReward: 60,
-              quiz: quiz('C++ Classes Quiz', [
-                mcq('What is `const` after a method declaration?', 'The method does not modify the object', ['The return value is constant', 'The method is static'], '`const` member functions promise not to modify `this`.'),
-                trueFalse('C++ destructors are called automatically when an object goes out of scope.', true),
+              quiz: quiz('RAII Quiz', [
+                mcq('When is a C++ class destructor called?', 'Automatically when the object goes out of scope', ['Manually when garbage collected', 'Never'], 'Destructors run when stack scope ends.'),
               ]),
             }),
-            lesson('Templates & STL', 'cpp-templates-stl', `# Templates & STL
-
-## Function Templates
-
-\`\`\`cpp
-template <typename T>
-T maximum(T a, T b) {
-    return (a > b) ? a : b;
-}
-
-cout << maximum(3, 7);      // 7
-cout << maximum(3.5, 2.1);  // 3.5
-\`\`\`
-
-## STL Containers
-
-\`\`\`cpp
-#include <vector>
-#include <map>
-#include <algorithm>
-
-// Vector
-vector<int> nums = {5, 2, 8, 1, 9};
-sort(nums.begin(), nums.end());
-nums.push_back(10);
-
-// Map
-map<string, int> scores;
-scores["Alice"] = 95;
-scores["Bob"] = 87;
-
-for (auto& [name, score] : scores) {
-    cout << name << ": " << score << endl;
-}
-\`\`\`
-
-## STL Algorithms
-
-\`\`\`cpp
-vector<int> v = {1, 2, 3, 4, 5};
-auto it = find(v.begin(), v.end(), 3);
-int count = count_if(v.begin(), v.end(), [](int x) { return x > 3; });
-\`\`\``, {
-              starterCode: `#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    vector<int> nums = {5, 2, 8, 1, 9, 3, 7, 4, 6};\n    \n    cout << "Original: ";\n    for (int n : nums) cout << n << " ";\n    cout << endl;\n    \n    sort(nums.begin(), nums.end());\n    cout << "Sorted: ";\n    for (int n : nums) cout << n << " ";\n    cout << endl;\n    \n    // Find an element\n    auto it = find(nums.begin(), nums.end(), 7);\n    if (it != nums.end()) {\n        cout << "Found 7 at index: " << distance(nums.begin(), it) << endl;\n    }\n    \n    return 0;\n}`,
-              solutionCode: `#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    vector<int> nums = {5, 2, 8, 1, 9, 3, 7, 4, 6};\n    \n    cout << "Original: ";\n    for (int n : nums) cout << n << " ";\n    cout << endl;\n    \n    sort(nums.begin(), nums.end());\n    cout << "Sorted: ";\n    for (int n : nums) cout << n << " ";\n    cout << endl;\n    \n    auto it = find(nums.begin(), nums.end(), 7);\n    if (it != nums.end()) {\n        cout << "Found 7 at index: " << distance(nums.begin(), it) << endl;\n    }\n    \n    return 0;\n}`,
+            lesson('Copy & Move Semantics (Rule of 5)', 'cpp-move-semantics', `# Move Semantics\n\nTransfer resource ownership without copying using rvalue references (\`T&&\`) and \`std::move\`.`, {
+              starterCode: `#include <iostream>\n#include <utility>\nint main() {\n    std::string str1 = "Hello";\n    std::string str2 = std::move(str1);\n    std::cout << "str2: " << str2 << std::endl;\n    return 0;\n}`,
+              solutionCode: `#include <iostream>\n#include <utility>\nint main() {\n    std::string str1 = "Hello";\n    std::string str2 = std::move(str1);\n    std::cout << "str2: " << str2 << std::endl;\n    return 0;\n}`,
               codeLanguage: 'cpp',
-              estimatedMinutes: 25,
-              xpReward: 60,
-              quiz: quiz('Templates & STL Quiz', [
-                mcq('What does `template <typename T>` declare?', 'A generic type parameter', ['A new class', 'A macro'], 'Templates allow writing code that works with any type.'),
-                trueFalse('STL vectors automatically manage memory and resize as needed.', true),
+              quiz: quiz('Move Quiz', [
+                mcq('What does `std::move()` do?', 'Casts an lvalue to an rvalue reference enabling move semantics', ['Physically copies memory', 'Deletes string'], '`std::move` converts lvalues to rvalue references.'),
               ]),
             }),
-          ],
+            lesson('Smart Pointers (`std::unique_ptr`, `std::shared_ptr`)', 'cpp-smart-pointers', `# Smart Pointers\n\nEliminate manual delete calls using \`std::unique_ptr\` and reference-counted \`std::shared_ptr\`.`, {
+              starterCode: `#include <iostream>\n#include <memory>\nint main() {\n    auto ptr = std::make_unique<int>(42);\n    std::cout << *ptr << std::endl;\n    return 0;\n}`,
+              solutionCode: `#include <iostream>\n#include <memory>\nint main() {\n    auto ptr = std::make_unique<int>(42);\n    std::cout << *ptr << std::endl;\n    return 0;\n}`,
+              codeLanguage: 'cpp',
+              quiz: quiz('Smart Pointers Quiz', [
+                mcq('Which smart pointer enforces exclusive single ownership?', 'std::unique_ptr', ['std::shared_ptr', 'std::weak_ptr'], '`unique_ptr` cannot be copied, only moved.'),
+              ]),
+            }),
+            lesson('Operator Overloading', 'cpp-operator-overloading', `# Operator Overloading\n\nCustomize standard mathematical and output operators for user-defined structs and classes.`, {
+              starterCode: `#include <iostream>\nstruct Point {\n    int x, y;\n    Point operator+(const Point& other) const {\n        return {x + other.x, y + other.y};\n    }\n};\nint main() { Point p1{1, 2}, p2{3, 4}; Point p3 = p1 + p2; std::cout << p3.x << "," << p3.y << std::endl; }`,
+              solutionCode: `#include <iostream>\nstruct Point {\n    int x, y;\n    Point operator+(const Point& other) const {\n        return {x + other.x, y + other.y};\n    }\n};\nint main() { Point p1{1, 2}, p2{3, 4}; Point p3 = p1 + p2; std::cout << p3.x << "," << p3.y << std::endl; }`,
+              codeLanguage: 'cpp',
+              quiz: quiz('Operator Overloading Quiz', [
+                trueFalse('Operator overloading allows defining custom behavior for binary operators like `+` and `==`.', true),
+              ]),
+            }),
+            lesson('Inheritance & Virtual Functions (`virtual`, `override`)', 'cpp-polymorphism', `# Polymorphism\n\nEnable runtime dynamic dispatch by marking base methods with \`virtual\` and derived methods with \`override\`.`, {
+              starterCode: `#include <iostream>\nclass Base { public: virtual void show() { std::cout << "Base\\n"; } };\nclass Derived : public Base { public: void show() override { std::cout << "Derived\\n"; } };\nint main() { Base* b = new Derived(); b->show(); delete b; }`,
+              solutionCode: `#include <iostream>\nclass Base { public: virtual void show() { std::cout << "Base\\n"; } };\nclass Derived : public Base { public: void show() override { std::cout << "Derived\\n"; } };\nint main() { Base* b = new Derived(); b->show(); delete b; }`,
+              codeLanguage: 'cpp',
+              quiz: quiz('CPP Polymorphism Quiz', [
+                mcq('What table does C++ use under the hood for dynamic virtual method dispatch?', 'vtable (Virtual Method Table)', ['hash map', 'array list'], 'The vtable holds pointers to virtual functions.'),
+              ]),
+            }),
+          ]
         },
-      ],
+        {
+          title: 'Module 3: Templates & STL',
+          lessons: [
+            lesson('Function & Class Templates', 'cpp-templates', `# Templates\n\nGeneric programming with templates: \`template <typename T> T maxVal(T a, T b)\`.`, {
+              starterCode: `#include <iostream>\ntemplate <typename T>\nT add(T a, T b) { return a + b; }\nint main() { std::cout << add(3, 4) << " " << add(2.5, 1.5) << std::endl; }`,
+              solutionCode: `#include <iostream>\ntemplate <typename T>\nT add(T a, T b) { return a + b; }\nint main() { std::cout << add(3, 4) << " " << add(2.5, 1.5) << std::endl; }`,
+              codeLanguage: 'cpp',
+              quiz: quiz('Templates Quiz', [
+                trueFalse('C++ templates perform compile-time type instantiation.', true),
+              ]),
+            }),
+            lesson('STL Containers (`std::vector`, `std::unordered_map`)', 'cpp-stl-containers', `# STL Containers\n\nUse dynamic arrays (\`std::vector\`) and hash maps (\`std::unordered_map\`) for high performance.`, {
+              starterCode: `#include <iostream>\n#include <vector>\n#include <unordered_map>\nint main() {\n    std::vector<int> vec = {1, 2, 3};\n    vec.push_back(4);\n    std::cout << "Size: " << vec.size() << std::endl;\n}`,
+              solutionCode: `#include <iostream>\n#include <vector>\n#include <unordered_map>\nint main() {\n    std::vector<int> vec = {1, 2, 3};\n    vec.push_back(4);\n    std::cout << "Size: " << vec.size() << std::endl;\n}`,
+              codeLanguage: 'cpp',
+              quiz: quiz('STL Containers Quiz', [
+                mcq('What is the average time complexity of element insertion in `std::unordered_map`?', 'O(1)', ['O(N)', 'O(log N)'], 'Unordered map is backed by a hash table.'),
+              ]),
+            }),
+            lesson('STL Algorithms (`std::sort`, `std::transform`)', 'cpp-stl-algorithms', `# STL Algorithms\n\nPerform fast sorting, searching, and transformations using \`<algorithm>\`.`, {
+              starterCode: `#include <iostream>\n#include <vector>\n#include <algorithm>\nint main() {\n    std::vector<int> v = {4, 1, 3, 2};\n    std::sort(v.begin(), v.end());\n    for(int x : v) std::cout << x << " ";\n}`,
+              solutionCode: `#include <iostream>\n#include <vector>\n#include <algorithm>\nint main() {\n    std::vector<int> v = {4, 1, 3, 2};\n    std::sort(v.begin(), v.end());\n    for(int x : v) std::cout << x << " ";\n}`,
+              codeLanguage: 'cpp',
+              quiz: quiz('STL Algorithms Quiz', [
+                mcq('What algorithm sorts elements in a range in O(N log N) time?', 'std::sort', ['std::find', 'std::fill'], '`std::sort` uses introsort.'),
+              ]),
+            }),
+            lesson('C++20 Concepts & Ranges', 'cpp20-concepts', `# C++20 Concepts\n\nConstrain template parameters explicitly with concepts: \`template <std::integral T>\`.`, {
+              starterCode: `#include <iostream>\n#include <concepts>\ntemplate <std::integral T>\nT addInts(T a, T b) { return a + b; }\nint main() { std::cout << addInts(10, 20) << std::endl; }`,
+              solutionCode: `#include <iostream>\n#include <concepts>\ntemplate <std::integral T>\nT addInts(T a, T b) { return a + b; }\nint main() { std::cout << addInts(10, 20) << std::endl; }`,
+              codeLanguage: 'cpp',
+              quiz: quiz('C++20 Concepts Quiz', [
+                trueFalse('C++20 Concepts provide clear compile-time error messages for template constraints.', true),
+              ]),
+            }),
+            lesson('C++ Capstone: High-Performance Memory Pool Manager', 'cpp-capstone', `# C++ Capstone\n\nBuild a custom high-speed memory arena allocator in C++.`, {
+              starterCode: `#include <iostream>\nint main() {\n    std::cout << "=== HIGH-PERFORMANCE MEMORY POOL ===" << std::endl;\n    return 0;\n}`,
+              solutionCode: `#include <iostream>\nint main() {\n    std::cout << "=== HIGH-PERFORMANCE MEMORY POOL ===" << std::endl;\n    return 0;\n}`,
+              codeLanguage: 'cpp',
+              quiz: quiz('CPP Capstone Quiz', [
+                mcq('Why build a custom arena memory allocator?', 'To eliminate dynamic heap allocation overhead in tight performance loops', ['To format strings', 'To compress files'], 'Arena allocators pre-allocate continuous memory blocks for ultra-fast allocations.'),
+              ]),
+            }),
+          ]
+        }
+      ]
     },
 
-    // ━━━━━━━━━━━━━━━━━━━ RUST PROGRAMMING ━━━━━━━━━━━━━━━━━━━
+    // ━━━━━━━━━━━━━━━━━━━ RUST SYSTEMS PROGRAMMING ━━━━━━━━━━━━━━━━━━━
     {
-      title: 'Rust Programming',
-      slug: 'rust-programming',
-      description: 'Learn Rust — the language of safety and performance. Master ownership, borrowing, traits, and fearless concurrency.',
+      title: 'Rust Systems Programming',
+      slug: 'rust-systems-programming',
+      description: 'Master memory safety without garbage collection — ownership, borrowing, lifetimes, pattern matching, and concurrent Rust.',
       difficulty: 'advanced',
       language: 'en',
-      estimatedHours: 30,
+      estimatedHours: 25,
       resources: [
-        { resourceType: 'ebook', title: 'The Rust Programming Language (Free)', url: 'https://doc.rust-lang.org/book/', author: 'Steve Klabnik & Carol Nichols' },
-        { resourceType: 'youtube', title: 'Rust Crash Course', url: 'https://www.youtube.com/watch?v=zF34dRivLOw', author: 'Traversy Media', platform: 'YouTube' },
-        { resourceType: 'article', title: 'Rust by Example', url: 'https://doc.rust-lang.org/rust-by-example/', author: 'rust-lang.org' },
+        { resourceType: 'youtube', title: 'Rust Crash Course for Beginners', url: 'https://www.youtube.com/watch?v=zF34dRivLOw', author: 'Traversy Media', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Rust Language Tutorial in 100 Seconds', url: 'https://www.youtube.com/watch?v=5C_HPTJg5ek', author: 'Fireship', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Rust Ownership, Borrowing & Lifetimes Explained', url: 'https://www.youtube.com/watch?v=VFIOSWy93Hg', author: 'Jon Gjengset', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Ultimate Rust Programming Masterclass', url: 'https://www.youtube.com/watch?v=2hXNkHuplSU', author: 'FreeCodeCamp', platform: 'YouTube' },
+        { resourceType: 'youtube', title: 'Building Async Web Applications in Rust (Tokio & Axum)', url: 'https://www.youtube.com/watch?v=XZtlD_m59sA', author: 'Brooks Builds', platform: 'YouTube' },
+        { resourceType: 'ebook', title: 'The Rust Programming Language (Official Book)', url: 'https://doc.rust-lang.org/book/', author: 'Steve Klabnik & Carol Nichols' },
+        { resourceType: 'article', title: 'Rust by Example Interactive Guide', url: 'https://doc.rust-lang.org/rust-by-example/', author: 'Rust Community' },
+        { resourceType: 'cheatsheet', title: 'Rust Syntax & Ownership Cheat Sheet', url: 'https://cheats.rs/', author: 'cheats.rs' },
+        { resourceType: 'article', title: 'Awesome Rust Repositories & Libraries', url: 'https://github.com/rust-unofficial/awesome-rust', author: 'Rust Unofficial' },
+        { resourceType: 'cheatsheet', title: 'Rust Standard Library API Docs', url: 'https://doc.rust-lang.org/std/', author: 'Rust Team' },
       ],
       modules: [
         {
-          title: 'Rust Foundations',
-          description: 'Get started with Rust syntax and the ownership model.',
+          title: 'Module 1: Ownership & Borrowing',
           lessons: [
-            setupLesson('Rust Programming', 'rust-programming', 'rust',
-              `1. Install Rust via [rustup.rs](https://rustup.rs/)
-2. Verify: \`rustc --version\` and \`cargo --version\`
-3. Create a project: \`cargo new hello_rust\``,
+            setupLesson('Rust Systems Programming', 'rust-systems-programming', 'rust',
+              `1. Install Rust via rustup: \`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\`\n2. Verify installation: \`rustc --version\` and \`cargo --version\`\n3. Create project: \`cargo new hello_rust\`\n4. Run: \`cargo run\``,
               `fn main() {\n    println!("Hello, Rust!");\n}`,
-              `fn main() {\n    println!("Hello, Rust!");\n}`,
-              '- Rust toolchain via rustup'
+              `fn main() {\n    println!("Hello, Rust!");\n}`
             ),
-            lesson('Ownership & Borrowing', 'ownership-borrowing', `# Ownership & Borrowing
-
-Rust's **ownership system** eliminates memory bugs at compile time — no garbage collector needed.
-
-## Ownership Rules
-1. Each value has exactly **one owner**
-2. When the owner goes out of scope, the value is **dropped**
-3. Values can be **moved** or **borrowed**
-
-## Moving Ownership
-
-\`\`\`rust
-let s1 = String::from("hello");
-let s2 = s1;          // s1 is MOVED to s2
-// println!("{}", s1); // ERROR! s1 is no longer valid
-println!("{}", s2);    // OK
-\`\`\`
-
-## Borrowing with References
-
-\`\`\`rust
-fn print_length(s: &String) {   // Borrow (immutable reference)
-    println!("Length: {}", s.len());
-}
-
-let s = String::from("hello");
-print_length(&s);    // Borrow s
-println!("{}", s);   // s is still valid!
-\`\`\`
-
-## Mutable References
-
-\`\`\`rust
-fn add_world(s: &mut String) {
-    s.push_str(", world!");
-}
-
-let mut s = String::from("hello");
-add_world(&mut s);
-println!("{}", s);  // "hello, world!"
-\`\`\`
-
-## The Rule
-You can have **either**:
-- One mutable reference, **OR**
-- Any number of immutable references
-
-Never both at the same time!`, {
-              starterCode: `fn main() {\n    // Ownership demo\n    let s1 = String::from("hello");\n    let s2 = s1.clone(); // Clone instead of move\n    println!("s1: {}, s2: {}", s1, s2);\n    \n    // Borrowing demo\n    let s3 = String::from("Rust is fast");\n    let length = calculate_length(&s3);\n    println!("'{}' has {} characters", s3, length);\n}\n\nfn calculate_length(s: &String) -> usize {\n    s.len()\n}`,
-              solutionCode: `fn main() {\n    let s1 = String::from("hello");\n    let s2 = s1.clone();\n    println!("s1: {}, s2: {}", s1, s2);\n    \n    let s3 = String::from("Rust is fast");\n    let length = calculate_length(&s3);\n    println!("'{}' has {} characters", s3, length);\n}\n\nfn calculate_length(s: &String) -> usize {\n    s.len()\n}`,
+            lesson('Variables & Immutability (`let`, `mut`)', 'rust-variables', `# Variables in Rust\n\nVariables are immutable by default: \`let x = 5;\`. Make mutable with \`let mut x = 5;\`.`, {
+              starterCode: `fn main() {\n    let mut score = 10;\n    score += 5;\n    println!("Score: {}", score);\n}`,
+              solutionCode: `fn main() {\n    let mut score = 10;\n    score += 5;\n    println!("Score: {}", score);\n}`,
               codeLanguage: 'rust',
-              estimatedMinutes: 30,
-              xpReward: 80,
-              quiz: quiz('Ownership Quiz', [
-                mcq('What happens when a String is assigned to another variable?', 'The original is moved (invalidated)', ['It is copied', 'Both share it'], 'Strings are moved, not copied. Use `.clone()` for a deep copy.'),
-                mcq('How many mutable references can exist at once?', 'One', ['Unlimited', 'Two'], 'Rust allows only one `&mut` reference at a time to prevent data races.'),
-                trueFalse('Borrowing transfers ownership.', false, 'Borrowing lets you use a value without taking ownership.'),
+              quiz: quiz('Rust Variables Quiz', [
+                mcq('Are Rust variables mutable or immutable by default?', 'Immutable', ['Mutable', 'Static'], 'Rust enforces immutability by default for safety.'),
               ]),
             }),
-            lesson('Structs, Enums & Pattern Matching', 'structs-enums', `# Structs, Enums & Pattern Matching
-
-## Structs
-
-\`\`\`rust
-struct User {
-    name: String,
-    age: u32,
-    active: bool,
-}
-
-impl User {
-    fn new(name: &str, age: u32) -> Self {
-        User {
-            name: String::from(name),
-            age,
-            active: true,
-        }
-    }
-    
-    fn greet(&self) -> String {
-        format!("Hi, I'm {} (age {})", self.name, self.age)
-    }
-}
-\`\`\`
-
-## Enums
-
-\`\`\`rust
-enum Shape {
-    Circle(f64),             // radius
-    Rectangle(f64, f64),     // width, height
-    Triangle(f64, f64, f64), // sides
-}
-\`\`\`
-
-## Pattern Matching with \`match\`
-
-\`\`\`rust
-fn area(shape: &Shape) -> f64 {
-    match shape {
-        Shape::Circle(r) => std::f64::consts::PI * r * r,
-        Shape::Rectangle(w, h) => w * h,
-        Shape::Triangle(a, b, c) => {
-            let s = (a + b + c) / 2.0;
-            (s * (s-a) * (s-b) * (s-c)).sqrt()
-        }
-    }
-}
-\`\`\`
-
-## Option & Result
-
-\`\`\`rust
-fn divide(a: f64, b: f64) -> Option<f64> {
-    if b == 0.0 { None } else { Some(a / b) }
-}
-
-match divide(10.0, 3.0) {
-    Some(result) => println!("Result: {}", result),
-    None => println!("Cannot divide by zero!"),
-}
-\`\`\``, {
-              starterCode: `fn main() {\n    // Simulating structs and pattern matching\n    let shape_type = "circle";\n    let radius = 5.0;\n    let width = 4.0;\n    let height = 6.0;\n    \n    let area = match shape_type {\n        "circle" => std::f64::consts::PI * radius * radius,\n        "rectangle" => width * height,\n        _ => 0.0,\n    };\n    \n    println!("Shape: {}, Area: {:.2}", shape_type, area);\n    \n    // Option demo\n    let result = divide(10.0, 3.0);\n    match result {\n        Some(v) => println!("10 / 3 = {:.4}", v),\n        None => println!("Cannot divide by zero!"),\n    }\n}\n\nfn divide(a: f64, b: f64) -> Option<f64> {\n    if b == 0.0 { None } else { Some(a / b) }\n}`,
-              solutionCode: `fn main() {\n    let shape_type = "circle";\n    let radius = 5.0;\n    let width = 4.0;\n    let height = 6.0;\n    \n    let area = match shape_type {\n        "circle" => std::f64::consts::PI * radius * radius,\n        "rectangle" => width * height,\n        _ => 0.0,\n    };\n    \n    println!("Shape: {}, Area: {:.2}", shape_type, area);\n    \n    let result = divide(10.0, 3.0);\n    match result {\n        Some(v) => println!("10 / 3 = {:.4}", v),\n        None => println!("Cannot divide by zero!"),\n    }\n}\n\nfn divide(a: f64, b: f64) -> Option<f64> {\n    if b == 0.0 { None } else { Some(a / b) }\n}`,
+            lesson('Ownership Rules & Move Semantics', 'rust-ownership', `# Ownership\n\n1. Each value in Rust has an owner.\n2. There can only be one owner at a time.\n3. When the owner goes out of scope, the value is dropped.`, {
+              starterCode: `fn main() {\n    let s1 = String::from("hello");\n    let s2 = s1; // Ownership moves to s2\n    println!("{}", s2);\n}`,
+              solutionCode: `fn main() {\n    let s1 = String::from("hello");\n    let s2 = s1;\n    println!("{}", s2);\n}`,
               codeLanguage: 'rust',
-              estimatedMinutes: 30,
-              xpReward: 80,
-              quiz: quiz('Structs & Enums Quiz', [
-                mcq('What is Rust\'s `Option` type used for?', 'Representing a value that may or may not exist', ['Error handling only', 'Type casting'], '`Option<T>` is either `Some(T)` or `None`.'),
-                trueFalse('`match` in Rust must handle all possible cases.', true, 'Rust\'s `match` must be exhaustive — use `_` as a catch-all.'),
+              quiz: quiz('Rust Ownership Quiz', [
+                mcq('What happens to `s1` after `let s2 = s1;` for a heap String?', 's1 is invalidated (moved)', ['s1 is copied', 's2 becomes a pointer to s1'], 'Ownership moves to s2, rendering s1 invalid.'),
               ]),
             }),
-          ],
+            lesson('Borrowing & References (`&`, `&mut`)', 'rust-borrowing', `# Borrowing\n\nBorrow values without taking ownership using references: \`&T\` (immutable) or \`&mut T\` (mutable).`, {
+              starterCode: `fn calculate_length(s: &String) -> usize {\n    s.len()\n}\nfn main() {\n    let s = String::from("hello");\n    let len = calculate_length(&s);\n    println!("Length of '{}' is {}.", s, len);\n}`,
+              solutionCode: `fn calculate_length(s: &String) -> usize {\n    s.len()\n}\nfn main() {\n    let s = String::from("hello");\n    let len = calculate_length(&s);\n    println!("Length of '{}' is {}.", s, len);\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Rust Borrowing Quiz', [
+                mcq('How many mutable references to a piece of data can exist at once in a scope?', 'Exactly one', ['Unlimited', 'Two'], 'Rust enforces Aliasing XOR Mutability.'),
+              ]),
+            }),
+            lesson('Slices & String Types (`&str`, `String`)', 'rust-slices', `# Slices\n\nSlices reference a contiguous sequence of elements in a collection without taking ownership.`, {
+              starterCode: `fn main() {\n    let s = String::from("hello world");\n    let word = &s[0..5];\n    println!("Slice: {}", word);\n}`,
+              solutionCode: `fn main() {\n    let s = String::from("hello world");\n    let word = &s[0..5];\n    println!("Slice: {}", word);\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Rust Slices Quiz', [
+                trueFalse('`&str` is an immutable string slice pointing to UTF-8 data.', true),
+              ]),
+            }),
+          ]
         },
-      ],
-    },
-  ],
+        {
+          title: 'Module 2: Structs, Enums & Pattern Matching',
+          lessons: [
+            lesson('Structs & Implementation Blocks (`impl`)', 'rust-structs', `# Structs\n\nDefine custom data structures and attach methods using \`impl StructName {}\`.`, {
+              starterCode: `struct User {\n    username: String,\n    active: bool,\n}\nimpl User {\n    fn new(name: &str) -> Self {\n        Self { username: name.to_string(), active: true }\n    }\n}\nfn main() {\n    let u = User::new("scott");\n    println!("{}", u.username);\n}`,
+              solutionCode: `struct User {\n    username: String,\n    active: bool,\n}\nimpl User {\n    fn new(name: &str) -> Self {\n        Self { username: name.to_string(), active: true }\n    }\n}\nfn main() {\n    let u = User::new("scott");\n    println!("{}", u.username);\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Rust Structs Quiz', [
+                mcq('Where are methods associated with a struct declared in Rust?', 'Inside an `impl` block', ['Inside the struct definition', 'In main.rs'], '`impl` blocks house methods.'),
+              ]),
+            }),
+            lesson('Enums & The `Option` / `Result` Types', 'rust-enums', `# Enums & Error Types\n\nRust handles optionality with \`Option<T>\` (\`Some\`, \`None\`) and errors with \`Result<T, E>\` (\`Ok\`, \`Err\`).`, {
+              starterCode: `fn divide(a: f64, b: f64) -> Option<f64> {\n    if b == 0.0 { None } else { Some(a / b) }\n}\nfn main() {\n    match divide(10.0, 2.0) {\n        Some(val) => println!("Result: {}", val),\n        None => println!("Cannot divide by zero!"),\n    }\n}`,
+              solutionCode: `fn divide(a: f64, b: f64) -> Option<f64> {\n    if b == 0.0 { None } else { Some(a / b) }\n}\nfn main() {\n    match divide(10.0, 2.0) {\n        Some(val) => println!("Result: {}", val),\n        None => println!("Cannot divide by zero!"),\n    }\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Rust Enums Quiz', [
+                mcq('Does Rust have a `null` value?', 'No, Rust uses `Option<T>` instead', ['Yes, null pointers exist', 'Only in debug mode'], 'Rust avoids null pointers by using explicit `Option<T>`.'),
+              ]),
+            }),
+            lesson('Pattern Matching (`match`, `if let`)', 'rust-pattern-matching', `# Pattern Matching\n\nExhaustive control flow matching using \`match\` expressions and \`if let\` shortcuts.`, {
+              starterCode: `fn main() {\n    let number = 7;\n    match number {\n        1 => println!("One"),\n        7 => println!("Seven!"),\n        _ => println!("Other"),\n    }\n}`,
+              solutionCode: `fn main() {\n    let number = 7;\n    match number {\n        1 => println!("One"),\n        7 => println!("Seven!"),\n        _ => println!("Other"),\n    }\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Pattern Matching Quiz', [
+                trueFalse('Rust `match` arms must be exhaustive, covering all possible enum variants or values.', true),
+              ]),
+            }),
+            lesson('Traits & Shared Behavior (`trait`)', 'rust-traits', `# Traits\n\nDefine shared behavior across types using traits (similar to interfaces).`, {
+              starterCode: `pub trait Summary {\n    fn summarize(&self) -> String;\n}\nstruct Article { title: String }\nimpl Summary for Article {\n    fn summarize(&self) -> String { format!("Title: {}", self.title) }\n}\nfn main() { let a = Article { title: String::from("Rust Rules") }; println!("{}", a.summarize()); }`,
+              solutionCode: `pub trait Summary {\n    fn summarize(&self) -> String;\n}\nstruct Article { title: String }\nimpl Summary for Article {\n    fn summarize(&self) -> String { format!("Title: {}", self.title) }\n}\nfn main() { let a = Article { title: String::from("Rust Rules") }; println!("{}", a.summarize()); }`,
+              codeLanguage: 'rust',
+              quiz: quiz('Traits Quiz', [
+                mcq('What keyword defines shared behavior across Rust types?', 'trait', ['interface', 'abstract'], 'Traits define shared behavior interfaces.'),
+              ]),
+            }),
+            lesson('Lifetimes & Generic Lifetime Annotations (`\'a`)', 'rust-lifetimes', `# Lifetimes\n\nHelp the Rust borrow checker ensure references remain valid for a specified scope (\`\'a\`).`, {
+              starterCode: `fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {\n    if x.len() > y.len() { x } else { y }\n}\nfn main() {\n    let str1 = "long string";\n    let str2 = "short";\n    println!("Longest: {}", longest(str1, str2));\n}`,
+              solutionCode: `fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {\n    if x.len() > y.len() { x } else { y }\n}\nfn main() {\n    let str1 = "long string";\n    let str2 = "short";\n    println!("Longest: {}", longest(str1, str2));\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Lifetimes Quiz', [
+                mcq('What is the main purpose of Rust lifetime annotations?', 'To ensure returned references do not outlive the data they point to', ['To increase loop speed', 'To allocate memory'], 'Lifetimes prevent dangling references at compile time.'),
+              ]),
+            }),
+          ]
+        },
+        {
+          title: 'Module 3: Concurrency & Cargo Ecosystem',
+          lessons: [
+            lesson('Fearless Concurrency (`std::thread`, channels)', 'rust-concurrency', `# Concurrency\n\nSpawn lightweight OS threads and pass messages via MPSC channels (\`std::sync::mpsc\`).`, {
+              starterCode: `use std::thread;\nuse std::sync::mpsc;\nfn main() {\n    let (tx, rx) = mpsc::channel();\n    thread::spawn(move || {\n        tx.send("Hello from thread!").unwrap();\n    });\n    println!("{}", rx.recv().unwrap());\n}`,
+              solutionCode: `use std::thread;\nuse std::sync::mpsc;\nfn main() {\n    let (tx, rx) = mpsc::channel();\n    thread::spawn(move || {\n        tx.send("Hello from thread!").unwrap();\n    });\n    println!("{}", rx.recv().unwrap());\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Rust Concurrency Quiz', [
+                mcq('What does MPSC stand for in Rust channels?', 'Multi-Producer, Single-Consumer', ['Multi-Processor, Single-Core', 'Memory Protection System Code'], 'MPSC allows multiple senders and one receiver.'),
+              ]),
+            }),
+            lesson('Shared State Concurrency (`Arc<Mutex<T>>`)', 'rust-arc-mutex', `# Arc & Mutex\n\nShare mutable state safely across threads using Atomic Reference Counting (\`Arc\`) and \`Mutex\`.`, {
+              starterCode: `use std::sync::{Arc, Mutex};\nuse std::thread;\nfn main() {\n    let counter = Arc::new(Mutex::new(0));\n    let counter_clone = Arc::clone(&counter);\n    let handle = thread::spawn(move || {\n        let mut num = counter_clone.lock().unwrap();\n        *num += 1;\n    });\n    handle.join().unwrap();\n    println!("Result: {}", *counter.lock().unwrap());\n}`,
+              solutionCode: `use std::sync::{Arc, Mutex};\nuse std::thread;\nfn main() {\n    let counter = Arc::new(Mutex::new(0));\n    let counter_clone = Arc::clone(&counter);\n    let handle = thread::spawn(move || {\n        let mut num = counter_clone.lock().unwrap();\n        *num += 1;\n    });\n    handle.join().unwrap();\n    println!("Result: {}", *counter.lock().unwrap());\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Arc Mutex Quiz', [
+                trueFalse('`Arc` allows thread-safe reference counting across thread boundaries.', true),
+              ]),
+            }),
+            lesson('Async Rust with Tokio (`async/await`)', 'rust-tokio-async', `# Async Rust\n\nWrite asynchronous non-blocking applications using Tokio runtime and \`async/await\`.`, {
+              starterCode: `#[tokio::main]\nasync fn main() {\n    println!("Executing async task...");\n}`,
+              solutionCode: `#[tokio::main]\nasync fn main() {\n    println!("Executing async task...");\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Async Rust Quiz', [
+                mcq('What popular asynchronous runtime is widely used in Rust web development?', 'Tokio', ['React', 'Spring'], 'Tokio is the industry-standard async event loop for Rust.'),
+              ]),
+            }),
+            lesson('Cargo Packages, Crates & `Cargo.toml`', 'rust-cargo-ecosystem', `# Cargo Ecosystem\n\nManage dependencies and packages with \`Cargo.toml\` and crates.io repository.`, {
+              starterCode: `[package]\nname = "my_app"\nversion = "0.1.0"\nedition = "2021"\n\n[dependencies]\nserde = { version = "1.0", features = ["derive"] }`,
+              solutionCode: `[package]\nname = "my_app"\nversion = "0.1.0"\nedition = "2021"\n\n[dependencies]\nserde = { version = "1.0", features = ["derive"] }`,
+              codeLanguage: 'toml',
+              quiz: quiz('Cargo Quiz', [
+                mcq('What is the official Rust package registry?', 'crates.io', ['npm.org', 'pypi.org'], 'crates.io hosts Rust community crates.'),
+              ]),
+            }),
+            lesson('Rust Capstone Project: High-Speed Multithreaded Web Server', 'rust-capstone', `# Rust Capstone\n\nBuild a concurrent multi-threaded TCP web server in Rust using thread pools and safe ownership.`, {
+              starterCode: `use std::net::TcpListener;\nfn main() {\n    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();\n    println!("Server listening on port 7878...");\n}`,
+              solutionCode: `use std::net::TcpListener;\nfn main() {\n    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();\n    println!("Server listening on port 7878...");\n}`,
+              codeLanguage: 'rust',
+              quiz: quiz('Rust Capstone Quiz', [
+                mcq('What core guarantee does Rust offer at compile time?', 'Memory safety without garbage collection', ['Automatic web deployment', 'Built-in SQL database'], 'Rust eliminates data races and memory bugs at compile time.'),
+              ]),
+            }),
+          ]
+        }
+      ]
+    }
+  ]
 };
