@@ -5,6 +5,7 @@ import {
   Trophy, 
   HelpCircle, 
   Settings,
+  Briefcase,
   Code2,
   Globe,
   GitBranch,
@@ -20,6 +21,7 @@ export default function Sidebar() {
   const mainLinks = [
     { href: '/dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
     { href: '/courses', label: 'All Courses', icon: <BookOpen size={20} /> },
+    { href: '/career', label: 'Big Tech Career Hub', icon: <Briefcase size={20} color="#10b981" /> },
     { href: '/leaderboard', label: 'Leaderboard', icon: <Trophy size={20} /> },
     { href: '/faq', label: 'FAQ', icon: <HelpCircle size={20} /> },
     { href: '/settings', label: 'Settings', icon: <Settings size={20} /> },

@@ -50,6 +50,7 @@ export async function POST(req: Request) {
     const timesRoman = await pdfDoc.embedFont(StandardFonts.TimesRoman);
     const timesRomanBold = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
     const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
     // ── Background border ──
     page.drawRectangle({
@@ -57,7 +58,7 @@ export async function POST(req: Request) {
       y: 20,
       width: width - 40,
       height: height - 40,
-      borderColor: rgb(0.33, 0.36, 0.96),
+      borderColor: rgb(0.39, 0.4, 0.95), // Indigo
       borderWidth: 3,
     });
     page.drawRectangle({
@@ -65,112 +66,122 @@ export async function POST(req: Request) {
       y: 30,
       width: width - 60,
       height: height - 60,
-      borderColor: rgb(0.55, 0.36, 0.96),
+      borderColor: rgb(0.06, 0.72, 0.83), // Cyan accent
       borderWidth: 1,
     });
 
-    // ── Header ──
-    const headerText = '🎓 CODE-MENTOR';
-    page.drawText('CODE-MENTOR', {
-      x: width / 2 - 100,
-      y: height - 70,
-      size: 18,
-      font: helvetica,
-      color: rgb(0.55, 0.36, 0.96),
+    // ── Header Branding ──
+    page.drawText('CODE-MENTOR | BIG-TECH CAREER VERIFIED CERTIFICATE', {
+      x: width / 2 - 200,
+      y: height - 65,
+      size: 13,
+      font: helveticaBold,
+      color: rgb(0.39, 0.4, 0.95),
     });
 
     // ── Title ──
-    const titleText = 'Certificate of Completion';
-    const titleWidth = timesRomanBold.widthOfTextAtSize(titleText, 36);
+    const titleText = 'Certificate of Professional Mastery';
+    const titleWidth = timesRomanBold.widthOfTextAtSize(titleText, 34);
     page.drawText(titleText, {
       x: (width - titleWidth) / 2,
-      y: height - 130,
-      size: 36,
+      y: height - 120,
+      size: 34,
       font: timesRomanBold,
       color: rgb(0.07, 0.07, 0.14),
     });
 
     // ── Decorative line ──
     page.drawLine({
-      start: { x: width / 2 - 150, y: height - 145 },
-      end: { x: width / 2 + 150, y: height - 145 },
+      start: { x: width / 2 - 160, y: height - 135 },
+      end: { x: width / 2 + 160, y: height - 135 },
       thickness: 2,
-      color: rgb(0.33, 0.36, 0.96),
+      color: rgb(0.39, 0.4, 0.95),
     });
 
-    // ── Body ──
+    // ── Certifies Text ──
     const certifiesText = 'This is to certify that';
-    const certifiesWidth = timesRoman.widthOfTextAtSize(certifiesText, 16);
+    const certifiesWidth = timesRoman.widthOfTextAtSize(certifiesText, 15);
     page.drawText(certifiesText, {
       x: (width - certifiesWidth) / 2,
-      y: height - 190,
-      size: 16,
+      y: height - 175,
+      size: 15,
       font: timesRoman,
       color: rgb(0.29, 0.33, 0.39),
     });
 
     // ── User name ──
     const displayName = user.username.toUpperCase();
-    const nameWidth = timesRomanBold.widthOfTextAtSize(displayName, 30);
+    const nameWidth = timesRomanBold.widthOfTextAtSize(displayName, 28);
     page.drawText(displayName, {
       x: (width - nameWidth) / 2,
-      y: height - 240,
-      size: 30,
+      y: height - 220,
+      size: 28,
       font: timesRomanBold,
       color: rgb(0.06, 0.09, 0.16),
     });
 
-    // ── Completion text ──
-    const completedText = 'has successfully completed the course';
-    const completedWidth = timesRoman.widthOfTextAtSize(completedText, 16);
+    // ── Completion Text ──
+    const completedText = 'has successfully mastered all hands-on lessons, quizzes, and capstone labs for';
+    const completedWidth = timesRoman.widthOfTextAtSize(completedText, 14);
     page.drawText(completedText, {
       x: (width - completedWidth) / 2,
-      y: height - 290,
-      size: 16,
+      y: height - 265,
+      size: 14,
       font: timesRoman,
       color: rgb(0.29, 0.33, 0.39),
     });
 
-    // ── Course title ──
+    // ── Course Title ──
     const courseTitle = course.title;
-    const courseTitleWidth = timesRomanBold.widthOfTextAtSize(courseTitle, 24);
+    const courseTitleWidth = timesRomanBold.widthOfTextAtSize(courseTitle, 22);
     page.drawText(courseTitle, {
       x: (width - courseTitleWidth) / 2,
-      y: height - 340,
-      size: 24,
+      y: height - 310,
+      size: 22,
       font: timesRomanBold,
-      color: rgb(0.33, 0.36, 0.96),
+      color: rgb(0.39, 0.4, 0.95),
     });
 
-    // ── Date & Certificate Number ──
+    // ── Competency Subtext ──
+    const compText = 'Demonstrating FAANG & Big-Tech Technical Problem Solving & Industry Competency.';
+    const compWidth = helvetica.widthOfTextAtSize(compText, 11);
+    page.drawText(compText, {
+      x: (width - compWidth) / 2,
+      y: height - 345,
+      size: 11,
+      font: helvetica,
+      color: rgb(0.06, 0.72, 0.83),
+    });
+
+    // ── Signatures ──
+    // Left Signature: Scott Yann
+    page.drawLine({ start: { x: 80, y: 130 }, end: { x: 280, y: 130 }, thickness: 1, color: rgb(0.6, 0.6, 0.6) });
+    page.drawText('Scott Yann', { x: 140, y: 112, size: 12, font: helveticaBold, color: rgb(0.1, 0.1, 0.2) });
+    page.drawText('Platform Author & Creator', { x: 115, y: 96, size: 10, font: helvetica, color: rgb(0.4, 0.4, 0.5) });
+
+    // Right Signature: Google Gemini AI
+    page.drawLine({ start: { x: width - 280, y: 130 }, end: { x: width - 80, y: 130 }, thickness: 1, color: rgb(0.6, 0.6, 0.6) });
+    page.drawText('Google DeepMind Gemini AI', { x: width - 260, y: 112, size: 12, font: helveticaBold, color: rgb(0.39, 0.4, 0.95) });
+    page.drawText('AI Pair-Programming & Pedagogy Lead', { x: width - 275, y: 96, size: 10, font: helvetica, color: rgb(0.4, 0.4, 0.5) });
+
+    // ── Date & Verification Serial ──
     const dateStr = `Issued: ${new Date(certificate.issuedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`;
     page.drawText(dateStr, {
       x: 60,
-      y: 70,
+      y: 50,
       size: 10,
       font: helvetica,
       color: rgb(0.4, 0.45, 0.53),
     });
 
-    const certNumText = `Certificate #${certificate.certificateNumber}`;
+    const certNumText = `Verification ID: ${certificate.certificateNumber}`;
     const certNumWidth = helvetica.widthOfTextAtSize(certNumText, 10);
     page.drawText(certNumText, {
       x: width - 60 - certNumWidth,
-      y: 70,
+      y: 50,
       size: 10,
       font: helvetica,
       color: rgb(0.4, 0.45, 0.53),
-    });
-
-    // ── Score ──
-    const scoreText = `Final Score: ${certificate.finalScore}%`;
-    const scoreWidth = helvetica.widthOfTextAtSize(scoreText, 12);
-    page.drawText(scoreText, {
-      x: (width - scoreWidth) / 2,
-      y: height - 390,
-      size: 12,
-      font: helvetica,
-      color: rgb(0.06, 0.5, 0.32),
     });
 
     const pdfBytes = await pdfDoc.save();
