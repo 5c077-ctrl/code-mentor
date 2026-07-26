@@ -1,8 +1,30 @@
 import { prisma } from './prisma';
 
+// Static JSON fallback imports for Vercel Serverless
+let staticCategories: any[] = [];
+let staticCourses: any[] = [];
+let staticCourseDetails: Record<string, any> = {};
+let staticLessons: Record<string, any> = {};
+
+try {
+  const staticData = require('../data');
+  staticCategories = staticData.categories || [];
+  staticCourses = staticData.courses || [];
+  staticCourseDetails = staticData.courseDetails || {};
+  staticLessons = staticData.lessons || {};
+} catch (e) {
+  // Static data not loaded yet, will rely on Prisma
+}
+
 // ─── Course Queries ──────────────────────────────────────────────
 
 export async function getAllCourses(categorySlug?: string) {
+  // Try static JSON first for instant Vercel response
+  if (staticCourses.length > 0) {
+    if (!categorySlug) return staticCourses;
+    return staticCourses.filter((c: any) => c.category?.slug === categorySlug);
+  }
+
   try {
     return await prisma.course.findMany({
       where: {
@@ -22,6 +44,11 @@ export async function getAllCourses(categorySlug?: string) {
 }
 
 export async function getCourseWithModules(slug: string) {
+  // Try static JSON first for instant Vercel response
+  if (staticCourseDetails[slug]) {
+    return staticCourseDetails[slug];
+  }
+
   try {
     return await prisma.course.findUnique({
       where: { slug },
@@ -93,6 +120,11 @@ export async function getLessonById(lessonId: string) {
 }
 
 export async function getLessonBySlug(courseSlug: string, lessonSlug: string) {
+  const key = `${courseSlug}/${lessonSlug}`;
+  if (staticLessons[key]) {
+    return staticLessons[key];
+  }
+
   try {
     const course = await prisma.course.findUnique({
       where: { slug: courseSlug },
@@ -279,6 +311,10 @@ export async function createCertificate(
 // ─── Categories ──────────────────────────────────────────────────
 
 export async function getAllCategories() {
+  if (staticCategories.length > 0) {
+    return staticCategories;
+  }
+
   try {
     return await prisma.category.findMany({
       orderBy: { sortOrder: 'asc' },

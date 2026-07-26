@@ -110,7 +110,7 @@ export default async function CoursesPage({
                   gap: '1.25rem',
                 }}
               >
-                {catSection.categoryCourses.map((course) => (
+                {catSection.categoryCourses.map((course: any) => (
                   <CourseCard key={course.id} course={course} getDifficultyVariant={getDifficultyVariant} />
                 ))}
               </div>

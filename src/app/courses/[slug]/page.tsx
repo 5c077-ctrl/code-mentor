@@ -34,12 +34,12 @@ export default async function CourseDetailPage({
   if (!course) return notFound();
 
   const totalLessons = course.modules.reduce(
-    (sum, m) => sum + m.lessons.length,
+    (sum: number, m: any) => sum + m.lessons.length,
     0
   );
   const totalMinutes = course.modules.reduce(
-    (sum, m) =>
-      sum + m.lessons.reduce((ls, l) => ls + l.estimatedMinutes, 0),
+    (sum: number, m: any) =>
+      sum + m.lessons.reduce((ls: number, l: any) => ls + l.estimatedMinutes, 0),
     0
   );
 
@@ -208,7 +208,7 @@ export default async function CourseDetailPage({
           <div
             style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
           >
-            {course.modules.map((mod, modIdx) => (
+            {course.modules.map((mod: any, modIdx: number) => (
               <Card key={mod.id} style={{ padding: '1.5rem' }}>
                 <div
                   style={{
@@ -246,7 +246,7 @@ export default async function CourseDetailPage({
                     gap: '0.75rem',
                   }}
                 >
-                  {mod.lessons.map((lesson, lessonIdx) => {
+                  {mod.lessons.map((lesson: any, lessonIdx: number) => {
                     const paddedNum = String(lessonIdx + 1).padStart(2, '0');
                     return (
                       <Link
@@ -408,7 +408,7 @@ export default async function CourseDetailPage({
                   overflowY: 'auto',
                 }}
               >
-                {course.resources.map((res) => (
+                {course.resources.map((res: any) => (
                   <a
                     key={res.id}
                     href={res.url}

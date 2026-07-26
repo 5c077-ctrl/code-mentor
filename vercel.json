@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npx prisma generate && npx prisma db push && npx tsx prisma/seed.ts && next build",
+  "buildCommand": "npx prisma generate && npx prisma db push && npx tsx prisma/seed.ts && npx tsx prisma/export-static.ts && next build",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "env": {
-    "DATABASE_URL": "file:./prisma/dev.db"
-  }
+  "framework": "nextjs"
 }

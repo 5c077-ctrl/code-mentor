@@ -1,0 +1,1536 @@
+[
+  {
+    "id": "7c4f70be-2ee6-4e1f-a16e-876c4df911cc",
+    "categoryId": "b49b5671-112d-43e2-9591-930c534b5b84",
+    "title": "ASP.NET Core",
+    "slug": "aspnet-core",
+    "description": "Build modern cross-platform C# backends, Web APIs, Entity Framework Core, and Azure microservices.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 22,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:30.283Z",
+    "category": {
+      "id": "b49b5671-112d-43e2-9591-930c534b5b84",
+      "name": "Main Back-End Frameworks",
+      "slug": "backend-frameworks",
+      "description": "Master robust server architectures with Laravel, Django, Flask, Express.js, Spring Boot, ASP.NET Core, and Rails.",
+      "icon": "⚡",
+      "color": "#10b981",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "92c04d85-144a-4a5d-a37b-25d84145aeea",
+    "categoryId": "f25e688e-be7e-4676-8406-a6bee01074a7",
+    "title": "AWS Cloud Practitioner",
+    "slug": "aws-cloud-practitioner",
+    "description": "Master core AWS services — EC2, S3, RDS, IAM, VPC, CloudFront, Lambda, and pass the AWS Certified Cloud Practitioner exam.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:41.927Z",
+    "category": {
+      "id": "f25e688e-be7e-4676-8406-a6bee01074a7",
+      "name": "Cloud Computing",
+      "slug": "cloud",
+      "description": "Master cloud infrastructure and cloud-native computing — AWS, Kubernetes, Serverless, Terraform, and Google Cloud Platform.",
+      "icon": "☁️",
+      "color": "#6366f1",
+      "sortOrder": 8
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "9783cd38-b104-4a87-a9c3-c4599615b57a",
+    "categoryId": "78911449-2750-48ec-8a92-0f633e75ec17",
+    "title": "Angular",
+    "slug": "angular",
+    "description": "Master enterprise Web App development with Angular, TypeScript, RxJS, Dependency Injection, and NgModules.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 3,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:27.936Z",
+    "category": {
+      "id": "78911449-2750-48ec-8a92-0f633e75ec17",
+      "name": "Main Front-End Frameworks",
+      "slug": "frontend-frameworks",
+      "description": "Build modern user interfaces with Angular, React, Vue.js, Svelte, and Next.js.",
+      "icon": "🎨",
+      "color": "#ec4899",
+      "sortOrder": 4
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "d50614f3-b063-49fa-bef4-9d51dd7c0f29",
+    "categoryId": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+    "title": "Basic Computer Programming",
+    "slug": "basic-computer-programming",
+    "description": "Learn core coding constructs, pseudocode, flowcharts, variables, functions, and debugging methods.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 17,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:21.015Z",
+    "category": {
+      "id": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+      "name": "Basics",
+      "slug": "basics",
+      "description": "Master computer hardware, operating system fundamentals, computer science theory, and core programming principles.",
+      "icon": "⚙️",
+      "color": "#3b82f6",
+      "sortOrder": 1
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "733203d0-c87c-492f-8baf-096b6ce4444b",
+    "categoryId": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+    "title": "Basic Computer Science",
+    "slug": "basic-computer-science",
+    "description": "Comprehensive 29-lecture deep dive into computer science theory, algorithms, data representation, logic gates, and complexity.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 29,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:19.742Z",
+    "category": {
+      "id": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+      "name": "Basics",
+      "slug": "basics",
+      "description": "Master computer hardware, operating system fundamentals, computer science theory, and core programming principles.",
+      "icon": "⚙️",
+      "color": "#3b82f6",
+      "sortOrder": 1
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "266d34e3-22d7-4841-a390-5b2a7c6e13b4",
+    "categoryId": "8f6907e4-9bf5-4760-96f6-37715dd99b9a",
+    "title": "Bootstrap",
+    "slug": "bootstrap",
+    "description": "Build fast mobile-first web pages using Bootstrap 5 grid layout system, components, and utility classes.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 12,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:27.508Z",
+    "category": {
+      "id": "8f6907e4-9bf5-4760-96f6-37715dd99b9a",
+      "name": "Web Development Essentials",
+      "slug": "web-development",
+      "description": "Master HTML5, CSS3, JavaScript (ES6+), Bootstrap, Tailwind CSS, and Web APIs.",
+      "icon": "🌐",
+      "color": "#3b82f6",
+      "sortOrder": 3
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "f85be360-7431-4f78-bb7f-048452bac6d5",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "C Language",
+    "slug": "c-language",
+    "description": "Learn procedural C programming, memory addresses, structs, pointers, stack/heap allocation, and system header files.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:24.758Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "de651d20-ef87-4786-8ad1-ad8684f9f48b",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "C++",
+    "slug": "cpp",
+    "description": "Master high-performance C++, pointers, manual memory management, RAII, templates, and the Standard Template Library (STL).",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 4,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:24.462Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "d1fa653c-7f99-4f44-8548-61a3a0fe32ad",
+    "categoryId": "af21c86b-8bb7-4ed3-8ed0-9f5615fc19e7",
+    "title": "CTF Challenge Lab",
+    "slug": "ctf-challenge-lab",
+    "description": "Practice hands-on Capture The Flag (CTF) challenges — reverse engineering, binary exploitation, web hacking, and forensics.",
+    "difficulty": "advanced",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:37.840Z",
+    "category": {
+      "id": "af21c86b-8bb7-4ed3-8ed0-9f5615fc19e7",
+      "name": "Ethical Hacking",
+      "slug": "ethical-hacking",
+      "description": "Master cybersecurity fundamentals, vulnerability assessment, web exploitation, and network penetration testing.",
+      "icon": "🛡️",
+      "color": "#ef4444",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "d706e642-5280-4f62-b947-3ddad44fe168",
+    "categoryId": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+    "title": "Computer Basics",
+    "slug": "computer-basics",
+    "description": "Understand key computer hardware components, operating systems, memory management, and file systems.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 10,
+    "totalLessons": 17,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:19.013Z",
+    "category": {
+      "id": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+      "name": "Basics",
+      "slug": "basics",
+      "description": "Master computer hardware, operating system fundamentals, computer science theory, and core programming principles.",
+      "icon": "⚙️",
+      "color": "#3b82f6",
+      "sortOrder": 1
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "5fe686ea-5fa2-4cc9-b58b-10851b68ce11",
+    "categoryId": "af21c86b-8bb7-4ed3-8ed0-9f5615fc19e7",
+    "title": "Cybersecurity Foundations",
+    "slug": "cybersecurity-foundations",
+    "description": "Learn ethical hacking principles — CIA Triad, cryptography, threat modeling, security policies, and OS hardening.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:35.575Z",
+    "category": {
+      "id": "af21c86b-8bb7-4ed3-8ed0-9f5615fc19e7",
+      "name": "Ethical Hacking",
+      "slug": "ethical-hacking",
+      "description": "Master cybersecurity fundamentals, vulnerability assessment, web exploitation, and network penetration testing.",
+      "icon": "🛡️",
+      "color": "#ef4444",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "24cc73a5-efd8-48dd-972b-02fbcd22208a",
+    "categoryId": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+    "title": "Deep Learning & PyTorch",
+    "slug": "deep-learning-pytorch",
+    "description": "Master Neural Networks with PyTorch — Tensors, autograd, CNNs for computer vision, Transformers, and GPU acceleration.",
+    "difficulty": "advanced",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:40.277Z",
+    "category": {
+      "id": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+      "name": "AI & Machine Learning",
+      "slug": "ai-ml",
+      "description": "Master Artificial Intelligence, Python data science, machine learning models, PyTorch deep learning, and Prompt Engineering for LLMs.",
+      "icon": "🤖",
+      "color": "#ec4899",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "a1769c6a-9983-4337-9140-f90546f1b023",
+    "categoryId": "b49b5671-112d-43e2-9591-930c534b5b84",
+    "title": "Django",
+    "slug": "django",
+    "description": "Build secure, scalable Python web backends with Django ORM, Admin Interface, Views, and REST Framework.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:29.400Z",
+    "category": {
+      "id": "b49b5671-112d-43e2-9591-930c534b5b84",
+      "name": "Main Back-End Frameworks",
+      "slug": "backend-frameworks",
+      "description": "Master robust server architectures with Laravel, Django, Flask, Express.js, Spring Boot, ASP.NET Core, and Rails.",
+      "icon": "⚡",
+      "color": "#10b981",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "b62b5bb0-5e62-406a-8683-72fcbd496fc5",
+    "categoryId": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+    "title": "Docker",
+    "slug": "docker",
+    "description": "Master containerization, Dockerfiles, images, Docker Compose, networks, and persistent volumes.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:31.565Z",
+    "category": {
+      "id": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+      "name": "Good to Know Tools",
+      "slug": "good-to-know",
+      "description": "Master mandatory developer workflow tools: Git & GitHub, npm, Webpack & Vite, Docker containers, and Linux CLI.",
+      "icon": "💡",
+      "color": "#84cc16",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "4593c0b2-b800-4506-9fe1-c1dfde3d2e26",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Elixir",
+    "slug": "elixir",
+    "description": "Learn functional programming on Erlang BEAM VM, pattern matching, actors, and Phoenix framework.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 18,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:26.483Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "46b62804-3174-4d31-a6d1-347e20bc6c3d",
+    "categoryId": "b49b5671-112d-43e2-9591-930c534b5b84",
+    "title": "Express.js",
+    "slug": "express-js",
+    "description": "Build fast Node.js HTTP servers, middleware pipelines, and microservices using Express.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:29.884Z",
+    "category": {
+      "id": "b49b5671-112d-43e2-9591-930c534b5b84",
+      "name": "Main Back-End Frameworks",
+      "slug": "backend-frameworks",
+      "description": "Master robust server architectures with Laravel, Django, Flask, Express.js, Spring Boot, ASP.NET Core, and Rails.",
+      "icon": "⚡",
+      "color": "#10b981",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "357e586b-f44c-4471-b81f-a2857d0550fd",
+    "categoryId": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+    "title": "Firebase & Firestore",
+    "slug": "firebase-firestore",
+    "description": "Master Firebase Cloud Firestore NoSQL document database, Realtime Database, Authentication, and Cloud Functions.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 18,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:34.570Z",
+    "category": {
+      "id": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+      "name": "Databases",
+      "slug": "databases",
+      "description": "Master relational SQL and NoSQL databases: MongoDB (39 Lectures), PostgreSQL, MySQL, Redis, SQLite, and Firebase.",
+      "icon": "🗄️",
+      "color": "#06b6d4",
+      "sortOrder": 7
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "5320b439-757e-4d27-8ac5-94fe80d284fe",
+    "categoryId": "b49b5671-112d-43e2-9591-930c534b5b84",
+    "title": "Flask",
+    "slug": "flask",
+    "description": "Build lightweight Python microservices, REST endpoints, and web applications with Flask.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:29.597Z",
+    "category": {
+      "id": "b49b5671-112d-43e2-9591-930c534b5b84",
+      "name": "Main Back-End Frameworks",
+      "slug": "backend-frameworks",
+      "description": "Master robust server architectures with Laravel, Django, Flask, Express.js, Spring Boot, ASP.NET Core, and Rails.",
+      "icon": "⚡",
+      "color": "#10b981",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "ee2162e2-f1e8-4496-aaa1-fb7580497287",
+    "categoryId": "deccbd23-c137-414a-ae17-acae64466a78",
+    "title": "Flutter",
+    "slug": "flutter",
+    "description": "Master Google's Flutter framework & Dart language to compile fast multi-platform apps for mobile, web, and desktop.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:35.360Z",
+    "category": {
+      "id": "deccbd23-c137-414a-ae17-acae64466a78",
+      "name": "Learn Mobile Apps Development",
+      "slug": "mobile-dev",
+      "description": "Build cross-platform mobile apps for iOS and Android using Ionic/Capacitor, React Native, NativeScript, and Flutter.",
+      "icon": "📱",
+      "color": "#f59e0b",
+      "sortOrder": 8
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "dfcc31d8-b3fc-4d78-981e-03c7e718634d",
+    "categoryId": "f25e688e-be7e-4676-8406-a6bee01074a7",
+    "title": "GCP Cloud Engineer",
+    "slug": "gcp-cloud-engineer",
+    "description": "Master Google Cloud Platform — Compute Engine, Cloud Run, GKE, BigQuery, IAM, VPC, and pass the Google Associate Cloud Engineer exam.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:44.116Z",
+    "category": {
+      "id": "f25e688e-be7e-4676-8406-a6bee01074a7",
+      "name": "Cloud Computing",
+      "slug": "cloud",
+      "description": "Master cloud infrastructure and cloud-native computing — AWS, Kubernetes, Serverless, Terraform, and Google Cloud Platform.",
+      "icon": "☁️",
+      "color": "#6366f1",
+      "sortOrder": 8
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "c812c1de-1b99-40bd-9971-1fee5b8bacdb",
+    "categoryId": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+    "title": "Git & GitHub",
+    "slug": "git-github",
+    "description": "Master Git distributed version control, branching strategies, merge conflicts, pull requests, and GitHub Actions CI/CD.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 3,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:30.870Z",
+    "category": {
+      "id": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+      "name": "Good to Know Tools",
+      "slug": "good-to-know",
+      "description": "Master mandatory developer workflow tools: Git & GitHub, npm, Webpack & Vite, Docker containers, and Linux CLI.",
+      "icon": "💡",
+      "color": "#84cc16",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "796496bf-d150-4ba0-b81d-aeeb924b3acb",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Go (Golang)",
+    "slug": "golang",
+    "description": "Master Google's Go programming language, concurrency with goroutines and channels, structs, interfaces, and microservices.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:25.376Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "d154c32c-ea1e-47cd-9ebb-313848ab0e67",
+    "categoryId": "8f6907e4-9bf5-4760-96f6-37715dd99b9a",
+    "title": "HTML5 & CSS3",
+    "slug": "html5-css3",
+    "description": "Master semantic HTML5 structures, CSS Flexbox, Grid, keyframe animations, and modern responsive layouts.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 4,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:26.901Z",
+    "category": {
+      "id": "8f6907e4-9bf5-4760-96f6-37715dd99b9a",
+      "name": "Web Development Essentials",
+      "slug": "web-development",
+      "description": "Master HTML5, CSS3, JavaScript (ES6+), Bootstrap, Tailwind CSS, and Web APIs.",
+      "icon": "🌐",
+      "color": "#3b82f6",
+      "sortOrder": 3
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "57f52a86-1307-4e9c-b596-c940460e9be2",
+    "categoryId": "deccbd23-c137-414a-ae17-acae64466a78",
+    "title": "Ionic & Capacitor",
+    "slug": "ionic-capacitor",
+    "description": "Build native iOS and Android apps using web technologies (HTML, CSS, JS/React/Vue) and Capacitor plugins.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 18,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:34.775Z",
+    "category": {
+      "id": "deccbd23-c137-414a-ae17-acae64466a78",
+      "name": "Learn Mobile Apps Development",
+      "slug": "mobile-dev",
+      "description": "Build cross-platform mobile apps for iOS and Android using Ionic/Capacitor, React Native, NativeScript, and Flutter.",
+      "icon": "📱",
+      "color": "#f59e0b",
+      "sortOrder": 8
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "4a7fa69a-a8b9-4e67-955d-51a646085c14",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Java",
+    "slug": "java",
+    "description": "Master enterprise Java, object-oriented principles, JVM memory model, Collections Framework, Streams, and Multithreading.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 5,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:24.124Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "c5d00ec3-3a5e-4e84-a282-8db29d379af6",
+    "categoryId": "8f6907e4-9bf5-4760-96f6-37715dd99b9a",
+    "title": "JavaScript (ES6+)",
+    "slug": "javascript-es6",
+    "description": "Master core JavaScript, DOM manipulation, Async/Await, Fetch API, Closures, and ES6 Modules.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 3,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:27.210Z",
+    "category": {
+      "id": "8f6907e4-9bf5-4760-96f6-37715dd99b9a",
+      "name": "Web Development Essentials",
+      "slug": "web-development",
+      "description": "Master HTML5, CSS3, JavaScript (ES6+), Bootstrap, Tailwind CSS, and Web APIs.",
+      "icon": "🌐",
+      "color": "#3b82f6",
+      "sortOrder": 3
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "08d95192-8b08-402e-b9e4-6c55da51d88c",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Kotlin",
+    "slug": "kotlin",
+    "description": "Master modern Android & backend Kotlin programming, null safety, coroutines, extension functions, and data classes.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:25.183Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "a9c8cb87-fcb9-4902-b54f-3fe03a1304cc",
+    "categoryId": "f25e688e-be7e-4676-8406-a6bee01074a7",
+    "title": "Kubernetes Orchestration",
+    "slug": "kubernetes-orchestration",
+    "description": "Master production container orchestration with Kubernetes — Pods, Deployments, Services, Ingress, Helm, and K8s architecture.",
+    "difficulty": "advanced",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:42.651Z",
+    "category": {
+      "id": "f25e688e-be7e-4676-8406-a6bee01074a7",
+      "name": "Cloud Computing",
+      "slug": "cloud",
+      "description": "Master cloud infrastructure and cloud-native computing — AWS, Kubernetes, Serverless, Terraform, and Google Cloud Platform.",
+      "icon": "☁️",
+      "color": "#6366f1",
+      "sortOrder": 8
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "efad3514-9fe6-4081-9093-b7725ad9ebec",
+    "categoryId": "b49b5671-112d-43e2-9591-930c534b5b84",
+    "title": "Laravel",
+    "slug": "laravel",
+    "description": "Master PHP Laravel framework, Eloquent ORM, Blade templating, Artisan CLI, and REST APIs.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:29.179Z",
+    "category": {
+      "id": "b49b5671-112d-43e2-9591-930c534b5b84",
+      "name": "Main Back-End Frameworks",
+      "slug": "backend-frameworks",
+      "description": "Master robust server architectures with Laravel, Django, Flask, Express.js, Spring Boot, ASP.NET Core, and Rails.",
+      "icon": "⚡",
+      "color": "#10b981",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "c805d7bb-88fa-49e7-8bc1-c4c4e1ae7ec3",
+    "categoryId": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+    "title": "Linux Command Line",
+    "slug": "linux-command-line",
+    "description": "Master Linux CLI, bash commands, file permissions, process management, SSH, and system administration.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:31.783Z",
+    "category": {
+      "id": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+      "name": "Good to Know Tools",
+      "slug": "good-to-know",
+      "description": "Master mandatory developer workflow tools: Git & GitHub, npm, Webpack & Vite, Docker containers, and Linux CLI.",
+      "icon": "💡",
+      "color": "#84cc16",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "56eda0c9-229e-484c-bea6-ebf4c8506bd4",
+    "categoryId": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+    "title": "Machine Learning Basics",
+    "slug": "machine-learning-basics",
+    "description": "Master core Scikit-Learn algorithms — Linear Regression, Decision Trees, Random Forests, K-Means clustering, and evaluation metrics.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:39.439Z",
+    "category": {
+      "id": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+      "name": "AI & Machine Learning",
+      "slug": "ai-ml",
+      "description": "Master Artificial Intelligence, Python data science, machine learning models, PyTorch deep learning, and Prompt Engineering for LLMs.",
+      "icon": "🤖",
+      "color": "#ec4899",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "3dd8c780-6a30-42ca-abed-b56ca658d314",
+    "categoryId": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+    "title": "MongoDB",
+    "slug": "mongodb",
+    "description": "Complete 39-lecture mastery course in MongoDB NoSQL database, BSON documents, Aggregation Pipeline, Indexing, and Sharding.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 35,
+    "totalLessons": 40,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:31.993Z",
+    "category": {
+      "id": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+      "name": "Databases",
+      "slug": "databases",
+      "description": "Master relational SQL and NoSQL databases: MongoDB (39 Lectures), PostgreSQL, MySQL, Redis, SQLite, and Firebase.",
+      "icon": "🗄️",
+      "color": "#06b6d4",
+      "sortOrder": 7
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "b46310ac-c3dc-4a9f-8d96-7628bf06b110",
+    "categoryId": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+    "title": "MySQL",
+    "slug": "mysql",
+    "description": "Learn MySQL 8.0 server administration, InnoDB engine, indexes, stored procedures, and triggers.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:33.990Z",
+    "category": {
+      "id": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+      "name": "Databases",
+      "slug": "databases",
+      "description": "Master relational SQL and NoSQL databases: MongoDB (39 Lectures), PostgreSQL, MySQL, Redis, SQLite, and Firebase.",
+      "icon": "🗄️",
+      "color": "#06b6d4",
+      "sortOrder": 7
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "a2da850e-57b5-4380-8be5-ccf6be549b29",
+    "categoryId": "deccbd23-c137-414a-ae17-acae64466a78",
+    "title": "NativeScript",
+    "slug": "nativescript",
+    "description": "Build truly native cross-platform mobile applications with direct JavaScript access to iOS and Android APIs.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:35.172Z",
+    "category": {
+      "id": "deccbd23-c137-414a-ae17-acae64466a78",
+      "name": "Learn Mobile Apps Development",
+      "slug": "mobile-dev",
+      "description": "Build cross-platform mobile apps for iOS and Android using Ionic/Capacitor, React Native, NativeScript, and Flutter.",
+      "icon": "📱",
+      "color": "#f59e0b",
+      "sortOrder": 8
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "1ed0fc2a-136b-40a3-9b0c-72a06fa615d1",
+    "categoryId": "af21c86b-8bb7-4ed3-8ed0-9f5615fc19e7",
+    "title": "Network Penetration Testing",
+    "slug": "network-penetration-testing",
+    "description": "Master reconnaissance, scanning with Nmap, exploitation with Metasploit, privilege escalation, and wireless hacking.",
+    "difficulty": "advanced",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:37.104Z",
+    "category": {
+      "id": "af21c86b-8bb7-4ed3-8ed0-9f5615fc19e7",
+      "name": "Ethical Hacking",
+      "slug": "ethical-hacking",
+      "description": "Master cybersecurity fundamentals, vulnerability assessment, web exploitation, and network penetration testing.",
+      "icon": "🛡️",
+      "color": "#ef4444",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "0d1585a3-3b54-413a-98f1-413d8ed35ba1",
+    "categoryId": "78911449-2750-48ec-8a92-0f633e75ec17",
+    "title": "Next.js",
+    "slug": "next-js",
+    "description": "Master full-stack React framework with Server Components, App Router, Server Actions, and SSR.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 22,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:28.921Z",
+    "category": {
+      "id": "78911449-2750-48ec-8a92-0f633e75ec17",
+      "name": "Main Front-End Frameworks",
+      "slug": "frontend-frameworks",
+      "description": "Build modern user interfaces with Angular, React, Vue.js, Svelte, and Next.js.",
+      "icon": "🎨",
+      "color": "#ec4899",
+      "sortOrder": 4
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "accd9126-d6b0-4ce5-9fed-b7ee55c0e156",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "PHP",
+    "slug": "php",
+    "description": "Learn modern server-side PHP 8+, web forms, superglobals, PDO database connections, and OOP.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:24.952Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "9ea758ed-7146-4a4e-aae9-5b843662e62a",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Perl & Shell Scripting",
+    "slug": "perl-shell",
+    "description": "Master Unix Bash shell scripts, regex text processing, and system administrative automation scripts in Perl.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:26.679Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "463234fd-9c72-4612-ae34-a75447c30469",
+    "categoryId": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+    "title": "PostgreSQL",
+    "slug": "postgresql",
+    "description": "Master enterprise relational SQL database, JSONB, CTEs, Window Functions, Indexing, and Extensions (pgvector, PostGIS).",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:33.785Z",
+    "category": {
+      "id": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+      "name": "Databases",
+      "slug": "databases",
+      "description": "Master relational SQL and NoSQL databases: MongoDB (39 Lectures), PostgreSQL, MySQL, Redis, SQLite, and Firebase.",
+      "icon": "🗄️",
+      "color": "#06b6d4",
+      "sortOrder": 7
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "5f89afaa-7bb7-4339-90a9-6584706850e0",
+    "categoryId": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+    "title": "Prompt Engineering & LLMs",
+    "slug": "prompt-engineering-llms",
+    "description": "Master AI prompt engineering — Few-shot prompting, Chain-of-Thought (CoT), RAG (Retrieval-Augmented Generation), and Agentic AI workflows.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:41.113Z",
+    "category": {
+      "id": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+      "name": "AI & Machine Learning",
+      "slug": "ai-ml",
+      "description": "Master Artificial Intelligence, Python data science, machine learning models, PyTorch deep learning, and Prompt Engineering for LLMs.",
+      "icon": "🤖",
+      "color": "#ec4899",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "57ce9990-f9e6-4541-82ad-251760b58767",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Python",
+    "slug": "python",
+    "description": "Master Python fundamentals, control structures, string methods, data operations, functions, lists, file handling, audio, and OOP.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 30,
+    "totalLessons": 46,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:21.897Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 8
+    }
+  },
+  {
+    "id": "9538fb4f-0440-4537-b508-f6cc78ceb05f",
+    "categoryId": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+    "title": "Python for Data Science",
+    "slug": "python-data-science",
+    "description": "Master data analysis with NumPy, Pandas, Matplotlib, and Seaborn for data manipulation, visualization, and feature engineering.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:38.644Z",
+    "category": {
+      "id": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+      "name": "AI & Machine Learning",
+      "slug": "ai-ml",
+      "description": "Master Artificial Intelligence, Python data science, machine learning models, PyTorch deep learning, and Prompt Engineering for LLMs.",
+      "icon": "🤖",
+      "color": "#ec4899",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "6742bf09-f2dc-4b7c-99f6-65a880e48b4f",
+    "categoryId": "78911449-2750-48ec-8a92-0f633e75ec17",
+    "title": "React",
+    "slug": "react",
+    "description": "Master component architecture, JSX syntax, Hooks (useState, useEffect, useMemo), Context API, and state management.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 3,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:28.154Z",
+    "category": {
+      "id": "78911449-2750-48ec-8a92-0f633e75ec17",
+      "name": "Main Front-End Frameworks",
+      "slug": "frontend-frameworks",
+      "description": "Build modern user interfaces with Angular, React, Vue.js, Svelte, and Next.js.",
+      "icon": "🎨",
+      "color": "#ec4899",
+      "sortOrder": 4
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "d8cc805b-ee10-4bb6-8d88-b656fda51552",
+    "categoryId": "deccbd23-c137-414a-ae17-acae64466a78",
+    "title": "React Native",
+    "slug": "react-native",
+    "description": "Build native iOS and Android applications using React components, Expo, Flexbox layouts, and React Navigation.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:34.973Z",
+    "category": {
+      "id": "deccbd23-c137-414a-ae17-acae64466a78",
+      "name": "Learn Mobile Apps Development",
+      "slug": "mobile-dev",
+      "description": "Build cross-platform mobile apps for iOS and Android using Ionic/Capacitor, React Native, NativeScript, and Flutter.",
+      "icon": "📱",
+      "color": "#f59e0b",
+      "sortOrder": 8
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "48ee5239-8c47-4770-8d0b-971d4ee858dc",
+    "categoryId": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+    "title": "Redis",
+    "slug": "redis",
+    "description": "Master in-memory key-value data store, caching strategies, Pub/Sub, Redis Streams, and Data Structures.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:34.186Z",
+    "category": {
+      "id": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+      "name": "Databases",
+      "slug": "databases",
+      "description": "Master relational SQL and NoSQL databases: MongoDB (39 Lectures), PostgreSQL, MySQL, Redis, SQLite, and Firebase.",
+      "icon": "🗄️",
+      "color": "#06b6d4",
+      "sortOrder": 7
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "5970f6ca-ba93-477d-92db-bca7d527abc3",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Ruby",
+    "slug": "ruby",
+    "description": "Learn elegant object-oriented Ruby, blocks, iterators, gems, and Metaprogramming.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 18,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:25.593Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "09738d65-d623-44bb-966e-4869d169a88c",
+    "categoryId": "b49b5671-112d-43e2-9591-930c534b5b84",
+    "title": "Ruby on Rails",
+    "slug": "ruby-on-rails",
+    "description": "Learn full-stack Ruby on Rails, Active Record ORM, conventions over configuration, and Action Cable.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 22,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:30.483Z",
+    "category": {
+      "id": "b49b5671-112d-43e2-9591-930c534b5b84",
+      "name": "Main Back-End Frameworks",
+      "slug": "backend-frameworks",
+      "description": "Master robust server architectures with Laravel, Django, Flask, Express.js, Spring Boot, ASP.NET Core, and Rails.",
+      "icon": "⚡",
+      "color": "#10b981",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "66a516d2-7a6d-49c8-bb02-9da1a52ad183",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Rust",
+    "slug": "rust",
+    "description": "Master memory safety without garbage collection, Ownership, Borrowing, Lifetimes, Traits, and Cargo build tool.",
+    "difficulty": "advanced",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:25.803Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "a14e4a21-86d9-4b2e-817a-6e0ea4eb1280",
+    "categoryId": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+    "title": "SQLite",
+    "slug": "sqlite",
+    "description": "Learn zero-configuration embedded SQL database engine for mobile apps, embedded devices, and desktop applications.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 12,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:34.382Z",
+    "category": {
+      "id": "8efab123-2b7b-46f2-90e7-11d01a97aed7",
+      "name": "Databases",
+      "slug": "databases",
+      "description": "Master relational SQL and NoSQL databases: MongoDB (39 Lectures), PostgreSQL, MySQL, Redis, SQLite, and Firebase.",
+      "icon": "🗄️",
+      "color": "#06b6d4",
+      "sortOrder": 7
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "2b8823bd-9a09-4603-ae7b-597bf54994b1",
+    "categoryId": "f25e688e-be7e-4676-8406-a6bee01074a7",
+    "title": "Serverless Architecture",
+    "slug": "serverless-architecture",
+    "description": "Build event-driven serverless systems with Serverless Framework, AWS Lambda, EventBridge, DynamoDB, and Step Functions.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:43.381Z",
+    "category": {
+      "id": "f25e688e-be7e-4676-8406-a6bee01074a7",
+      "name": "Cloud Computing",
+      "slug": "cloud",
+      "description": "Master cloud infrastructure and cloud-native computing — AWS, Kubernetes, Serverless, Terraform, and Google Cloud Platform.",
+      "icon": "☁️",
+      "color": "#6366f1",
+      "sortOrder": 8
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "7a6b9c55-74b7-45a8-9b94-5c2b56c0a6bd",
+    "categoryId": "b49b5671-112d-43e2-9591-930c534b5b84",
+    "title": "Spring Boot",
+    "slug": "spring-boot",
+    "description": "Master Java Spring Boot microservices, Dependency Injection, Spring Data JPA, and Security.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:30.088Z",
+    "category": {
+      "id": "b49b5671-112d-43e2-9591-930c534b5b84",
+      "name": "Main Back-End Frameworks",
+      "slug": "backend-frameworks",
+      "description": "Master robust server architectures with Laravel, Django, Flask, Express.js, Spring Boot, ASP.NET Core, and Rails.",
+      "icon": "⚡",
+      "color": "#10b981",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "ecab67b0-b24e-45ff-a54d-b56e5a215b0a",
+    "categoryId": "78911449-2750-48ec-8a92-0f633e75ec17",
+    "title": "Svelte",
+    "slug": "svelte",
+    "description": "Build fast web applications compiled to tiny vanilla JS with Svelte and SvelteKit.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 18,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:28.640Z",
+    "category": {
+      "id": "78911449-2750-48ec-8a92-0f633e75ec17",
+      "name": "Main Front-End Frameworks",
+      "slug": "frontend-frameworks",
+      "description": "Build modern user interfaces with Angular, React, Vue.js, Svelte, and Next.js.",
+      "icon": "🎨",
+      "color": "#ec4899",
+      "sortOrder": 4
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "bf06fef0-7169-4ba9-9ce8-5e0b92733f3d",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "Swift",
+    "slug": "swift",
+    "description": "Learn modern Apple Swift for iOS/macOS development, Optionals, Protocol-Oriented Programming, and Structs.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:26.004Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "21efed13-14bb-454d-973e-172e6e285f9a",
+    "categoryId": "8f6907e4-9bf5-4760-96f6-37715dd99b9a",
+    "title": "Tailwind CSS",
+    "slug": "tailwind-css",
+    "description": "Master utility-first CSS framework for rapid custom UI design without writing custom CSS files.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 15,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:27.736Z",
+    "category": {
+      "id": "8f6907e4-9bf5-4760-96f6-37715dd99b9a",
+      "name": "Web Development Essentials",
+      "slug": "web-development",
+      "description": "Master HTML5, CSS3, JavaScript (ES6+), Bootstrap, Tailwind CSS, and Web APIs.",
+      "icon": "🌐",
+      "color": "#3b82f6",
+      "sortOrder": 3
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "d5480b1b-8609-4995-8938-158e154f4730",
+    "categoryId": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+    "title": "TypeScript",
+    "slug": "typescript",
+    "description": "Master typed JavaScript, Interfaces, Generics, Type Narrowing, Decorators, and TS Compiler configuration.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:26.254Z",
+    "category": {
+      "id": "de101ece-dd5b-4dd4-87a6-3c1b7e939956",
+      "name": "Main Programming Languages",
+      "slug": "programming",
+      "description": "Master popular programming languages from Python and Java to C++, Rust, Go, Kotlin, and PHP.",
+      "icon": "💻",
+      "color": "#8b5cf6",
+      "sortOrder": 2
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "f89b1a3b-c9c9-4def-aec7-7efd21bb6da0",
+    "categoryId": "78911449-2750-48ec-8a92-0f633e75ec17",
+    "title": "Vue.js",
+    "slug": "vue-js",
+    "description": "Learn progressive frontend development with Vue 3, Composition API, Pinia, and Vue Router.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:28.417Z",
+    "category": {
+      "id": "78911449-2750-48ec-8a92-0f633e75ec17",
+      "name": "Main Front-End Frameworks",
+      "slug": "frontend-frameworks",
+      "description": "Build modern user interfaces with Angular, React, Vue.js, Svelte, and Next.js.",
+      "icon": "🎨",
+      "color": "#ec4899",
+      "sortOrder": 4
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "423dcde8-f565-4faf-b261-30aaad85c722",
+    "categoryId": "af21c86b-8bb7-4ed3-8ed0-9f5615fc19e7",
+    "title": "Web Application Security",
+    "slug": "web-application-security",
+    "description": "Master OWASP Top 10 vulnerabilities — SQL Injection, Cross-Site Scripting (XSS), CSRF, SSRF, and secure coding practices.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 20,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:36.353Z",
+    "category": {
+      "id": "af21c86b-8bb7-4ed3-8ed0-9f5615fc19e7",
+      "name": "Ethical Hacking",
+      "slug": "ethical-hacking",
+      "description": "Master cybersecurity fundamentals, vulnerability assessment, web exploitation, and network penetration testing.",
+      "icon": "🛡️",
+      "color": "#ef4444",
+      "sortOrder": 5
+    },
+    "_count": {
+      "modules": 3
+    }
+  },
+  {
+    "id": "8532551e-9dd6-4eff-8421-75761cd4017e",
+    "categoryId": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+    "title": "Webpack & Vite",
+    "slug": "webpack-vite",
+    "description": "Master modern frontend build tools, module bundlers, HMR (Hot Module Replacement), and code splitting.",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 12,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:31.373Z",
+    "category": {
+      "id": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+      "name": "Good to Know Tools",
+      "slug": "good-to-know",
+      "description": "Master mandatory developer workflow tools: Git & GitHub, npm, Webpack & Vite, Docker containers, and Linux CLI.",
+      "icon": "💡",
+      "color": "#84cc16",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "44cf915c-eeca-47f6-abea-6b4137e52853",
+    "categoryId": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+    "title": "npm & Package Managers",
+    "slug": "npm-package-managers",
+    "description": "Learn Node Package Manager (npm), package.json, semantic versioning, npx, yarn, and pnpm.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 10,
+    "totalLessons": 2,
+    "isPublished": true,
+    "createdAt": "2026-07-26T17:33:31.131Z",
+    "category": {
+      "id": "a6f17804-11b7-4942-aa24-8a8c3442f3fc",
+      "name": "Good to Know Tools",
+      "slug": "good-to-know",
+      "description": "Master mandatory developer workflow tools: Git & GitHub, npm, Webpack & Vite, Docker containers, and Linux CLI.",
+      "icon": "💡",
+      "color": "#84cc16",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 1
+    }
+  }
+]
