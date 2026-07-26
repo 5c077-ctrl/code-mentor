@@ -2,7 +2,7 @@
   /* Colors - Dark Mode Default */
   --bg-primary: #0f1117;
   --bg-secondary: #1a1d27;
-  --bg-card: rgba(26, 29, 39, 0.6);
+  --bg-card: rgba(26, 29, 39, 0.7);
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
@@ -16,34 +16,36 @@
   --accent-success: #10b981;
 
   /* Glassmorphism */
-  --glass-bg: rgba(26, 29, 39, 0.4);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(26, 29, 39, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 
   /* Layout */
   --sidebar-width: 280px;
   --navbar-height: 64px;
 
-  /* Animations */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.3s ease;
+  /* Smooth Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="light"] {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.6);
+  --bg-card: rgba(255, 255, 255, 0.75);
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #94a3b8;
   
-  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 * {
@@ -52,36 +54,40 @@ html {
   margin: 0;
 }
 
+/* Custom Smooth Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.4);
-  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.7);
+  background: rgba(139, 92, 246, 0.6);
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   transition: background-color var(--transition-normal), color var(--transition-normal);
   line-height: 1.6;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 button {
@@ -89,6 +95,12 @@ button {
   font-family: inherit;
   border: none;
   background: none;
+  user-select: none;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 code, pre {
@@ -98,11 +110,16 @@ code, pre {
 /* Glassmorphism Utilities */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   border-radius: 16px;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
+}
+
+.glass-panel:hover {
+  border-color: rgba(139, 92, 246, 0.3);
 }
 
 /* Base App Layout Utilities */
@@ -117,7 +134,7 @@ code, pre {
   flex-direction: column;
   margin-left: var(--sidebar-width);
   min-height: 100vh;
-  transition: margin-left var(--transition-normal);
+  transition: margin-left var(--transition-smooth);
 }
 
 .page-content {
@@ -128,23 +145,30 @@ code, pre {
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--bg-card);
-  border-radius: 4px;
+.pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0 !important;
+  }
+  .page-content {
+    padding: 1.25rem;
+  }
 }
