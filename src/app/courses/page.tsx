@@ -5,16 +5,13 @@ import Button from '@/components/ui/Button';
 import { Clock, BookOpen, Award, ChevronRight } from 'lucide-react';
 import { getAllCourses, getAllCategories } from '@/lib/db';
 
-// Force static generation at build time — no runtime database queries on Vercel
-export const dynamic = 'force-static';
-export const revalidate = false;
-
 export default async function CoursesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string }>;
+  searchParams?: { category?: string } | Promise<{ category?: string }>;
 }) {
-  const { category } = await searchParams;
+  const resolvedParams = searchParams ? await Promise.resolve(searchParams) : {};
+  const category = resolvedParams?.category;
   const [courses, categories] = await Promise.all([
     getAllCourses(category),
     getAllCategories(),

@@ -2,16 +2,13 @@ import { getLessonBySlug } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import LessonClientView from './LessonClientView';
 
-// Force static generation at build time
-export const dynamic = 'force-static';
-export const revalidate = false;
-
 export default async function LessonPage({
   params,
 }: {
-  params: Promise<{ slug: string; lessonId: string }>;
+  params: { slug: string; lessonId: string } | Promise<{ slug: string; lessonId: string }>;
 }) {
-  const { slug, lessonId } = await params;
+  const resolvedParams = await Promise.resolve(params);
+  const { slug, lessonId } = resolvedParams;
   const data = await getLessonBySlug(slug, lessonId);
 
   if (!data || !data.lesson) {

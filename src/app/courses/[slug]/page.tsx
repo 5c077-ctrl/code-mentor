@@ -19,16 +19,13 @@ import { notFound } from 'next/navigation';
 import AuthorBanner from '@/components/ui/AuthorBanner';
 import CourseUpdatesBanner from '@/components/ui/CourseUpdatesBanner';
 
-// Force static generation at build time
-export const dynamic = 'force-static';
-export const revalidate = false;
-
 export default async function CourseDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string } | Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
   const course = await getCourseWithModules(slug);
 
   if (!course) return notFound();
