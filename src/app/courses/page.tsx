@@ -5,6 +5,10 @@ import Button from '@/components/ui/Button';
 import { Clock, BookOpen, Award, ChevronRight } from 'lucide-react';
 import { getAllCourses, getAllCategories } from '@/lib/db';
 
+// Force static generation at build time — no runtime database queries on Vercel
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default async function CoursesPage({
   searchParams,
 }: {
@@ -67,7 +71,7 @@ export default async function CoursesPage({
         ))}
       </div>
 
-      {/* Accordion / Category Section View inspired by CodeHut PRO image 4 & 5 */}
+      {/* Accordion / Category Section View */}
       {category ? (
         // Filtered category view
         <div
@@ -146,7 +150,7 @@ function CourseCard({ course, getDifficultyVariant }: { course: any; getDifficul
         <Badge variant={getDifficultyVariant(course.difficulty)}>
           {course.difficulty}
         </Badge>
-        {/* Lecture count badge matching CodeHut PRO format (e.g. • 39 Lectures) */}
+        {/* Lecture count badge */}
         <span style={{ color: '#ef4444', fontSize: '0.8rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
           <span style={{ fontSize: '1.2rem', lineHeight: 0 }}>•</span> {course.totalLessons} Lectures
         </span>

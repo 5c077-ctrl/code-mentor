@@ -19,6 +19,10 @@ import { notFound } from 'next/navigation';
 import AuthorBanner from '@/components/ui/AuthorBanner';
 import CourseUpdatesBanner from '@/components/ui/CourseUpdatesBanner';
 
+// Force static generation at build time
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default async function CourseDetailPage({
   params,
 }: {

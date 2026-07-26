@@ -2,6 +2,10 @@ import { getLessonBySlug } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import LessonClientView from './LessonClientView';
 
+// Force static generation at build time
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default async function LessonPage({
   params,
 }: {
