@@ -11,6 +11,7 @@ import {
   CheckCircle,
   Download,
   Wrench,
+  PlayCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import { getCourseWithModules } from '@/lib/db';
@@ -97,7 +98,8 @@ export default async function CourseDetailPage({
           style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '0.5rem',
+            alignItems: 'center',
+            gap: '0.75rem',
             marginBottom: '1rem',
           }}
         >
@@ -105,6 +107,10 @@ export default async function CourseDetailPage({
             {course.difficulty}
           </Badge>
           <Badge variant="secondary">{course.category.name}</Badge>
+          {/* Lecture count badge matching CodeHut PRO format */}
+          <span style={{ color: '#ef4444', fontSize: '0.875rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+            <span style={{ fontSize: '1.25rem', lineHeight: 0 }}>•</span> {totalLessons} Lectures
+          </span>
         </div>
 
         <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem', fontWeight: 800 }}>
@@ -151,7 +157,7 @@ export default async function CourseDetailPage({
             }}
           >
             <BookOpen size={20} color="var(--accent-primary)" />
-            <span>{totalLessons} Lessons</span>
+            <span>{totalLessons} Sublessons</span>
           </div>
           <div
             style={{
@@ -168,7 +174,7 @@ export default async function CourseDetailPage({
 
         {firstLesson && (
           <Link href={`/learn/${course.slug}/${firstLesson.slug}`}>
-            <Button size="lg">Start Course</Button>
+            <Button size="lg">Start Course ({totalLessons} Lessons)</Button>
           </Link>
         )}
       </section>
@@ -181,7 +187,7 @@ export default async function CourseDetailPage({
           alignItems: 'start',
         }}
       >
-        {/* ── Left: Syllabus ── */}
+        {/* ── Left: Sections & Sublessons ── */}
         <section>
           <h2
             style={{
@@ -190,28 +196,32 @@ export default async function CourseDetailPage({
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
+              fontWeight: 800,
             }}
           >
-            <BookOpen size={24} color="var(--accent-primary)" /> Course Syllabus
+            <BookOpen size={24} color="var(--accent-primary)" /> Course Sections & Sublessons
           </h2>
           <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
           >
             {course.modules.map((mod, modIdx) => (
-              <Card key={mod.id}>
+              <Card key={mod.id} style={{ padding: '1.5rem' }}>
                 <div
                   style={{
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    marginBottom: '1rem',
+                    marginBottom: '1.25rem',
+                    borderBottom: '1px solid var(--glass-border)',
+                    paddingBottom: '0.75rem',
                   }}
                 >
-                  <h3 style={{ fontSize: '1.15rem' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>
                     <span
                       style={{
                         color: 'var(--accent-primary)',
-                        marginRight: '0.5rem',
+                        marginRight: '0.6rem',
+                        fontWeight: 800,
                       }}
                     >
                       {String(modIdx + 1).padStart(2, '0')}
@@ -219,63 +229,74 @@ export default async function CourseDetailPage({
                     {mod.title}
                   </h3>
                   <Badge variant="default">
-                    {mod.lessons.length} lesson
+                    {mod.lessons.length} sublesson
                     {mod.lessons.length !== 1 ? 's' : ''}
                   </Badge>
                 </div>
-                <ul
+
+                {/* Sublesson List view inspired by CodeHut PRO with 2-digit formatted numbers */}
+                <div
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '0.5rem',
-                    listStyle: 'none',
-                    padding: 0,
+                    gap: '0.75rem',
                   }}
                 >
-                  {mod.lessons.map((lesson) => (
-                    <li key={lesson.id}>
+                  {mod.lessons.map((lesson, lessonIdx) => {
+                    const paddedNum = String(lessonIdx + 1).padStart(2, '0');
+                    return (
                       <Link
+                        key={lesson.id}
                         href={`/learn/${course.slug}/${lesson.slug}`}
                         style={{
                           display: 'flex',
-                          justifyContent: 'space-between',
                           alignItems: 'center',
-                          padding: '0.6rem 0.75rem',
-                          borderRadius: '8px',
+                          justifyContent: 'space-between',
+                          padding: '0.85rem 1rem',
+                          borderRadius: '12px',
                           background: 'rgba(255,255,255,0.03)',
-                          border: '1px solid transparent',
-                          transition: 'all 0.2s',
+                          border: '1px solid var(--glass-border)',
+                          transition: 'all 0.2s ease',
+                          textDecoration: 'none',
                         }}
                       >
-                        <span
-                          style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            color: 'var(--text-secondary)',
-                          }}
-                        >
-                          <CheckCircle size={16} color="var(--text-muted)" />
-                          {lesson.title}
-                        </span>
-                        <span
-                          style={{
-                            color: 'var(--text-muted)',
-                            fontSize: '0.8rem',
-                          }}
-                        >
-                          {lesson.estimatedMinutes}min · +{lesson.xpReward}XP
-                        </span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                          {/* 2-Digit Formatted Number (01, 02, 03...) matching CodeHut PRO style */}
+                          <div
+                            style={{
+                              fontSize: '1.25rem',
+                              fontWeight: 800,
+                              color: 'var(--accent-primary)',
+                              minWidth: '32px',
+                              fontFamily: 'monospace',
+                            }}
+                          >
+                            {paddedNum}
+                          </div>
+                          <div>
+                            <div style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: '0.95rem' }}>
+                              {lesson.title}
+                            </div>
+                            <div style={{ color: 'var(--text-muted)', fontSize: '0.775rem', marginTop: '0.15rem' }}>
+                              Interactive Lesson · {lesson.estimatedMinutes} mins
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-primary)' }}>
+                          <PlayCircle size={18} />
+                          <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>Start</span>
+                        </div>
                       </Link>
-                    </li>
-                  ))}
-                </ul>
+                    );
+                  })}
+                </div>
               </Card>
             ))}
           </div>
         </section>
 
-        {/* ── Right Sidebar: Resources & Requirements ── */}
+        {/* ── Right Sidebar: Resources & Info ── */}
         <aside
           style={{
             display: 'flex',
@@ -296,7 +317,7 @@ export default async function CourseDetailPage({
                 gap: '0.5rem',
               }}
             >
-              <Wrench size={18} color="var(--accent-warning)" /> Course Info
+              <Wrench size={18} color="var(--accent-warning)" /> Course Overview
             </h3>
             <div
               style={{
@@ -326,7 +347,7 @@ export default async function CourseDetailPage({
                   fontSize: '0.9rem',
                 }}
               >
-                <span>Modules</span>
+                <span>Sections</span>
                 <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
                   {course.modules.length}
                 </span>
@@ -339,9 +360,9 @@ export default async function CourseDetailPage({
                   fontSize: '0.9rem',
                 }}
               >
-                <span>Lessons</span>
-                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
-                  {totalLessons}
+                <span>Total Lectures</span>
+                <span style={{ color: '#ef4444', fontWeight: 700 }}>
+                  {totalLessons} Lectures
                 </span>
               </div>
               <div
@@ -352,7 +373,7 @@ export default async function CourseDetailPage({
                   fontSize: '0.9rem',
                 }}
               >
-                <span>Duration</span>
+                <span>Estimated Time</span>
                 <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
                   ~{Math.round(totalMinutes / 60)}h {totalMinutes % 60}min
                 </span>
@@ -360,7 +381,7 @@ export default async function CourseDetailPage({
             </div>
           </Card>
 
-          {/* YouTube & Resources */}
+          {/* Resources */}
           {course.resources.length > 0 && (
             <Card>
               <h3
@@ -372,7 +393,7 @@ export default async function CourseDetailPage({
                   gap: '0.5rem',
                 }}
               >
-                <Video size={18} color="var(--accent-danger)" /> Video Courses & Notes ({course.resources.length})
+                <Video size={18} color="var(--accent-danger)" /> Reference Resources ({course.resources.length})
               </h3>
               <div
                 style={{
@@ -398,11 +419,12 @@ export default async function CourseDetailPage({
                       background: 'rgba(255,255,255,0.03)',
                       transition: 'background 0.2s',
                       fontSize: '0.875rem',
+                      textDecoration: 'none',
                     }}
                   >
                     {getResourceIcon(res.resourceType)}
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontWeight: 500 }}>{res.title}</div>
+                      <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{res.title}</div>
                       {res.author && (
                         <div
                           style={{

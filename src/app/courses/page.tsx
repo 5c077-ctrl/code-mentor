@@ -2,7 +2,7 @@ import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
-import { Clock, BookOpen, Award } from 'lucide-react';
+import { Clock, BookOpen, Award, ChevronRight } from 'lucide-react';
 import { getAllCourses, getAllCategories } from '@/lib/db';
 
 export default async function CoursesPage({
@@ -22,123 +22,98 @@ export default async function CoursesPage({
     return 'danger' as const;
   };
 
+  // Group courses by category when viewing all
+  const coursesByCategory = categories.map((cat) => ({
+    ...cat,
+    categoryCourses: courses.filter((c) => c.categoryId === cat.id),
+  })).filter((cat) => cat.categoryCourses.length > 0);
+
   return (
-    <div>
-      <header style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>
-          Course Catalog
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      <header>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontWeight: 800 }}>
+          Course Catalog & Learning Paths
         </h1>
         <p style={{ color: 'var(--text-secondary)' }}>
-          Explore our {courses.length} interactive courses and start learning.
+          Explore structured interactive courses across {categories.length} categories with step-by-step sublessons.
         </p>
       </header>
 
-      {/* Category Filter */}
+      {/* Category Pills Filter */}
       <div
         style={{
           display: 'flex',
-          gap: '0.75rem',
-          marginBottom: '2rem',
+          gap: '0.6rem',
           flexWrap: 'wrap',
         }}
       >
         <Link href="/courses">
           <Badge
             variant={!category ? 'primary' : 'default'}
-            style={{ cursor: 'pointer', padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
+            style={{ cursor: 'pointer', padding: '0.4rem 0.85rem', fontSize: '0.825rem' }}
           >
-            All Courses
+            All Categories ({courses.length})
           </Badge>
         </Link>
         {categories.map((cat) => (
           <Link key={cat.id} href={`/courses?category=${cat.slug}`}>
             <Badge
               variant={category === cat.slug ? 'primary' : 'default'}
-              style={{ cursor: 'pointer', padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
+              style={{ cursor: 'pointer', padding: '0.4rem 0.85rem', fontSize: '0.825rem' }}
             >
-              {cat.name} ({cat._count.courses})
+              {cat.icon} {cat.name} ({cat._count.courses})
             </Badge>
           </Link>
         ))}
       </div>
 
-      {/* Course Grid */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '1.5rem',
-        }}
-      >
-        {courses.map((course) => (
-          <Card
-            key={course.id}
-            hover
-            style={{ display: 'flex', flexDirection: 'column' }}
-          >
-            {/* Category color bar */}
-            <div
-              style={{
-                height: '4px',
-                background: course.category.color,
-                borderRadius: '4px',
-                marginBottom: '1rem',
-              }}
-            />
+      {/* Accordion / Category Section View inspired by CodeHut PRO image 4 & 5 */}
+      {category ? (
+        // Filtered category view
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '1.5rem',
+          }}
+        >
+          {courses.map((course) => (
+            <CourseCard key={course.id} course={course} getDifficultyVariant={getDifficultyVariant} />
+          ))}
+        </div>
+      ) : (
+        // Categorized Sections View
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+          {coursesByCategory.map((catSection) => (
+            <section key={catSection.id} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ fontSize: '1.75rem' }}>{catSection.icon}</span>
+                  <div>
+                    <h2 style={{ fontSize: '1.4rem', fontWeight: 700, margin: 0 }}>{catSection.name}</h2>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                      {catSection.description}
+                    </span>
+                  </div>
+                </div>
+                <Badge variant="secondary">{catSection.categoryCourses.length} Courses</Badge>
+              </div>
 
-            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
-              <Badge variant={getDifficultyVariant(course.difficulty)}>
-                {course.difficulty}
-              </Badge>
-              <Badge variant="secondary">{course.category.name}</Badge>
-            </div>
-
-            <h3 style={{ fontSize: '1.35rem', marginBottom: '0.5rem' }}>
-              {course.title}
-            </h3>
-            <p
-              style={{
-                color: 'var(--text-secondary)',
-                marginBottom: '1rem',
-                flexGrow: 1,
-                lineHeight: 1.5,
-              }}
-            >
-              {course.description}
-            </p>
-
-            <div
-              style={{
-                display: 'flex',
-                gap: '1.25rem',
-                marginBottom: '1.5rem',
-                color: 'var(--text-muted)',
-                fontSize: '0.85rem',
-              }}
-            >
-              <span
-                style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                  gap: '1.25rem',
+                }}
               >
-                <Clock size={14} /> {course.estimatedHours}h
-              </span>
-              <span
-                style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}
-              >
-                <BookOpen size={14} /> {course.totalLessons} lessons
-              </span>
-              <span
-                style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}
-              >
-                <Award size={14} /> Certificate
-              </span>
-            </div>
-
-            <Link href={`/courses/${course.slug}`}>
-              <Button fullWidth>View Course</Button>
-            </Link>
-          </Card>
-        ))}
-      </div>
+                {catSection.categoryCourses.map((course) => (
+                  <CourseCard key={course.id} course={course} getDifficultyVariant={getDifficultyVariant} />
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      )}
 
       {courses.length === 0 && (
         <Card style={{ textAlign: 'center', padding: '3rem' }}>
@@ -151,5 +126,73 @@ export default async function CoursesPage({
         </Card>
       )}
     </div>
+  );
+}
+
+function CourseCard({ course, getDifficultyVariant }: { course: any; getDifficultyVariant: any }) {
+  return (
+    <Card hover style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
+      {/* Category color top bar */}
+      <div
+        style={{
+          height: '4px',
+          background: course.category.color,
+          borderRadius: '4px',
+          marginBottom: '1rem',
+        }}
+      />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+        <Badge variant={getDifficultyVariant(course.difficulty)}>
+          {course.difficulty}
+        </Badge>
+        {/* Lecture count badge matching CodeHut PRO format (e.g. • 39 Lectures) */}
+        <span style={{ color: '#ef4444', fontSize: '0.8rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+          <span style={{ fontSize: '1.2rem', lineHeight: 0 }}>•</span> {course.totalLessons} Lectures
+        </span>
+      </div>
+
+      <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 700 }}>
+        {course.title}
+      </h3>
+      <p
+        style={{
+          color: 'var(--text-secondary)',
+          marginBottom: '1.25rem',
+          flexGrow: 1,
+          lineHeight: 1.5,
+          fontSize: '0.9rem'
+        }}
+      >
+        {course.description}
+      </p>
+
+      <div
+        style={{
+          display: 'flex',
+          gap: '1rem',
+          marginBottom: '1.25rem',
+          color: 'var(--text-muted)',
+          fontSize: '0.8rem',
+        }}
+      >
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          <Clock size={14} /> {course.estimatedHours}h
+        </span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          <BookOpen size={14} /> {course.totalLessons} Sublessons
+        </span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          <Award size={14} /> Cert
+        </span>
+      </div>
+
+      <Link href={`/courses/${course.slug}`}>
+        <Button fullWidth variant="secondary" style={{ justifyContent: 'space-between' }}>
+          <span>Explore Curriculum</span>
+          <ChevronRight size={16} />
+        </Button>
+      </Link>
+    </Card>
   );
 }

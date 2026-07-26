@@ -7,12 +7,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   z-index: 100;
   border-radius: 0;
   border-top: none;
   border-left: none;
   border-right: none;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
 }
 
 .left {
@@ -30,24 +32,72 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
-.center {
-  flex: 1;
-  max-width: 500px;
-  margin: 0 2rem;
+.proBadge {
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.navTabs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--glass-border);
+}
+
+.navTab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.navTab:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.activeTab {
+  background: var(--accent-primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+  font-weight: 600;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .searchBar {
   position: relative;
-  width: 100%;
+  width: 200px;
 }
 
 .searchIcon {
   position: absolute;
-  left: 1rem;
+  left: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
@@ -55,37 +105,34 @@
 
 .searchBar input {
   width: 100%;
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  padding: 0.4rem 0.75rem 0.4rem 2.2rem;
   border-radius: 9999px;
   border: 1px solid var(--glass-border);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
   color: var(--text-primary);
   font-family: inherit;
+  font-size: 0.825rem;
   transition: var(--transition-normal);
 }
 
 .searchBar input:focus {
   outline: none;
   border-color: var(--accent-primary);
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  width: 240px;
 }
 
 .iconBtn, .profileBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--bg-card);
   color: var(--text-primary);
   border: 1px solid var(--glass-border);
+  cursor: pointer;
   transition: var(--transition-fast);
 }
 
@@ -94,11 +141,14 @@
   color: #fff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .navbar {
     left: 0;
   }
   .menuBtn {
     display: block;
+  }
+  .searchBar {
+    display: none;
   }
 }
