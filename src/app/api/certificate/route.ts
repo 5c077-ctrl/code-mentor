@@ -42,6 +42,13 @@ export async function POST(req: Request) {
       );
     }
 
+    if (!certificate) {
+      return NextResponse.json(
+        { error: 'Failed to issue certificate record' },
+        { status: 500 }
+      );
+    }
+
     // Create PDF certificate
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage([842, 595]); // A4 landscape
