@@ -1,25 +1,19 @@
 import { prisma } from './prisma';
 
-// Static JSON fallback imports for Vercel Serverless
-let staticCategories: any[] = [];
-let staticCourses: any[] = [];
-let staticCourseDetails: Record<string, any> = {};
-let staticLessons: Record<string, any> = {};
+// Import pre-built static JSON data at compile time for Vercel
+import categoriesData from '../data/categories.json';
+import coursesData from '../data/courses.json';
+import courseDetailsData from '../data/courseDetails.json';
+import lessonsData from '../data/lessons.json';
 
-try {
-  const staticData = require('../data');
-  staticCategories = staticData.categories || [];
-  staticCourses = staticData.courses || [];
-  staticCourseDetails = staticData.courseDetails || {};
-  staticLessons = staticData.lessons || {};
-} catch (e) {
-  // Static data not loaded yet, will rely on Prisma
-}
+const staticCategories: any[] = (categoriesData as any[]) || [];
+const staticCourses: any[] = (coursesData as any[]) || [];
+const staticCourseDetails: Record<string, any> = (courseDetailsData as Record<string, any>) || {};
+const staticLessons: Record<string, any> = (lessonsData as Record<string, any>) || {};
 
 // ─── Course Queries ──────────────────────────────────────────────
 
 export async function getAllCourses(categorySlug?: string) {
-  // Try static JSON first for instant Vercel response
   if (staticCourses.length > 0) {
     if (!categorySlug) return staticCourses;
     return staticCourses.filter((c: any) => c.category?.slug === categorySlug);
@@ -44,7 +38,6 @@ export async function getAllCourses(categorySlug?: string) {
 }
 
 export async function getCourseWithModules(slug: string) {
-  // Try static JSON first for instant Vercel response
   if (staticCourseDetails[slug]) {
     return staticCourseDetails[slug];
   }
