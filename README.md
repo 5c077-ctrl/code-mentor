@@ -13,8 +13,6 @@
 
 ## 🎨 Application Preview
 
-![Code Mentor PRO Preview](public/preview.png)
-
 ```text
 ┌━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┐
 │ ⚡ Code-Mentor PRO       [Home]  [Compilers]  [Courses]  [Quizzes]  [Leaderboard]   🔍 Search... 🔔 👤  │
@@ -152,8 +150,8 @@
 ### 2. Installation
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/your-username/code-mentor-pro.git
-cd code-mentor-pro
+git clone https://github.com/5c077-ctrl/code-mentor.git
+cd code-mentor
 npm install
 ```
 
