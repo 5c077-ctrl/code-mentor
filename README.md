@@ -13,6 +13,8 @@
 
 ## 🎨 Application Preview
 
+![Code Mentor PRO Preview](public/preview.png)
+
 ```text
 ┌━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┐
 │ ⚡ Code-Mentor PRO       [Home]  [Compilers]  [Courses]  [Quizzes]  [Leaderboard]   🔍 Search... 🔔 👤  │
