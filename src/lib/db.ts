@@ -3,221 +3,251 @@ import { prisma } from './prisma';
 // ─── Course Queries ──────────────────────────────────────────────
 
 export async function getAllCourses(categorySlug?: string) {
-  return prisma.course.findMany({
-    where: {
-      isPublished: true,
-      ...(categorySlug ? { category: { slug: categorySlug } } : {}),
-    },
-    include: {
-      category: true,
-      _count: { select: { modules: true } },
-    },
-    orderBy: { title: 'asc' },
-  });
+  try {
+    return await prisma.course.findMany({
+      where: {
+        isPublished: true,
+        ...(categorySlug ? { category: { slug: categorySlug } } : {}),
+      },
+      include: {
+        category: true,
+        _count: { select: { modules: true } },
+      },
+      orderBy: { title: 'asc' },
+    });
+  } catch (err) {
+    console.error('Database query error in getAllCourses:', err);
+    return [];
+  }
 }
 
 export async function getCourseWithModules(slug: string) {
-  return prisma.course.findUnique({
-    where: { slug },
-    include: {
-      modules: {
-        orderBy: { sortOrder: 'asc' },
-        include: {
-          lessons: {
-            orderBy: { sortOrder: 'asc' },
-            select: {
-              id: true,
-              title: true,
-              slug: true,
-              estimatedMinutes: true,
-              xpReward: true,
-              sortOrder: true,
+  try {
+    return await prisma.course.findUnique({
+      where: { slug },
+      include: {
+        modules: {
+          orderBy: { sortOrder: 'asc' },
+          include: {
+            lessons: {
+              orderBy: { sortOrder: 'asc' },
+              select: {
+                id: true,
+                title: true,
+                slug: true,
+                estimatedMinutes: true,
+                xpReward: true,
+                sortOrder: true,
+              },
             },
           },
         },
+        category: true,
+        resources: {
+          orderBy: { sortOrder: 'asc' },
+        },
       },
-      category: true,
-      resources: {
-        orderBy: { sortOrder: 'asc' },
-      },
-    },
-  });
+    });
+  } catch (err) {
+    console.error('Database query error in getCourseWithModules:', err);
+    return null;
+  }
 }
 
 // ─── Lesson Queries ──────────────────────────────────────────────
 
 export async function getLessonById(lessonId: string) {
-  return prisma.lesson.findUnique({
-    where: { id: lessonId },
-    include: {
-      module: {
-        include: {
-          course: {
-            select: { title: true, slug: true },
-          },
-          lessons: {
-            orderBy: { sortOrder: 'asc' },
-            select: { id: true, title: true, slug: true, sortOrder: true },
+  try {
+    return await prisma.lesson.findUnique({
+      where: { id: lessonId },
+      include: {
+        module: {
+          include: {
+            course: {
+              select: { title: true, slug: true },
+            },
+            lessons: {
+              orderBy: { sortOrder: 'asc' },
+              select: { id: true, title: true, slug: true, sortOrder: true },
+            },
           },
         },
-      },
-      quizzes: {
-        include: {
-          questions: {
-            orderBy: { sortOrder: 'asc' },
-            include: {
-              answers: {
-                orderBy: { sortOrder: 'asc' },
+        quizzes: {
+          include: {
+            questions: {
+              orderBy: { sortOrder: 'asc' },
+              include: {
+                answers: {
+                  orderBy: { sortOrder: 'asc' },
+                },
               },
             },
           },
         },
       },
-    },
-  });
+    });
+  } catch (err) {
+    console.error('Database query error in getLessonById:', err);
+    return null;
+  }
 }
 
 export async function getLessonBySlug(courseSlug: string, lessonSlug: string) {
-  const course = await prisma.course.findUnique({
-    where: { slug: courseSlug },
-    include: {
-      modules: {
-        orderBy: { sortOrder: 'asc' },
-        include: {
-          lessons: {
-            orderBy: { sortOrder: 'asc' },
+  try {
+    const course = await prisma.course.findUnique({
+      where: { slug: courseSlug },
+      include: {
+        modules: {
+          orderBy: { sortOrder: 'asc' },
+          include: {
+            lessons: {
+              orderBy: { sortOrder: 'asc' },
+            },
           },
         },
       },
-    },
-  });
+    });
 
-  if (!course) return null;
+    if (!course) return null;
 
-  // Flatten all lessons from all modules
-  const allLessons = course.modules.flatMap((m) => m.lessons);
-  const lesson = allLessons.find((l) => l.slug === lessonSlug);
+    const allLessons = course.modules.flatMap((m) => m.lessons);
+    const lesson = allLessons.find((l) => l.slug === lessonSlug);
 
-  if (!lesson) return null;
+    if (!lesson) return null;
 
-  // Get full lesson data with quiz
-  const fullLesson = await prisma.lesson.findUnique({
-    where: { id: lesson.id },
-    include: {
-      module: {
-        include: {
-          course: {
-            select: { title: true, slug: true, id: true },
+    const fullLesson = await prisma.lesson.findUnique({
+      where: { id: lesson.id },
+      include: {
+        module: {
+          include: {
+            course: {
+              select: { title: true, slug: true, id: true },
+            },
           },
         },
-      },
-      quizzes: {
-        include: {
-          questions: {
-            orderBy: { sortOrder: 'asc' },
-            include: {
-              answers: {
-                orderBy: { sortOrder: 'asc' },
+        quizzes: {
+          include: {
+            questions: {
+              orderBy: { sortOrder: 'asc' },
+              include: {
+                answers: {
+                  orderBy: { sortOrder: 'asc' },
+                },
               },
             },
           },
         },
       },
-    },
-  });
+    });
 
-  // Find prev/next lesson
-  const currentIndex = allLessons.findIndex((l) => l.id === lesson.id);
-  const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
-  const nextLesson =
-    currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
+    const currentIndex = allLessons.findIndex((l) => l.id === lesson.id);
+    const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
+    const nextLesson =
+      currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
 
-  return {
-    lesson: fullLesson,
-    prevLesson,
-    nextLesson,
-    allLessons,
-    courseSlug: course.slug,
-    courseTitle: course.title,
-  };
+    return {
+      lesson: fullLesson,
+      prevLesson,
+      nextLesson,
+      allLessons,
+      courseSlug: course.slug,
+      courseTitle: course.title,
+    };
+  } catch (err) {
+    console.error('Database query error in getLessonBySlug:', err);
+    return null;
+  }
 }
 
 // ─── Progress Queries ────────────────────────────────────────────
 
 export async function getCourseProgress(userId: string, courseId: string) {
-  const course = await prisma.course.findUnique({
-    where: { id: courseId },
-    include: {
-      modules: {
-        include: {
-          lessons: {
-            select: { id: true },
+  try {
+    const course = await prisma.course.findUnique({
+      where: { id: courseId },
+      include: {
+        modules: {
+          include: {
+            lessons: {
+              select: { id: true },
+            },
           },
         },
       },
-    },
-  });
+    });
 
-  if (!course) return null;
+    if (!course) return null;
 
-  const allLessonIds = course.modules.flatMap((m) =>
-    m.lessons.map((l) => l.id)
-  );
+    const allLessonIds = course.modules.flatMap((m) =>
+      m.lessons.map((l) => l.id)
+    );
 
-  const completedLessons = await prisma.userProgress.findMany({
-    where: {
-      userId,
-      lessonId: { in: allLessonIds },
-      status: 'completed',
-    },
-  });
+    const completedLessons = await prisma.userProgress.findMany({
+      where: {
+        userId,
+        lessonId: { in: allLessonIds },
+        status: 'completed',
+      },
+    });
 
-  return {
-    totalLessons: allLessonIds.length,
-    completedLessons: completedLessons.length,
-    isComplete:
-      allLessonIds.length > 0 &&
-      completedLessons.length === allLessonIds.length,
-    percentage:
-      allLessonIds.length > 0
-        ? Math.round((completedLessons.length / allLessonIds.length) * 100)
-        : 0,
-  };
+    return {
+      totalLessons: allLessonIds.length,
+      completedLessons: completedLessons.length,
+      isComplete:
+        allLessonIds.length > 0 &&
+        completedLessons.length === allLessonIds.length,
+      percentage:
+        allLessonIds.length > 0
+          ? Math.round((completedLessons.length / allLessonIds.length) * 100)
+          : 0,
+    };
+  } catch (err) {
+    console.error('Database query error in getCourseProgress:', err);
+    return null;
+  }
 }
 
 // ─── User Stats ──────────────────────────────────────────────────
 
 export async function getUserStats(userId: string) {
-  const user = await prisma.user.findUnique({
-    where: { id: userId },
-    select: {
-      totalXp: true,
-      level: true,
-      currentStreak: true,
-      _count: {
-        select: {
-          certificates: true,
-          progress: { where: { status: 'completed' } },
+  try {
+    return await prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        totalXp: true,
+        level: true,
+        currentStreak: true,
+        _count: {
+          select: {
+            certificates: true,
+            progress: { where: { status: 'completed' } },
+          },
         },
       },
-    },
-  });
-
-  return user;
+    });
+  } catch (err) {
+    console.error('Database query error in getUserStats:', err);
+    return null;
+  }
 }
 
 // ─── Certificate Queries ─────────────────────────────────────────
 
 export async function getUserCertificates(userId: string) {
-  return prisma.certificate.findMany({
-    where: { userId },
-    include: {
-      course: {
-        select: { title: true, slug: true },
+  try {
+    return await prisma.certificate.findMany({
+      where: { userId },
+      include: {
+        course: {
+          select: { title: true, slug: true },
+        },
       },
-    },
-    orderBy: { issuedAt: 'desc' },
-  });
+      orderBy: { issuedAt: 'desc' },
+    });
+  } catch (err) {
+    console.error('Database query error in getUserCertificates:', err);
+    return [];
+  }
 }
 
 export async function createCertificate(
@@ -225,29 +255,39 @@ export async function createCertificate(
   courseId: string,
   finalScore: number
 ) {
-  const certNumber = `CM-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+  try {
+    const certNumber = `CM-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-  return prisma.certificate.create({
-    data: {
-      userId,
-      courseId,
-      certificateNumber: certNumber,
-      finalScore,
-    },
-    include: {
-      user: { select: { username: true } },
-      course: { select: { title: true, slug: true } },
-    },
-  });
+    return await prisma.certificate.create({
+      data: {
+        userId,
+        courseId,
+        certificateNumber: certNumber,
+        finalScore,
+      },
+      include: {
+        user: { select: { username: true } },
+        course: { select: { title: true, slug: true } },
+      },
+    });
+  } catch (err) {
+    console.error('Database error in createCertificate:', err);
+    return null;
+  }
 }
 
 // ─── Categories ──────────────────────────────────────────────────
 
 export async function getAllCategories() {
-  return prisma.category.findMany({
-    orderBy: { sortOrder: 'asc' },
-    include: {
-      _count: { select: { courses: true } },
-    },
-  });
+  try {
+    return await prisma.category.findMany({
+      orderBy: { sortOrder: 'asc' },
+      include: {
+        _count: { select: { courses: true } },
+      },
+    });
+  } catch (err) {
+    console.error('Database query error in getAllCategories:', err);
+    return [];
+  }
 }
