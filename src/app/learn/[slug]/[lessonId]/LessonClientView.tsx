@@ -33,8 +33,127 @@ export default function LessonClientView({
   const [showCertificate, setShowCertificate] = useState(false);
   const [isQuizPassed, setIsQuizPassed] = useState<boolean>(false);
 
+  // Generate deep technical FAANG-level questions if quiz is missing or basic
+  const generateTechnicalQuestions = (title: string, lang: string) => {
+    const titleLower = (title || '').toLowerCase();
+    const langLower = (lang || '').toLowerCase();
+
+    if (titleLower.includes('python') || langLower.includes('python')) {
+      return [
+        {
+          id: 'q1',
+          text: 'In Python 3, what is the memory & performance implication of using a Generator expression `(x*x for x in range(10**6))` vs a List comprehension `[x*x for x in range(10**6)]`?',
+          options: [
+            { id: 'a', text: 'Generators allocate memory lazily on-demand using $O(1)$ space, whereas list comprehensions allocate all 10^6 elements in memory upfront using $O(N)$ space.' },
+            { id: 'b', text: 'List comprehensions are strictly faster and consume less RAM than generator expressions in Python.' },
+            { id: 'c', text: 'Generators execute synchronously on multiple CPU threads by default.' },
+            { id: 'd', text: 'Both expressions consume identical RAM because Python GIL flattens memory allocation.' }
+          ],
+          correctId: 'a',
+        },
+        {
+          id: 'q2',
+          text: 'What happens when modifying a mutable default argument in a Python function definition `def append_item(val, target=[])` across multiple function invocations?',
+          options: [
+            { id: 'a', text: 'Python throws a TypeError because default arguments are frozen.' },
+            { id: 'b', text: 'The default list `target` is bound at function definition time and mutated persistently across all calls.' },
+            { id: 'c', text: 'A new empty list is instantiated fresh on every single function call.' },
+            { id: 'd', text: 'The function automatically copies `target` using `copy.deepcopy()`.' }
+          ],
+          correctId: 'b',
+        },
+        {
+          id: 'q3',
+          text: 'Which of the following describes the GIL (Global Interpreter Lock) behavior in CPython during multithreaded I/O-bound vs CPU-bound tasks?',
+          options: [
+            { id: 'a', text: 'GIL releases thread execution locks during I/O operations (network/disk), but restricts true parallel thread execution on multi-core CPUs for CPU-bound tasks.' },
+            { id: 'b', text: 'GIL allows 100% parallel execution across all CPU cores for pure mathematical loops.' },
+            { id: 'c', text: 'GIL prevents `asyncio` event loops from scheduling asynchronous coroutines.' },
+            { id: 'd', text: 'GIL is only active when compiling C++ extensions for Python.' }
+          ],
+          correctId: 'a',
+        }
+      ];
+    }
+
+    if (titleLower.includes('hack') || titleLower.includes('security') || titleLower.includes('ctf') || titleLower.includes('web')) {
+      return [
+        {
+          id: 'q1',
+          text: 'Which defensive mechanism prevents Time-of-Check to Time-of-Use (TOCTOU) race conditions in web authorization logic?',
+          options: [
+            { id: 'a', text: 'Atomic database transactions using row-level locking (`SELECT ... FOR UPDATE`) or optimistic concurrency control.' },
+            { id: 'b', text: 'Sanitizing HTML output using DOMPurify on the frontend.' },
+            { id: 'c', text: 'Enabling HTTPS TLS 1.3 certificates on the reverse proxy.' },
+            { id: 'd', text: 'Increasing cookie maxAge expiration timestamps.' }
+          ],
+          correctId: 'a',
+        },
+        {
+          id: 'q2',
+          text: 'What is the primary difference between Blind Time-Based SQL Injection and Union-Based SQL Injection?',
+          options: [
+            { id: 'a', text: 'Blind Time-Based SQLi infers data bit-by-bit by measuring server delay (e.g. `SLEEP(5)`), whereas Union-Based SQLi appends results directly to the visible HTTP response.' },
+            { id: 'b', text: 'Union-Based SQLi requires root database admin privileges, while Time-Based does not.' },
+            { id: 'c', text: 'Blind Time-Based SQLi only works on Microsoft SQL Server.' },
+            { id: 'd', text: 'Union-Based SQLi cannot extract database schema table names.' }
+          ],
+          correctId: 'a',
+        },
+        {
+          id: 'q3',
+          text: 'How does SameSite=Strict cookie attribute mitigate Cross-Site Request Forgery (CSRF) attacks?',
+          options: [
+            { id: 'a', text: 'It prevents the browser from sending the session cookie in cross-site requests originating from external third-party origins.' },
+            { id: 'b', text: 'It encrypts the payload using RSA 4096-bit public keys.' },
+            { id: 'c', text: 'It blocks JavaScript from accessing `document.cookie`.' },
+            { id: 'd', text: 'It automatically generates a unique Anti-CSRF token per HTTP request header.' }
+          ],
+          correctId: 'a',
+        }
+      ];
+    }
+
+    // Default deep technical engineering questions
+    return [
+      {
+        id: 'q1',
+        text: `In production systems implementing "${title}", what is the primary cause of memory leaks in long-running processes?`,
+        options: [
+          { id: 'a', text: 'Uncleaned event listeners, unclosed network streams, or lingering global references preventing Garbage Collection.' },
+          { id: 'b', text: 'Executing loops with high number of iterations.' },
+          { id: 'c', text: 'Using JSON.stringify() on large objects.' },
+          { id: 'd', text: 'Declaring immutable variables inside function scope.' }
+        ],
+        correctId: 'a',
+      },
+      {
+        id: 'q2',
+        text: 'What is the time complexity difference between searching an unsorted array ($O(N)$) vs searching a balanced Binary Search Tree ($O(\\log N)$)?',
+        options: [
+          { id: 'a', text: 'Balanced BST divides the search space in half on every step, scaling logarithmically, while unsorted array requires scanning elements sequentially.' },
+          { id: 'b', text: 'Unsorted arrays perform faster lookups due to contiguous L1 CPU cache alignment.' },
+          { id: 'c', text: 'Both data structures require $O(N)$ operations in worst-case scenarios.' },
+          { id: 'd', text: 'BST lookups require $O(1)$ constant time execution.' }
+        ],
+        correctId: 'a',
+      },
+      {
+        id: 'q3',
+        text: 'Why is Idempotency critical when designing RESTful API POST vs PUT/DELETE HTTP methods under distributed retries?',
+        options: [
+          { id: 'a', text: 'Idempotent methods (PUT/DELETE) produce identical server side state regardless of how many times duplicate requests are retried.' },
+          { id: 'b', text: 'POST requests automatically retry failed network requests at the TCP layer.' },
+          { id: 'c', text: 'Idempotency is only required for CORS preflight OPTIONS requests.' },
+          { id: 'd', text: 'PUT endpoints cannot accept JSON payload bodies.' }
+        ],
+        correctId: 'a',
+      }
+    ];
+  };
+
   const quiz = lesson.quizzes?.[0];
-  const quizQuestions = quiz?.questions.map((q: any) => {
+  const existingQuestions = quiz?.questions.map((q: any) => {
     const correctAns = q.answers.find((a: any) => a.isCorrect);
     return {
       id: q.id,
@@ -43,6 +162,11 @@ export default function LessonClientView({
       correctId: correctAns?.id,
     };
   });
+
+  const quizQuestions = (existingQuestions && existingQuestions.length > 0)
+    ? existingQuestions
+    : generateTechnicalQuestions(lesson.title || courseTitle, lesson.codeLanguage || '');
+
 
   const hasQuiz = quizQuestions && quizQuestions.length > 0;
 
