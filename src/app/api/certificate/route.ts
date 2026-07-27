@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { getSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
-import { getCourseProgress, createCertificate } from '@/lib/db';
+import { getCourseProgress, createCertificate, getCourseWithModules } from '@/lib/db';
 
 export async function POST(req: Request) {
   try {
