@@ -71,7 +71,7 @@ export default function DashboardPage() {
               <h3 style={{ marginBottom: '0.5rem' }}>Python for Beginners</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>Module 3: Control Flow</p>
             </div>
-            <Link href="/learn/python-for-beginners/m3-lesson-1">
+            <Link href="/learn/python/installation-setup-python">
               <Button>Resume</Button>
             </Link>
           </Card>
