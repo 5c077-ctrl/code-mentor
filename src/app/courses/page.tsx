@@ -62,7 +62,7 @@ export default async function CoursesPage({
               variant={category === cat.slug ? 'primary' : 'default'}
               style={{ cursor: 'pointer', padding: '0.4rem 0.85rem', fontSize: '0.825rem' }}
             >
-              {cat.icon} {cat.name} ({cat._count.courses})
+              {cat.icon} {cat.name} ({cat._count?.courses ?? 0})
             </Badge>
           </Link>
         ))}
@@ -137,7 +137,7 @@ function CourseCard({ course, getDifficultyVariant }: { course: any; getDifficul
       <div
         style={{
           height: '4px',
-          background: course.category.color,
+          background: course.category?.color || '#3b82f6',
           borderRadius: '4px',
           marginBottom: '1rem',
         }}

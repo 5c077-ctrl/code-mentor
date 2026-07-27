@@ -38,12 +38,33 @@ export default function CodeEditor({ initialCode, language }: CodeEditorProps) {
     }
   };
 
+  const getMonacoLanguage = (lang: string) => {
+    switch (lang.toLowerCase()) {
+      case 'python': return 'python';
+      case 'javascript': return 'javascript';
+      case 'typescript': return 'typescript';
+      case 'java': return 'java';
+      case 'cpp': case 'c++': return 'cpp';
+      case 'c': return 'c';
+      case 'php': return 'php';
+      case 'kotlin': return 'kotlin';
+      case 'go': case 'golang': return 'go';
+      case 'ruby': return 'ruby';
+      case 'rust': return 'rust';
+      case 'sql': return 'sql';
+      case 'swift': return 'swift';
+      case 'elixir': return 'elixir';
+      case 'bash': case 'shell': case 'sh': return 'shell';
+      default: return 'javascript';
+    }
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: '1rem' }}>
       <div style={{ flex: 1, border: '1px solid var(--glass-border)', borderRadius: '8px', overflow: 'hidden' }}>
         <Editor
           height="100%"
-          language={language === 'python' ? 'python' : 'javascript'}
+          language={getMonacoLanguage(language)}
           theme="vs-dark"
           value={code}
           onChange={(value) => setCode(value || '')}

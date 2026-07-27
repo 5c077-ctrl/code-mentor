@@ -6,7 +6,7 @@ import ProfileClientView from './ProfileClientView';
 export default async function ProfilePage() {
   const session = await getSession();
   if (!session) {
-    redirect('/auth/login');
+    redirect('/login');
   }
 
   const userId = session.userId as string;
