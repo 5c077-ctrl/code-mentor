@@ -6,6 +6,8 @@ import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import CodeEditor from '@/components/learn/CodeEditor';
 import { Terminal, Play, CheckCircle2 } from 'lucide-react';
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
 
 interface CompilerInfo {
   id: string;
@@ -157,16 +159,18 @@ const COMPILERS: CompilerInfo[] = [
 
 export default function CompilersPage() {
   const [selectedCompiler, setSelectedCompiler] = useState<CompilerInfo>(COMPILERS[0]);
+  const language = useLanguageStore((state) => state.language);
+  const t = useTranslation(language);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       <header>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
           <Terminal size={32} color="var(--accent-primary)" />
-          <h1 style={{ fontSize: '2.25rem', fontWeight: 800 }}>Multi-Language Online Compilers</h1>
+          <h1 style={{ fontSize: '2.25rem', fontWeight: 800 }}>{t('multiLangCompilers')}</h1>
         </div>
         <p style={{ color: 'var(--text-secondary)' }}>
-          Write, edit, and execute code in {COMPILERS.length} programming languages and framework sandboxes with real-time output.
+          {t('compilersPageDesc')}
         </p>
       </header>
 

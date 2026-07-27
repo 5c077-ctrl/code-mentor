@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { Trophy, Flame, Award, Zap, Shield, Crown } from 'lucide-react';
+import { Trophy, Flame } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Sidebar from '@/components/layout/Sidebar';
 import Footer from '@/components/layout/Footer';
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
 import styles from './Leaderboard.module.css';
 
 interface LeaderboardUser {
@@ -19,6 +21,8 @@ interface LeaderboardUser {
 
 export default function LeaderboardPage() {
   const [timeframe, setTimeframe] = useState<'all' | 'weekly' | 'monthly'>('all');
+  const language = useLanguageStore((state) => state.language);
+  const t = useTranslation(language);
 
   const top3: LeaderboardUser[] = [
     { rank: 1, name: 'Elena Rostova', avatar: '👩‍💻', xp: 14250, streak: 42, level: 24, badge: '🥇' },
@@ -45,9 +49,9 @@ export default function LeaderboardPage() {
         <main className={styles.container}>
           <div className={styles.header}>
             <h1 className={styles.title}>
-              <Trophy size={36} color="#f59e0b" /> Global Leaderboard
+              <Trophy size={36} color="#f59e0b" /> {t('globalLeaderboard')}
             </h1>
-            <p className={styles.subtitle}>Compete with developers worldwide and climb the ranks by completing lessons & quizzes!</p>
+            <p className={styles.subtitle}>{t('leaderboardSubtitle')}</p>
           </div>
 
           <div className={styles.tabs}>
@@ -55,19 +59,19 @@ export default function LeaderboardPage() {
               className={`${styles.tab} ${timeframe === 'all' ? styles.active : ''}`}
               onClick={() => setTimeframe('all')}
             >
-              All Time
+              {t('allTime')}
             </button>
             <button
               className={`${styles.tab} ${timeframe === 'monthly' ? styles.active : ''}`}
               onClick={() => setTimeframe('monthly')}
             >
-              This Month
+              {t('thisMonth')}
             </button>
             <button
               className={`${styles.tab} ${timeframe === 'weekly' ? styles.active : ''}`}
               onClick={() => setTimeframe('weekly')}
             >
-              This Week
+              {t('thisWeek')}
             </button>
           </div>
 
@@ -82,7 +86,7 @@ export default function LeaderboardPage() {
               <div className={styles.userName}>{top3[1].name}</div>
               <div className={styles.userXp}>{top3[1].xp.toLocaleString()} XP</div>
               <div className={styles.userStreak}>
-                <Flame size={16} color="#f59e0b" /> {top3[1].streak} Day Streak
+                <Flame size={16} color="#f59e0b" /> {top3[1].streak} {t('dayStreak')}
               </div>
             </div>
 
@@ -95,7 +99,7 @@ export default function LeaderboardPage() {
               <div className={styles.userName}>{top3[0].name}</div>
               <div className={styles.userXp}>{top3[0].xp.toLocaleString()} XP</div>
               <div className={styles.userStreak}>
-                <Flame size={16} color="#f59e0b" /> {top3[0].streak} Day Streak
+                <Flame size={16} color="#f59e0b" /> {top3[0].streak} {t('dayStreak')}
               </div>
             </div>
 
@@ -108,7 +112,7 @@ export default function LeaderboardPage() {
               <div className={styles.userName}>{top3[2].name}</div>
               <div className={styles.userXp}>{top3[2].xp.toLocaleString()} XP</div>
               <div className={styles.userStreak}>
-                <Flame size={16} color="#f59e0b" /> {top3[2].streak} Day Streak
+                <Flame size={16} color="#f59e0b" /> {top3[2].streak} {t('dayStreak')}
               </div>
             </div>
           </div>
@@ -118,10 +122,10 @@ export default function LeaderboardPage() {
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th>Rank</th>
-                  <th>Learner</th>
-                  <th>Streak</th>
-                  <th>Total XP</th>
+                  <th>{t('rank')}</th>
+                  <th>{t('learner')}</th>
+                  <th>{t('streak')}</th>
+                  <th>{t('totalXp')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -159,3 +163,4 @@ export default function LeaderboardPage() {
     </div>
   );
 }
+

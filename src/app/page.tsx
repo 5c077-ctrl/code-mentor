@@ -8,17 +8,8 @@ import { BookOpen, Terminal, Trophy, Code2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import AuthorBanner from '@/components/ui/AuthorBanner';
 import CourseUpdatesBanner from '@/components/ui/CourseUpdatesBanner';
-
-const CATEGORIES_HIGHLIGHT = [
-  { name: 'Basics', icon: '⚙️', count: '3 Courses (63 Lectures)', color: '#3b82f6', slug: 'basics' },
-  { name: 'Main Programming Languages', icon: '💻', count: '13 Languages', color: '#8b5cf6', slug: 'programming' },
-  { name: 'Web Development Essentials', icon: '🌐', count: '4 Courses', color: '#3b82f6', slug: 'web-development' },
-  { name: 'Main Front-End Frameworks', icon: '🎨', count: '5 Frameworks', color: '#ec4899', slug: 'frontend-frameworks' },
-  { name: 'Main Back-End Frameworks', icon: '⚡', count: '7 Frameworks', color: '#10b981', slug: 'backend-frameworks' },
-  { name: 'Good to Know Tools', icon: '💡', count: '5 Core Tools', color: '#84cc16', slug: 'good-to-know' },
-  { name: 'Databases & Storage', icon: '🗄️', count: 'MongoDB (39 Lectures) + 5 DBs', color: '#06b6d4', slug: 'databases' },
-  { name: 'Learn Mobile Apps Development', icon: '📱', count: 'Ionic, RN, Flutter, NativeScript', color: '#f59e0b', slug: 'mobile-dev' },
-];
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
 
 const COMPILERS_PREVIEW = [
   { name: 'Python', icon: '🐍', color: '#3776ab' },
@@ -36,6 +27,20 @@ const COMPILERS_PREVIEW = [
 ];
 
 export default function Home() {
+  const language = useLanguageStore((state) => state.language);
+  const t = useTranslation(language);
+
+  const CATEGORIES_HIGHLIGHT = [
+    { name: t('cat_basics'), icon: '⚙️', count: `3 ${t('coursesCount')}`, color: '#3b82f6', slug: 'basics' },
+    { name: t('cat_main_prog'), icon: '💻', count: `13 ${t('cat_main_prog')}`, color: '#8b5cf6', slug: 'programming' },
+    { name: t('cat_web_dev'), icon: '🌐', count: `4 ${t('coursesCount')}`, color: '#3b82f6', slug: 'web-development' },
+    { name: t('cat_frontend'), icon: '🎨', count: `5 Frameworks`, color: '#ec4899', slug: 'main-front-end-frameworks' },
+    { name: t('cat_backend'), icon: '⚡', count: `7 Frameworks`, color: '#10b981', slug: 'main-back-end-frameworks' },
+    { name: t('cat_tools'), icon: '💡', count: `5 Tools`, color: '#84cc16', slug: 'good-to-know-tools' },
+    { name: t('cat_databases'), icon: '🗄️', count: `6 DBs`, color: '#06b6d4', slug: 'databases' },
+    { name: t('cat_mobile'), icon: '📱', count: `4 Frameworks`, color: '#f59e0b', slug: 'learn-mobile-apps-development' },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -60,29 +65,29 @@ export default function Home() {
       >
         <Badge variant="primary" style={{ marginBottom: '1rem', display: 'inline-block' }}>Code Mentor PRO Edition</Badge>
         <h1 style={{ fontSize: '3.5rem', marginBottom: '1.25rem', fontWeight: 800, lineHeight: 1.2 }}>
-          Master Software & Frameworks with <br/><span style={{ color: 'var(--accent-primary)', textShadow: '0 0 20px rgba(99, 102, 241, 0.5)' }}>Interactive Sublessons</span>
+          {t('heroTitle')} <br/><span style={{ color: 'var(--accent-primary)', textShadow: '0 0 20px rgba(99, 102, 241, 0.5)' }}>{t('heroSubTitle')}</span>
         </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '640px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
-          Structured courses, sequential 2-digit numbered lectures, 15+ in-browser code compilers, and an AI mentor to accelerate your career.
+          {t('heroDesc')}
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
           <Link href="/courses">
-            <Button size="lg">Explore Course Catalog</Button>
+            <Button size="lg">{t('exploreCatalog')}</Button>
           </Link>
           <Link href="/compilers">
-            <Button size="lg" variant="secondary">Open Compilers Playground</Button>
+            <Button size="lg" variant="secondary">{t('openCompilers')}</Button>
           </Link>
         </div>
       </motion.section>
 
-      {/* Compiler Selection Grid Preview inspired by CodeHut PRO */}
+      {/* Compiler Selection Grid Preview */}
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h2 style={{ fontSize: '1.5rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Code2 size={24} color="var(--accent-primary)" /> Multi-Language Online Compilers
+            <Code2 size={24} color="var(--accent-primary)" /> {t('multiLangCompilers')}
           </h2>
           <Link href="/compilers" style={{ color: 'var(--accent-primary)', fontSize: '0.9rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem', textDecoration: 'none' }}>
-            Launch Compilers IDE <ArrowRight size={16} />
+            {t('launchCompilersIDE')} <ArrowRight size={16} />
           </Link>
         </div>
 
@@ -109,14 +114,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Main Categories Section inspired by CodeHut PRO image 4 */}
+      {/* Main Categories Section */}
       <section style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h2 style={{ fontSize: '1.5rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <BookOpen size={24} color="var(--accent-info)" /> Learning Paths & Categories
+            <BookOpen size={24} color="var(--accent-info)" /> {t('learningPathsCat')}
           </h2>
           <Link href="/courses" style={{ color: 'var(--accent-primary)', fontSize: '0.9rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem', textDecoration: 'none' }}>
-            View All Categories <ArrowRight size={16} />
+            {t('viewAllCategories')} <ArrowRight size={16} />
           </Link>
         </div>
 
@@ -150,9 +155,9 @@ export default function Home() {
         <motion.div variants={itemVariants}>
           <Card hover style={{ height: '100%' }}>
             <BookOpen size={36} color="var(--accent-info)" style={{ marginBottom: '1.25rem' }} />
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 700 }}>Sequential 2-Digit Sublessons</h3>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 700 }}>{t('seqSublessonsTitle')}</h3>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '0.9rem' }}>
-              Every course is divided into numbered lectures (`01`, `02`, `03`...) ensuring clear step-by-step progress tracking.
+              {t('seqSublessonsDesc')}
             </p>
           </Card>
         </motion.div>
@@ -160,9 +165,9 @@ export default function Home() {
         <motion.div variants={itemVariants}>
           <Card hover style={{ height: '100%' }}>
             <Terminal size={36} color="var(--accent-primary)" style={{ marginBottom: '1.25rem' }} />
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 700 }}>In-Browser Multi-Lang Playground</h3>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 700 }}>{t('multiLangPlaygroundTitle')}</h3>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '0.9rem' }}>
-              Compile and run Python, Java, C++, Go, Rust, Ruby, PHP, and SQL directly inside your browser.
+              {t('multiLangPlaygroundDesc')}
             </p>
           </Card>
         </motion.div>
@@ -170,9 +175,9 @@ export default function Home() {
         <motion.div variants={itemVariants}>
           <Card hover style={{ height: '100%' }}>
             <Trophy size={36} color="var(--accent-warning)" style={{ marginBottom: '1.25rem' }} />
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 700 }}>Quizzes & Mastery Certificates</h3>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 700 }}>{t('quizzesCertTitle')}</h3>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '0.9rem' }}>
-              Complete end-of-lesson quizzes to earn XP, maintain daily login streaks, and claim verifiable certificates.
+              {t('quizzesCertDesc')}
             </p>
           </Card>
         </motion.div>
