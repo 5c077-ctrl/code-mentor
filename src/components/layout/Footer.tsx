@@ -1,7 +1,14 @@
+'use client';
+
 import Link from 'next/link';
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+  const language = useLanguageStore((state) => state.language);
+  const t = useTranslation(language);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
@@ -9,16 +16,15 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} <strong>Code-Mentor</strong>. Created by{' '}
           <Link href="/about" style={{ color: 'var(--accent-primary)', textDecoration: 'underline' }}>
             Scott Yann
-          </Link>{' '}
-          with Gemini AI. All rights reserved.
+          </Link>. All rights reserved.
         </p>
         <div className={styles.links}>
-          <Link href="/about">About the Author</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/leaderboard">Leaderboard</Link>
-          <Link href="/settings">Settings</Link>
-          <Link href="/privacy">Privacy Policy</Link>
-          <Link href="/terms">Terms of Service</Link>
+          <Link href="/about">{t('aboutAuthor')}</Link>
+          <Link href="/faq">{t('faq')}</Link>
+          <Link href="/leaderboard">{t('leaderboard')}</Link>
+          <Link href="/settings">{t('settings')}</Link>
+          <Link href="/privacy">{t('privacyPolicy')}</Link>
+          <Link href="/terms">{t('termsOfService')}</Link>
         </div>
       </div>
     </footer>

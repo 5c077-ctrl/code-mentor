@@ -14,6 +14,9 @@ import ReactMarkdown from 'react-markdown';
 import CertificateModal from '@/components/learn/CertificateModal';
 import styles from './LessonView.module.css';
 
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
+
 type ActiveTool = 'editor' | 'notes' | 'quiz' | 'ai' | null;
 
 export default function LessonClientView({
@@ -32,6 +35,9 @@ export default function LessonClientView({
   const [activeTool, setActiveTool] = useState<ActiveTool>(null);
   const [showCertificate, setShowCertificate] = useState(false);
   const [isQuizPassed, setIsQuizPassed] = useState<boolean>(false);
+
+  const language = useLanguageStore((state) => state.language);
+  const t = useTranslation(language);
 
   // Generate deep technical FAANG-level questions if quiz is missing or basic
   const generateTechnicalQuestions = (title: string, lang: string) => {
@@ -215,7 +221,7 @@ export default function LessonClientView({
               className={`${styles.actionBtn} ${activeTool === 'editor' ? styles.active : ''}`}
               onClick={() => toggleTool('editor')}
             >
-              <Code2 size={16} /> Code Editor
+              <Code2 size={16} /> {t('codeEditor')}
             </button>
           )}
 
@@ -223,7 +229,7 @@ export default function LessonClientView({
             className={`${styles.actionBtn} ${activeTool === 'notes' ? styles.active : ''}`}
             onClick={() => toggleTool('notes')}
           >
-            <FileText size={16} /> My Notes
+            <FileText size={16} /> {t('settings')}
           </button>
 
           {hasQuiz && (
@@ -232,7 +238,7 @@ export default function LessonClientView({
               onClick={() => toggleTool('quiz')}
             >
               {isQuizPassed ? <CheckCircle2 size={16} color="#10b981" /> : <PlayCircle size={16} />}
-              {isQuizPassed ? 'Quiz Passed ✓' : 'Take Quiz'}
+              {isQuizPassed ? 'Quiz Passed ✓' : t('quizzesTab')}
             </button>
           )}
 
@@ -240,7 +246,7 @@ export default function LessonClientView({
             className={`${styles.actionBtn} ${activeTool === 'ai' ? styles.active : ''}`}
             onClick={() => toggleTool('ai')}
           >
-            <HelpCircle size={16} /> AI Tutor
+            <HelpCircle size={16} /> {t('aiTutor')}
           </button>
         </div>
       </div>
@@ -276,7 +282,7 @@ export default function LessonClientView({
                 <Lock size={18} /> Complete and pass the Lesson Quiz to unlock the Next Lesson!
               </div>
               <Button size="sm" variant="secondary" onClick={() => setActiveTool('quiz')}>
-                Take Quiz Now
+                {t('quizzesTab')}
               </Button>
             </div>
           )}
@@ -284,24 +290,24 @@ export default function LessonClientView({
           <div className={styles.navigationFooter}>
             {prevLesson ? (
               <Link href={`/learn/${courseSlug}/${prevLesson.slug}`}>
-                <Button variant="secondary">← Previous Lesson</Button>
+                <Button variant="secondary">← {t('backToCourses')}</Button>
               </Link>
             ) : (
-              <Button variant="secondary" disabled>← Previous Lesson</Button>
+              <Button variant="secondary" disabled>← {t('backToCourses')}</Button>
             )}
 
             {nextLesson ? (
               isNextUnlocked ? (
                 <Link href={`/learn/${courseSlug}/${nextLesson.slug}`}>
-                  <Button variant="primary">Next Lesson →</Button>
+                  <Button variant="primary">{t('nextQuestion')} →</Button>
                 </Link>
               ) : (
                 <Button variant="secondary" onClick={() => setActiveTool('quiz')} style={{ gap: '0.35rem', opacity: 0.8 }}>
-                  <Lock size={16} /> Complete Quiz to Unlock
+                  <Lock size={16} /> {t('quizzesTab')}
                 </Button>
               )
             ) : (
-              <Button variant="primary" onClick={() => setShowCertificate(true)}>Complete Course 🎓</Button>
+              <Button variant="primary" onClick={() => setShowCertificate(true)}>{t('cert')} 🎓</Button>
             )}
           </div>
         </div>
