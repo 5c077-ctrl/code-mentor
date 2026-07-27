@@ -16,6 +16,7 @@ import styles from './LessonView.module.css';
 
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { useTranslation } from '@/lib/translations';
+import { translateContent } from '@/lib/contentTranslator';
 
 type ActiveTool = 'editor' | 'notes' | 'quiz' | 'ai' | null;
 
@@ -38,6 +39,10 @@ export default function LessonClientView({
 
   const language = useLanguageStore((state) => state.language);
   const t = useTranslation(language);
+
+  const translatedCourseTitle = translateContent(courseTitle, language);
+  const translatedLessonTitle = translateContent(lesson.title || '', language);
+  const translatedContentMarkdown = translateContent(lesson.contentMarkdown || '', language);
 
   // Generate deep technical FAANG-level questions if quiz is missing or basic
   const generateTechnicalQuestions = (title: string, lang: string) => {
@@ -211,7 +216,7 @@ export default function LessonClientView({
               <ArrowLeft size={18} />
             </Button>
           </Link>
-          <span>{courseTitle} / <strong>{lesson.title}</strong></span>
+          <span>{translatedCourseTitle} / <strong>{translatedLessonTitle}</strong></span>
         </div>
 
         {/* Action Buttons */}
@@ -229,7 +234,7 @@ export default function LessonClientView({
             className={`${styles.actionBtn} ${activeTool === 'notes' ? styles.active : ''}`}
             onClick={() => toggleTool('notes')}
           >
-            <FileText size={16} /> {t('settings')}
+            <FileText size={16} /> {t('myNotes')}
           </button>
 
           {hasQuiz && (
@@ -238,7 +243,7 @@ export default function LessonClientView({
               onClick={() => toggleTool('quiz')}
             >
               {isQuizPassed ? <CheckCircle2 size={16} color="#10b981" /> : <PlayCircle size={16} />}
-              {isQuizPassed ? 'Quiz Passed ✓' : t('quizzesTab')}
+              {isQuizPassed ? translateContent('Quiz Passed ✓', language) : t('quizzesTab')}
             </button>
           )}
 
@@ -256,12 +261,12 @@ export default function LessonClientView({
         {/* Full Course Lesson Content */}
         <div className={`glass-panel ${styles.contentCard}`}>
           <div className={styles.lessonHeader}>
-            <h1 className={styles.lessonTitle}>{lesson.title}</h1>
+            <h1 className={styles.lessonTitle}>{translatedLessonTitle}</h1>
             <Badge variant="success">+{lesson.xpReward} XP</Badge>
           </div>
           
           <div className={styles.markdownBody}>
-            <ReactMarkdown>{lesson.contentMarkdown}</ReactMarkdown>
+            <ReactMarkdown>{translatedContentMarkdown}</ReactMarkdown>
           </div>
 
           {/* Locked Notice if Quiz not completed */}
@@ -279,7 +284,7 @@ export default function LessonClientView({
               fontSize: '0.925rem'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600 }}>
-                <Lock size={18} /> Complete and pass the Lesson Quiz to unlock the Next Lesson!
+                <Lock size={18} /> {translateContent('Complete and pass the Lesson Quiz to unlock the Next Lesson!', language)}
               </div>
               <Button size="sm" variant="secondary" onClick={() => setActiveTool('quiz')}>
                 {t('quizzesTab')}
