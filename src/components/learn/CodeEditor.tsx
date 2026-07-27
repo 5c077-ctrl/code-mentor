@@ -4,6 +4,9 @@ import { useState } from 'react';
 import Editor from '@monaco-editor/react';
 import Button from '@/components/ui/Button';
 
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
+
 interface CodeEditorProps {
   initialCode: string;
   language: string;
@@ -20,6 +23,9 @@ export default function CodeEditor({ initialCode, language }: CodeEditorProps) {
   const [code, setCode] = useState(initialCode);
   const [output, setOutput] = useState('');
   const [isRunning, setIsRunning] = useState(false);
+
+  const appLang = useLanguageStore((state) => state.language);
+  const t = useTranslation(appLang);
 
   // Real-time Syntax Inspector
   const analyzeSyntax = (codeText: string, lang: string): SyntaxIssue[] => {
@@ -174,12 +180,12 @@ export default function CodeEditor({ initialCode, language }: CodeEditorProps) {
 
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Button onClick={handleRunCode} disabled={isRunning} variant="primary">
-          {isRunning ? 'Running...' : 'Run Code'}
+          {isRunning ? t('running') : t('runCode')}
         </Button>
       </div>
 
       <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '8px', border: '1px solid var(--glass-border)', padding: '1rem', height: '140px', overflowY: 'auto' }}>
-        <h4 style={{ marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Output Terminal</h4>
+        <h4 style={{ marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>{t('outputTerminal')}</h4>
         <pre style={{ margin: 0, whiteSpace: 'pre-wrap', color: 'var(--text-primary)' }}>
           {output}
         </pre>

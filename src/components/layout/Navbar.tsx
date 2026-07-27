@@ -3,18 +3,22 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Search, Bell, User, Menu, Code2, Home, BookOpen, HelpCircle, Trophy } from 'lucide-react';
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
 import LanguageSelector from './LanguageSelector';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const language = useLanguageStore((state) => state.language);
+  const t = useTranslation(language);
 
   const navTabs = [
-    { label: 'Home', href: '/', icon: Home },
-    { label: 'Compilers', href: '/compilers', icon: Code2 },
-    { label: 'Courses', href: '/courses', icon: BookOpen },
-    { label: 'Quizzes', href: '/faq', icon: HelpCircle },
-    { label: 'Leaderboard', href: '/leaderboard', icon: Trophy },
+    { label: t('home'), href: '/', icon: Home },
+    { label: t('compilers'), href: '/compilers', icon: Code2 },
+    { label: t('courses'), href: '/courses', icon: BookOpen },
+    { label: t('quizzes'), href: '/faq', icon: HelpCircle },
+    { label: t('leaderboard'), href: '/leaderboard', icon: Trophy },
   ];
 
   return (
@@ -51,7 +55,7 @@ export default function Navbar() {
         <LanguageSelector />
         <div className={styles.searchBar}>
           <Search size={16} className={styles.searchIcon} />
-          <input type="text" placeholder="Search lessons..." />
+          <input type="text" placeholder={t('searchPlaceholder')} />
         </div>
         <button className={styles.iconBtn} title="Notifications">
           <Bell size={18} />
