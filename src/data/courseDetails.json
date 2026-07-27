@@ -12282,7 +12282,7 @@
         "resourceType": "youtube",
         "title": "Learn ROS 2 in 1 Hour - Robotics Operating System (Robotics Engineering & ROS 2)",
         "url": "https://www.youtube.com/watch?v=481S1E6q__o",
-        "author": "ConstructSim",
+        "author": "The Construct",
         "platform": "YouTube",
         "sortOrder": 2
       },
@@ -12300,9 +12300,9 @@
         "id": "fqh0so6crweh5yvbzsrepaj",
         "courseId": "fu7umarixhpnmpurm6tw73q",
         "resourceType": "youtube",
-        "title": "Robotics Kinematics & PID Controller Tuning (Robotics Engineering & ROS 2)",
-        "url": "https://www.youtube.com/watch?v=wfNV0xQflZ0",
-        "author": "University of Pennsylvania",
+        "title": "Arduino & Microcontroller Hardware for Autonomous Robots (Robotics Engineering & ROS 2)",
+        "url": "https://www.youtube.com/watch?v=nL34zDTPkcs",
+        "author": "freeCodeCamp.org",
         "platform": "YouTube",
         "sortOrder": 4
       },
@@ -12310,8 +12310,8 @@
         "id": "fybarjqpya2vnn2q7g46o",
         "courseId": "fu7umarixhpnmpurm6tw73q",
         "resourceType": "youtube",
-        "title": "OpenCV Computer Vision for Autonomous Robots (Robotics Engineering & ROS 2)",
-        "url": "https://www.youtube.com/watch?v=oXlwWbU8l2o",
+        "title": "Python Programming for Autonomous Robotics & AI (Robotics Engineering & ROS 2)",
+        "url": "https://www.youtube.com/watch?v=rfscVS0vtbw",
         "author": "freeCodeCamp.org",
         "platform": "YouTube",
         "sortOrder": 5
