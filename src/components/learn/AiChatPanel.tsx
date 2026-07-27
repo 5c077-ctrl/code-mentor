@@ -30,10 +30,10 @@ export default function AiChatPanel({ currentCode, lessonContext }: AiChatPanelP
     }
   }, [messages, isTyping]);
 
-  const handleSend = async () => {
-    if (!input.trim()) return;
+  const sendCustomQuery = async (queryText: string) => {
+    if (!queryText.trim() || isTyping) return;
 
-    const newMessages = [...messages, { role: 'user' as const, content: input }];
+    const newMessages = [...messages, { role: 'user' as const, content: queryText }];
     setMessages(newMessages);
     setInput('');
     setIsTyping(true);
@@ -75,6 +75,10 @@ export default function AiChatPanel({ currentCode, lessonContext }: AiChatPanelP
     } finally {
       setIsTyping(false);
     }
+  };
+
+  const handleSend = async () => {
+    await sendCustomQuery(input);
   };
 
   return (

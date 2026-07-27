@@ -2,7 +2,7 @@ import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
-import { Clock, BookOpen, Award, ChevronRight } from 'lucide-react';
+import { Clock, BookOpen, Award, ChevronRight, Sparkles } from 'lucide-react';
 import { getAllCourses, getAllCategories } from '@/lib/db';
 
 export default async function CoursesPage({
@@ -39,6 +39,57 @@ export default async function CoursesPage({
           Explore structured interactive courses across {categories.length} categories with step-by-step sublessons.
         </p>
       </header>
+
+      {/* Live Curriculum Sync & Continuous Updates Banner */}
+      <Card style={{
+        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(168, 85, 247, 0.08))',
+        border: '1px solid rgba(99, 102, 241, 0.3)',
+        padding: '1.25rem 1.5rem',
+        borderRadius: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '1rem',
+        flexWrap: 'wrap',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '42px',
+            height: '42px',
+            borderRadius: '12px',
+            background: 'rgba(99, 102, 241, 0.2)',
+            color: 'var(--accent-primary)',
+          }}>
+            <Sparkles size={22} />
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0 }}>Continuous Curriculum Sync</h3>
+              <span style={{
+                background: 'rgba(34, 197, 94, 0.15)',
+                color: '#4ade80',
+                border: '1px solid rgba(34, 197, 94, 0.3)',
+                padding: '0.15rem 0.5rem',
+                borderRadius: '10px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+              }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4ade80', display: 'inline-block' }}></span>
+                Live 2026 Auto-Updated
+              </span>
+            </div>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', margin: '0.2rem 0 0 0' }}>
+              Courses and sublessons automatically sync and update progressively as industry standards evolve.
+            </p>
+          </div>
+        </div>
+      </Card>
 
       {/* Category Pills Filter */}
       <div

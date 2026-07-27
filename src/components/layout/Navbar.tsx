@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Search, Bell, User, Menu, Code2, Home, BookOpen, HelpCircle, Trophy } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -47,6 +48,7 @@ export default function Navbar() {
       </nav>
 
       <div className={styles.right}>
+        <LanguageSelector />
         <div className={styles.searchBar}>
           <Search size={16} className={styles.searchIcon} />
           <input type="text" placeholder="Search lessons..." />

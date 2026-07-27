@@ -2,7 +2,23 @@ import Anthropic from '@anthropic-ai/sdk';
 import { NextResponse } from 'next/server';
 
 function generateTechnicalAiResponse(userQuery: string, lessonContext: string, codeContext: string): string {
-  const q = userQuery.toLowerCase();
+  const q = userQuery.toLowerCase().trim();
+  const wordCount = q.split(/\s+/).length;
+
+  // Question Formulation & Ambiguity Check
+  if (wordCount < 4 || q === 'help' || q === 'error' || q === 'why' || q === 'broken' || q === 'code') {
+    return `### 💡 Question Formulation Analysis & Clarification
+
+> ⚠️ **Insight on Question Formulation**: Your question *"${userQuery}"* is quite brief and lacks specific context (such as error logs, line numbers, or target outcome).
+
+To get the most precise technical answer, consider one of these **clarified technical questions**:
+
+- ❓ **"Why am I receiving an error in ${lessonContext} and how do I fix it?"**
+- ❓ **"What is the step-by-step algorithmic solution for ${lessonContext}?"**
+- ❓ **"Can you review my workspace code and analyze its time/space complexity?"**
+
+*You can copy and ask any of the questions above for an instant detailed breakdown!*`;
+  }
   
   // 1. CYBERSECURITY & ETHICAL HACKING
   if (q.includes('cyber') || q.includes('security') || q.includes('hack') || q.includes('exploit') || q.includes('xss') || q.includes('sqli') || q.includes('nmap') || q.includes('burp') || q.includes('csrf') || q.includes('crypto') || q.includes('malware') || q.includes('jwt') || q.includes('buffer overflow') || q.includes('penetration') || q.includes('vulnerability')) {
