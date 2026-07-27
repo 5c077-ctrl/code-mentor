@@ -11803,5 +11803,519 @@
         "sortOrder": 10
       }
     ]
+  },
+  "arduino": {
+    "id": "f5dyjo9yli1vqv9v68n82wg",
+    "categoryId": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+    "title": "Arduino",
+    "slug": "arduino",
+    "description": "Master microcontroller programming, C/C++ embedded code, sensors, actuators, PWM, I2C/SPI communication, and IoT projects with Arduino UNO & ESP32.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-27T18:45:16.902Z",
+    "modules": [
+      {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "lessons": [
+          {
+            "id": "feqt34qhj0zubk0xr8a2oqc",
+            "title": "01. Introduction to Arduino & Microcontrollers",
+            "slug": "01-intro-arduino-microcontrollers",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 1
+          },
+          {
+            "id": "fqi7ob03lo3xw4g43cu1dj",
+            "title": "02. Arduino IDE 2.0 & C/C++ Embedded Toolchain",
+            "slug": "02-arduino-ide-setup-c-cpp-toolchain",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 2
+          },
+          {
+            "id": "fyb98jyq0uoezft22t78hx",
+            "title": "03. Digital I/O & LED Circuit Control",
+            "slug": "03-digital-io-led-circuit-control",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 3
+          },
+          {
+            "id": "fv1pl5lxkelj1m7mq2mj5ek",
+            "title": "04. Analog Input, ADC & Potentiometers",
+            "slug": "04-analog-input-adc-potentiometers",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 4
+          },
+          {
+            "id": "f3jz283cv5h2e9393b87rjv",
+            "title": "05. Pulse Width Modulation (PWM) & Motor Speed",
+            "slug": "05-pulse-width-modulation-pwm-motor-speed",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 5
+          },
+          {
+            "id": "frn58z6agfgikhozdcjwm",
+            "title": "06. Serial Communication & UART Data Protocol",
+            "slug": "06-serial-communication-uart-data-protocol",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 6
+          },
+          {
+            "id": "fkeo390lu915e43ky1btkk",
+            "title": "07. Interfacing Ultrasonic Distance Sensors",
+            "slug": "07-interfacing-ultrasonic-distance-sensors",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 7
+          },
+          {
+            "id": "frhismkbnclham2htveobw",
+            "title": "08. DHT11/DHT22 Temperature & Humidity Sensors",
+            "slug": "08-dht11-dht22-temperature-humidity-sensors",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 8
+          },
+          {
+            "id": "fm8y7sf1f1f7h1w21wk1r",
+            "title": "09. Servo Motor Precision Control & Timers",
+            "slug": "09-servo-motor-precision-control-timers",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 9
+          },
+          {
+            "id": "fkr3uievjoy20tekj3000y",
+            "title": "10. DC Motor Control with L298N H-Bridge Driver",
+            "slug": "10-dc-motor-control-l298n-h-bridge-driver",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 10
+          },
+          {
+            "id": "fv6fijf446zm2b24fqik1",
+            "title": "11. I2C Protocol & LCD 1602 Display Interface",
+            "slug": "11-i2c-protocol-lcd-1602-display-interface",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 11
+          },
+          {
+            "id": "fyc011eug5sdggwjorqc85",
+            "title": "12. SPI Bus Protocol & MicroSD Card Storage",
+            "slug": "12-spi-bus-protocol-microsd-card-storage",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 12
+          },
+          {
+            "id": "fz1cy9bwohbba5uuc4b4nd",
+            "title": "13. Hardware Interrupts & Debouncing Push Buttons",
+            "slug": "13-hardware-interrupts-debouncing-push-buttons",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 13
+          },
+          {
+            "id": "fc8kmz84m5kolp18riike6",
+            "title": "14. EEPROM Non-Volatile Memory Storage",
+            "slug": "14-eeprom-non-volatile-memory-storage",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 14
+          },
+          {
+            "id": "fzu84st21et52lzs0b1w9p",
+            "title": "15. Building an Autonomous Obstacle-Avoiding Rover",
+            "slug": "15-building-autonomous-obstacle-avoiding-rover",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 15
+          }
+        ]
+      }
+    ],
+    "category": {
+      "id": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+      "name": "Basics",
+      "slug": "basics",
+      "description": "Master computer hardware, operating system fundamentals, computer science theory, and core programming principles.",
+      "icon": "⚙️",
+      "color": "#3b82f6",
+      "sortOrder": 1
+    },
+    "resources": [
+      {
+        "id": "f1wr89b4ap2i7c6a9v1lwo",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "documentation",
+        "title": "Official Arduino Language & API Reference",
+        "url": "https://www.arduino.cc/reference/en/",
+        "author": "Arduino Team",
+        "platform": "Arduino.cc",
+        "sortOrder": 1
+      },
+      {
+        "id": "f1a68j3us7lbqu034wicrgo",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "video",
+        "title": "Arduino Programming Course for Beginners",
+        "url": "https://www.youtube.com/watch?v=zJ-LqeX_fLU",
+        "author": "freeCodeCamp",
+        "platform": "YouTube",
+        "sortOrder": 2
+      },
+      {
+        "id": "f7uzx5z7um9jxpuplqpv76",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "article",
+        "title": "Arduino Hardware & Electronics Starter Handbook",
+        "url": "https://docs.arduino.cc/learn/",
+        "author": "Arduino Education",
+        "platform": "Arduino Docs",
+        "sortOrder": 3
+      },
+      {
+        "id": "f3ni6z5o2n9n0moscqh4pv9p",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "video",
+        "title": "ESP32 & Arduino Wi-Fi IoT Masterclass",
+        "url": "https://www.youtube.com/watch?v=yW6aX0Osn8g",
+        "author": "Random Nerd Tutorials",
+        "platform": "YouTube",
+        "sortOrder": 4
+      },
+      {
+        "id": "fpdsm92o38d86mnz623h5j",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "documentation",
+        "title": "AVR Microcontroller Architecture Reference",
+        "url": "https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus",
+        "author": "Microchip Technology",
+        "platform": "Microchip",
+        "sortOrder": 5
+      },
+      {
+        "id": "ftv51173487f10xactc0o8q",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "article",
+        "title": "Mastering I2C, SPI & UART Protocols on Microcontrollers",
+        "url": "https://sparkfun.com/tutorials",
+        "author": "SparkFun Electronics",
+        "platform": "SparkFun",
+        "sortOrder": 6
+      },
+      {
+        "id": "fgvb81xka0xnux5wvlhdshq",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "github",
+        "title": "Arduino Open Source Hardware & Software Repository",
+        "url": "https://github.com/arduino/Arduino",
+        "author": "Arduino Community",
+        "platform": "GitHub",
+        "sortOrder": 7
+      },
+      {
+        "id": "fsdzoybpyrjnj2ex95ww5q",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "article",
+        "title": "Simulating Arduino Circuits Online with Tinkercad",
+        "url": "https://www.tinkercad.com/circuits",
+        "author": "Autodesk",
+        "platform": "Tinkercad",
+        "sortOrder": 8
+      },
+      {
+        "id": "f6nnejz2dfkj0zquk8vsycd",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "documentation",
+        "title": "L298N H-Bridge Motor Driver Technical Datasheet",
+        "url": "https://www.st.com/resource/en/datasheet/l298.pdf",
+        "author": "STMicroelectronics",
+        "platform": "Datasheet",
+        "sortOrder": 9
+      },
+      {
+        "id": "frsp1qbt0q0duwdjt82x57",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "resourceType": "article",
+        "title": "Building Autonomous Mobile Robots with Arduino & C++",
+        "url": "https://hackaday.com/category/robots-2/",
+        "author": "Hackaday Hardware",
+        "platform": "Hackaday",
+        "sortOrder": 10
+      }
+    ]
+  },
+  "robotics": {
+    "id": "fu7umarixhpnmpurm6tw73q",
+    "categoryId": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+    "title": "Robotics Engineering & ROS 2",
+    "slug": "robotics",
+    "description": "Master kinematic modeling, robot operating system (ROS 2), Gazebo 3D simulation, computer vision, PID motor control, and autonomous navigation (SLAM).",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 30,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-27T18:45:16.913Z",
+    "modules": [
+      {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "lessons": [
+          {
+            "id": "fwud6z8nczemwlxzg3b0iw9",
+            "title": "01. Foundations of Robotics Engineering",
+            "slug": "01-foundations-robotics-engineering",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 1
+          },
+          {
+            "id": "fie8kq023a7pqa44x58z6d",
+            "title": "02. Robot Kinematics: Forward & Inverse Kinematics",
+            "slug": "02-robot-kinematics-forward-inverse",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 2
+          },
+          {
+            "id": "fc87jqsex7i9nwgm7vqoszf",
+            "title": "03. Introduction to ROS 2 (Robot Operating System)",
+            "slug": "03-intro-ros2-robot-operating-system",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 3
+          },
+          {
+            "id": "fn94tbz9o6civnqsax5ox",
+            "title": "04. ROS 2 Nodes, Topics, Publishers & Subscribers",
+            "slug": "04-ros2-nodes-topics-publishers-subscribers",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 4
+          },
+          {
+            "id": "fndpsny3fcyiayk5asj9u",
+            "title": "05. ROS 2 Custom Messages, Services & Actions",
+            "slug": "05-ros2-custom-messages-services-actions",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 5
+          },
+          {
+            "id": "fyl8wrzh18vp154zflfmtvc",
+            "title": "06. Robot Modeling with URDF & Xacro",
+            "slug": "06-robot-modeling-urdf-xacro",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 6
+          },
+          {
+            "id": "fy9o5pbgnh385qfwt1fobu",
+            "title": "07. Gazebo 3D Physics Simulator & Environment Setup",
+            "slug": "07-gazebo-3d-physics-simulator-setup",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 7
+          },
+          {
+            "id": "f3oj5w3h1g2bs7sildnvc5",
+            "title": "08. Sensor Fusion: IMU, Lidar & Wheel Encoders",
+            "slug": "08-sensor-fusion-imu-lidar-wheel-encoders",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 8
+          },
+          {
+            "id": "fghnk3bykcogr60k39d1u7",
+            "title": "09. Closed-Loop PID Control for Robotic Actuators",
+            "slug": "09-closed-loop-pid-control-robotic-actuators",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 9
+          },
+          {
+            "id": "fy4lfq7szt2o5l9eekvm4k",
+            "title": "10. OpenCV Computer Vision for Object Tracking",
+            "slug": "10-opencv-computer-vision-object-tracking",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 10
+          },
+          {
+            "id": "fb1mq5fcw3x7u0h5b5n87x9",
+            "title": "11. SLAM (Simultaneous Localization and Mapping)",
+            "slug": "11-slam-simultaneous-localization-mapping",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 11
+          },
+          {
+            "id": "f5vz0l332q5a3u40v2mkrj6",
+            "title": "12. Autonomous Path Planning with Nav2 Protocol",
+            "slug": "12-autonomous-path-planning-nav2-protocol",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 12
+          },
+          {
+            "id": "fxvtb6stl1ulj4dvx15gjjc",
+            "title": "13. Robotic Arm Trajectory Planning & MoveIt 2",
+            "slug": "13-robotic-arm-trajectory-planning-moveit2",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 13
+          },
+          {
+            "id": "f6p748gbz3negkh8nvk2w0i",
+            "title": "14. AI & Reinforcement Learning for Robot Control",
+            "slug": "14-ai-reinforcement-learning-robot-control",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 14
+          },
+          {
+            "id": "fx5jvzkwqusseqi4uffdj0u",
+            "title": "15. Deploying Autonomous Mobile Robots in Production",
+            "slug": "15-deploying-autonomous-mobile-robots-production",
+            "estimatedMinutes": 20,
+            "xpReward": 30,
+            "sortOrder": 15
+          }
+        ]
+      }
+    ],
+    "category": {
+      "id": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+      "name": "AI & Machine Learning",
+      "slug": "ai-ml",
+      "description": "Master Artificial Intelligence, Python data science, machine learning models, PyTorch deep learning, and Prompt Engineering for LLMs.",
+      "icon": "🤖",
+      "color": "#ec4899",
+      "sortOrder": 6
+    },
+    "resources": [
+      {
+        "id": "f911x7cqgyj5tlzmmdfzrrr",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "documentation",
+        "title": "Official ROS 2 Humble Documentation & Manuals",
+        "url": "https://docs.ros.org/en/humble/",
+        "author": "Open Robotics Foundation",
+        "platform": "ROS.org",
+        "sortOrder": 1
+      },
+      {
+        "id": "f30j65fy1quzutervne184p",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "video",
+        "title": "Robotics Specialization Course by UPenn",
+        "url": "https://www.coursera.org/specializations/robotics",
+        "author": "University of Pennsylvania",
+        "platform": "Coursera",
+        "sortOrder": 2
+      },
+      {
+        "id": "fepgh94tcaxttb6ki8nfdr",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "book",
+        "title": "Modern Robotics: Mechanics, Planning, and Control",
+        "url": "http://modernrobotics.org/",
+        "author": "Kevin M. Lynch & Frank C. Park",
+        "platform": "Cambridge Press",
+        "sortOrder": 3
+      },
+      {
+        "id": "fbb9nat41asdigsrretfzpa",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "documentation",
+        "title": "Gazebo 3D Simulation Engine User Guide",
+        "url": "https://gazebosim.org/docs",
+        "author": "Open Robotics",
+        "platform": "Gazebo Sim",
+        "sortOrder": 4
+      },
+      {
+        "id": "fpvaz6yyjub9or6skv1py5r",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "github",
+        "title": "OpenCV Computer Vision for Autonomous Robots",
+        "url": "https://github.com/opencv/opencv",
+        "author": "OpenCV Foundation",
+        "platform": "GitHub",
+        "sortOrder": 5
+      },
+      {
+        "id": "fbz06vl5f4usvlj3rjshwx",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "article",
+        "title": "SLAM & Autonomous Navigation Systems Architecture",
+        "url": "https://nav2.org/",
+        "author": "Nav2 Working Group",
+        "platform": "Nav2.org",
+        "sortOrder": 6
+      },
+      {
+        "id": "f8dtyphetmyl808vpsgbz4b",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "documentation",
+        "title": "MoveIt 2 Robotic Motion Planning Framework",
+        "url": "https://moveit.ros.org/",
+        "author": "PickNik Robotics",
+        "platform": "MoveIt",
+        "sortOrder": 7
+      },
+      {
+        "id": "fj5cpcsqih3mj411dwlvl",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "article",
+        "title": "Closed-Loop PID Controller Tuning in Python & C++",
+        "url": "https://controlautomation.com/",
+        "author": "Control Automation",
+        "platform": "Control Automation",
+        "sortOrder": 8
+      },
+      {
+        "id": "fqhw6g6w51vnsdw4an7t9ys",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "github",
+        "title": "Awesome ROS 2 Autonomous Robotics Resources",
+        "url": "https://github.com/fkromer/awesome-ros2",
+        "author": "ROS 2 Community",
+        "platform": "GitHub",
+        "sortOrder": 9
+      },
+      {
+        "id": "fb14yjybak56hj21mo86h0t",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "resourceType": "video",
+        "title": "NVIDIA Isaac Sim & AI Robotics Masterclass",
+        "url": "https://developer.nvidia.com/isaac-sim",
+        "author": "NVIDIA Robotics",
+        "platform": "NVIDIA Developer",
+        "sortOrder": 10
+      }
+    ]
   }
 }

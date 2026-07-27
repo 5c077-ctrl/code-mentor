@@ -1532,5 +1532,57 @@
     "_count": {
       "modules": 1
     }
+  },
+  {
+    "id": "f5dyjo9yli1vqv9v68n82wg",
+    "categoryId": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+    "title": "Arduino",
+    "slug": "arduino",
+    "description": "Master microcontroller programming, C/C++ embedded code, sensors, actuators, PWM, I2C/SPI communication, and IoT projects with Arduino UNO & ESP32.",
+    "difficulty": "beginner",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 25,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-27T18:45:16.913Z",
+    "category": {
+      "id": "213975eb-999a-4c9c-ad38-eed9c8557b35",
+      "name": "Basics",
+      "slug": "basics",
+      "description": "Master computer hardware, operating system fundamentals, computer science theory, and core programming principles.",
+      "icon": "⚙️",
+      "color": "#3b82f6",
+      "sortOrder": 1
+    },
+    "_count": {
+      "modules": 1
+    }
+  },
+  {
+    "id": "fu7umarixhpnmpurm6tw73q",
+    "categoryId": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+    "title": "Robotics Engineering & ROS 2",
+    "slug": "robotics",
+    "description": "Master kinematic modeling, robot operating system (ROS 2), Gazebo 3D simulation, computer vision, PID motor control, and autonomous navigation (SLAM).",
+    "difficulty": "intermediate",
+    "language": "en",
+    "thumbnailUrl": null,
+    "estimatedHours": 30,
+    "totalLessons": 15,
+    "isPublished": true,
+    "createdAt": "2026-07-27T18:45:16.913Z",
+    "category": {
+      "id": "a38e9623-c09d-4cba-8bd4-a005112e1468",
+      "name": "AI & Machine Learning",
+      "slug": "ai-ml",
+      "description": "Master Artificial Intelligence, Python data science, machine learning models, PyTorch deep learning, and Prompt Engineering for LLMs.",
+      "icon": "🤖",
+      "color": "#ec4899",
+      "sortOrder": 6
+    },
+    "_count": {
+      "modules": 1
+    }
   }
 ]

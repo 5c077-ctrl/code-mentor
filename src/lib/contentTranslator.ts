@@ -25,6 +25,8 @@ const DICTIONARY: Record<AppLanguage, Record<string, string>> = {
     'Code Example': 'Exemple de code',
     'Interactive Challenge': 'Défi interactif',
     'Basic Computer Programming': 'Programmation informatique de base',
+    'Arduino': 'Programmation Arduino & Microcontrôleurs',
+    'Robotics Engineering & ROS 2': 'Ingénierie Robotique & ROS 2',
     'Variables & Data Types': 'Variables et types de données',
     'Control Flow & Loops': 'Flux de contrôle et boucles',
     'Functions & Scope': 'Fonctions et portée',

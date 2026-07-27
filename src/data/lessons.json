@@ -85204,5 +85204,2165 @@
     ],
     "courseSlug": "npm-package-managers",
     "courseTitle": "npm & Package Managers"
+  },
+  "arduino/01-intro-arduino-microcontrollers": {
+    "lesson": {
+      "id": "feqt34qhj0zubk0xr8a2oqc",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "01. Introduction to Arduino & Microcontrollers",
+      "slug": "01-intro-arduino-microcontrollers",
+      "contentMarkdown": "# 01. Introduction to Arduino & Microcontrollers\n\nUnderstand microcontrollers vs microprocessors, ATmega328P architecture, and pinout layout.\n\n## Overview\nIn this lesson, you will master the principles of **01. Introduction to Arduino & Microcontrollers** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "// Arduino Blink Hello World\nvoid setup() {\n  pinMode(LED_BUILTIN, OUTPUT);\n  Serial.begin(9600);\n  Serial.println(\"Arduino UNO Initialized Successfully!\");\n}\n\nvoid loop() {\n  digitalWrite(LED_BUILTIN, HIGH);\n  delay(1000);\n  digitalWrite(LED_BUILTIN, LOW);\n  delay(1000);\n}",
+      "solutionCode": "void setup() {\n  pinMode(LED_BUILTIN, OUTPUT);\n  Serial.begin(9600);\n  Serial.println(\"Arduino System Ready\");\n}\nvoid loop() {\n  digitalWrite(LED_BUILTIN, HIGH);\n  delay(500);\n  digitalWrite(LED_BUILTIN, LOW);\n  delay(500);\n}",
+      "codeLanguage": "cpp",
+      "sortOrder": 1,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fyvk5dsw3hxnmino5p5tbf",
+          "lessonId": "feqt34qhj0zubk0xr8a2oqc",
+          "title": "Quiz — 01. Introduction to Arduino & Microcontrollers",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "f5g2q3oektavxgu0f0lbjp",
+              "quizId": "fyvk5dsw3hxnmino5p5tbf",
+              "questionText": "What is the core principle behind 01. Introduction to Arduino & Microcontrollers?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "f9k46plyg0dkdukcq63q9l",
+                  "questionId": "f5g2q3oektavxgu0f0lbjp",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fj9jjwjq38x0fvadn13kbln",
+                  "questionId": "f5g2q3oektavxgu0f0lbjp",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f024qtpk7ijzhhs8xkeeheze",
+                  "questionId": "f5g2q3oektavxgu0f0lbjp",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/02-arduino-ide-setup-c-cpp-toolchain": {
+    "lesson": {
+      "id": "fqi7ob03lo3xw4g43cu1dj",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "02. Arduino IDE 2.0 & C/C++ Embedded Toolchain",
+      "slug": "02-arduino-ide-setup-c-cpp-toolchain",
+      "contentMarkdown": "# 02. Arduino IDE 2.0 & C/C++ Embedded Toolchain\n\nInstall Arduino IDE 2.0, configure board drivers, COM ports, and understand AVR-GCC compiler compilation pipeline.\n\n## Overview\nIn this lesson, you will master the principles of **02. Arduino IDE 2.0 & C/C++ Embedded Toolchain** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "#include <Arduino.h>\n\nvoid setup() {\n  Serial.begin(115200);\n  Serial.println(\"AVR-GCC Embedded Toolchain Ready.\");\n}\n\nvoid loop() {\n  // Main loop\n}",
+      "solutionCode": "void setup() {\n  Serial.begin(115200);\n}\nvoid loop() {\n}",
+      "codeLanguage": "cpp",
+      "sortOrder": 2,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fka3wltvl218j2r86l4xtt",
+          "lessonId": "fqi7ob03lo3xw4g43cu1dj",
+          "title": "Quiz — 02. Arduino IDE 2.0 & C/C++ Embedded Toolchain",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fahok1qr98irmx7ugy2kh",
+              "quizId": "fka3wltvl218j2r86l4xtt",
+              "questionText": "What is the core principle behind 02. Arduino IDE 2.0 & C/C++ Embedded Toolchain?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "f44z5vmuq2u1xy7bk7342ta",
+                  "questionId": "fahok1qr98irmx7ugy2kh",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fz91pgbt25rcbpfewe4cq4",
+                  "questionId": "fahok1qr98irmx7ugy2kh",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fx471bk14woijwhqyfyile",
+                  "questionId": "fahok1qr98irmx7ugy2kh",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/03-digital-io-led-circuit-control": {
+    "lesson": {
+      "id": "fyb98jyq0uoezft22t78hx",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "03. Digital I/O & LED Circuit Control",
+      "slug": "03-digital-io-led-circuit-control",
+      "contentMarkdown": "# 03. Digital I/O & LED Circuit Control\n\nLearn pinMode(), digitalWrite(), digitalRead(), current limiting resistors, and push-button state detection.\n\n## Overview\nIn this lesson, you will master the principles of **03. Digital I/O & LED Circuit Control** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "const int BUTTON_PIN = 2;\nconst int LED_PIN = 13;\n\nvoid setup() {\n  pinMode(BUTTON_PIN, INPUT_PULLUP);\n  pinMode(LED_PIN, OUTPUT);\n}\n\nvoid loop() {\n  int btnState = digitalRead(BUTTON_PIN);\n  if (btnState == LOW) {\n    digitalWrite(LED_PIN, HIGH);\n  } else {\n    digitalWrite(LED_PIN, LOW);\n  }\n}",
+      "solutionCode": "void setup() { pinMode(2, INPUT_PULLUP); pinMode(13, OUTPUT); }\nvoid loop() { digitalWrite(13, !digitalRead(2)); }",
+      "codeLanguage": "cpp",
+      "sortOrder": 3,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fcu8dpgaua1sr0xqx6zopa",
+          "lessonId": "fyb98jyq0uoezft22t78hx",
+          "title": "Quiz — 03. Digital I/O & LED Circuit Control",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fudoeiscy2nmnf39gzfu1e",
+              "quizId": "fcu8dpgaua1sr0xqx6zopa",
+              "questionText": "What is the core principle behind 03. Digital I/O & LED Circuit Control?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "f6pgsfc1refehw200tw7g7q",
+                  "questionId": "fudoeiscy2nmnf39gzfu1e",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fm7ezafg1f1wy1saeob4wm",
+                  "questionId": "fudoeiscy2nmnf39gzfu1e",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f2gnc9cfwebb0s67z9q8kol",
+                  "questionId": "fudoeiscy2nmnf39gzfu1e",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/04-analog-input-adc-potentiometers": {
+    "lesson": {
+      "id": "fv1pl5lxkelj1m7mq2mj5ek",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "04. Analog Input, ADC & Potentiometers",
+      "slug": "04-analog-input-adc-potentiometers",
+      "contentMarkdown": "# 04. Analog Input, ADC & Potentiometers\n\nUnderstand 10-bit Analog-to-Digital Conversion (ADC), analogRead(), 0-1023 resolution, and voltage mapping.\n\n## Overview\nIn this lesson, you will master the principles of **04. Analog Input, ADC & Potentiometers** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "const int POT_PIN = A0;\n\nvoid setup() {\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  int rawVal = analogRead(POT_PIN);\n  float voltage = rawVal * (5.0 / 1023.0);\n  Serial.print(\"Raw: \"); Serial.print(rawVal);\n  Serial.print(\" | Voltage: \"); Serial.println(voltage);\n  delay(250);\n}",
+      "solutionCode": "void setup() { Serial.begin(9600); }\nvoid loop() { int v = analogRead(A0); Serial.println(v); delay(100); }",
+      "codeLanguage": "cpp",
+      "sortOrder": 4,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fl0c4nrr140m9w8qwc1day",
+          "lessonId": "fv1pl5lxkelj1m7mq2mj5ek",
+          "title": "Quiz — 04. Analog Input, ADC & Potentiometers",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "frdpugrgmp4s09coz3n0oufl",
+              "quizId": "fl0c4nrr140m9w8qwc1day",
+              "questionText": "What is the core principle behind 04. Analog Input, ADC & Potentiometers?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fk59clbjnwgqr8ekqwtusg",
+                  "questionId": "frdpugrgmp4s09coz3n0oufl",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fvs1qfa4nykmgh78ys08cj",
+                  "questionId": "frdpugrgmp4s09coz3n0oufl",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fyf5lzfq9zxdk1u2qmcmwj",
+                  "questionId": "frdpugrgmp4s09coz3n0oufl",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/05-pulse-width-modulation-pwm-motor-speed": {
+    "lesson": {
+      "id": "f3jz283cv5h2e9393b87rjv",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "05. Pulse Width Modulation (PWM) & Motor Speed",
+      "slug": "05-pulse-width-modulation-pwm-motor-speed",
+      "contentMarkdown": "# 05. Pulse Width Modulation (PWM) & Motor Speed\n\nMaster analogWrite(), duty cycles, 8-bit resolution (0-255), LED dimming, and DC motor speed adjustment.\n\n## Overview\nIn this lesson, you will master the principles of **05. Pulse Width Modulation (PWM) & Motor Speed** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "const int LED_PWM = 9;\n\nvoid setup() {\n  pinMode(LED_PWM, OUTPUT);\n}\n\nvoid loop() {\n  for (int fade = 0; fade <= 255; fade += 5) {\n    analogWrite(LED_PWM, fade);\n    delay(30);\n  }\n  for (int fade = 255; fade >= 0; fade -= 5) {\n    analogWrite(LED_PWM, fade);\n    delay(30);\n  }\n}",
+      "solutionCode": "void setup() { pinMode(9, OUTPUT); }\nvoid loop() { analogWrite(9, 128); }",
+      "codeLanguage": "cpp",
+      "sortOrder": 5,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fi6ld8fgqr7mg26h8nmwbfk",
+          "lessonId": "f3jz283cv5h2e9393b87rjv",
+          "title": "Quiz — 05. Pulse Width Modulation (PWM) & Motor Speed",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fzmzusw9k09j0a45p41lpj66",
+              "quizId": "fi6ld8fgqr7mg26h8nmwbfk",
+              "questionText": "What is the core principle behind 05. Pulse Width Modulation (PWM) & Motor Speed?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fdf3zayphxqbk2gseoqdd7",
+                  "questionId": "fzmzusw9k09j0a45p41lpj66",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fgfvzviwqiyqfvulcty5v6g",
+                  "questionId": "fzmzusw9k09j0a45p41lpj66",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f9fbfg1epz4tewxzc3zxnmb",
+                  "questionId": "fzmzusw9k09j0a45p41lpj66",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/06-serial-communication-uart-data-protocol": {
+    "lesson": {
+      "id": "frn58z6agfgikhozdcjwm",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "06. Serial Communication & UART Data Protocol",
+      "slug": "06-serial-communication-uart-data-protocol",
+      "contentMarkdown": "# 06. Serial Communication & UART Data Protocol\n\nDeep dive into Universal Asynchronous Receiver-Transmitter (UART), baud rates, Serial.readString(), and packet parsing.\n\n## Overview\nIn this lesson, you will master the principles of **06. Serial Communication & UART Data Protocol** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "void setup() {\n  Serial.begin(9600);\n  Serial.println(\"Send command: ON or OFF\");\n}\n\nvoid loop() {\n  if (Serial.available() > 0) {\n    String command = Serial.readStringUntil('\\n');\n    command.trim();\n    if (command.equalsIgnoreCase(\"ON\")) {\n      digitalWrite(LED_BUILTIN, HIGH);\n      Serial.println(\"LED Status: ENABLED\");\n    } else if (command.equalsIgnoreCase(\"OFF\")) {\n      digitalWrite(LED_BUILTIN, LOW);\n      Serial.println(\"LED Status: DISABLED\");\n    }\n  }\n}",
+      "solutionCode": "void setup() { Serial.begin(9600); }\nvoid loop() { if(Serial.available()){ Serial.write(Serial.read()); } }",
+      "codeLanguage": "cpp",
+      "sortOrder": 6,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "f6d9nxjenzfq0iu54idj4",
+          "lessonId": "frn58z6agfgikhozdcjwm",
+          "title": "Quiz — 06. Serial Communication & UART Data Protocol",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fb6j8d6l1lbf497tqssm5ld",
+              "quizId": "f6d9nxjenzfq0iu54idj4",
+              "questionText": "What is the core principle behind 06. Serial Communication & UART Data Protocol?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fgkjpthavk8i68f13d6o2oo",
+                  "questionId": "fb6j8d6l1lbf497tqssm5ld",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fr1g1u0cokxrbp4apm4r6ci",
+                  "questionId": "fb6j8d6l1lbf497tqssm5ld",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f78ear6gyxhhsj4rx79w998",
+                  "questionId": "fb6j8d6l1lbf497tqssm5ld",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/07-interfacing-ultrasonic-distance-sensors": {
+    "lesson": {
+      "id": "fkeo390lu915e43ky1btkk",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "07. Interfacing Ultrasonic Distance Sensors",
+      "slug": "07-interfacing-ultrasonic-distance-sensors",
+      "contentMarkdown": "# 07. Interfacing Ultrasonic Distance Sensors\n\nInterface HC-SR04 sonar sensor using pulseIn(), microsecond echo timing, and distance calculation in centimeters.\n\n## Overview\nIn this lesson, you will master the principles of **07. Interfacing Ultrasonic Distance Sensors** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "const int TRIG_PIN = 9;\nconst int ECHO_PIN = 10;\n\nvoid setup() {\n  pinMode(TRIG_PIN, OUTPUT);\n  pinMode(ECHO_PIN, INPUT);\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  digitalWrite(TRIG_PIN, LOW);\n  delayMicroseconds(2);\n  digitalWrite(TRIG_PIN, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(TRIG_PIN, LOW);\n  \n  long duration = pulseIn(ECHO_PIN, HIGH);\n  float distanceCm = duration * 0.0343 / 2.0;\n  Serial.print(\"Distance: \"); Serial.print(distanceCm); Serial.println(\" cm\");\n  delay(500);\n}",
+      "solutionCode": "void setup() { Serial.begin(9600); }\nvoid loop() { }",
+      "codeLanguage": "cpp",
+      "sortOrder": 7,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fbuinsfjkspd6vu87ksd1p",
+          "lessonId": "fkeo390lu915e43ky1btkk",
+          "title": "Quiz — 07. Interfacing Ultrasonic Distance Sensors",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "f0mq2hptgnkgqa61orb5glhd",
+              "quizId": "fbuinsfjkspd6vu87ksd1p",
+              "questionText": "What is the core principle behind 07. Interfacing Ultrasonic Distance Sensors?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fg8d1mmmrrl9xmsmmarp0fm",
+                  "questionId": "f0mq2hptgnkgqa61orb5glhd",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "f7bynrueagexi775e5ctmnr",
+                  "questionId": "f0mq2hptgnkgqa61orb5glhd",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fx8fdpytcui283jk50crrj",
+                  "questionId": "f0mq2hptgnkgqa61orb5glhd",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/08-dht11-dht22-temperature-humidity-sensors": {
+    "lesson": {
+      "id": "frhismkbnclham2htveobw",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "08. DHT11/DHT22 Temperature & Humidity Sensors",
+      "slug": "08-dht11-dht22-temperature-humidity-sensors",
+      "contentMarkdown": "# 08. DHT11/DHT22 Temperature & Humidity Sensors\n\nRead digital single-bus protocols using DHT sensor libraries, error handling, and environmental data logging.\n\n## Overview\nIn this lesson, you will master the principles of **08. DHT11/DHT22 Temperature & Humidity Sensors** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "#include <DHT.h>\n\n#define DHTPIN 2\n#define DHTTYPE DHT11\n\nDHT dht(DHTPIN, DHTTYPE);\n\nvoid setup() {\n  Serial.begin(9600);\n  dht.begin();\n}\n\nvoid loop() {\n  float h = dht.readHumidity();\n  float t = dht.readTemperature();\n  if (isnan(h) || isnan(t)) {\n    Serial.println(\"Failed to read from DHT sensor!\");\n    return;\n  }\n  Serial.print(\"Humidity: \"); Serial.print(h);\n  Serial.print(\"%  Temp: \"); Serial.print(t); Serial.println(\"°C\");\n  delay(2000);\n}",
+      "solutionCode": "void setup() { Serial.begin(9600); }\nvoid loop() {}",
+      "codeLanguage": "cpp",
+      "sortOrder": 8,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fi4onix6fs4h8hjc5hmd2et",
+          "lessonId": "frhismkbnclham2htveobw",
+          "title": "Quiz — 08. DHT11/DHT22 Temperature & Humidity Sensors",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fwz1n7f86qrthf8bgbo77l",
+              "quizId": "fi4onix6fs4h8hjc5hmd2et",
+              "questionText": "What is the core principle behind 08. DHT11/DHT22 Temperature & Humidity Sensors?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fqcs8d5l0qeackapkr16i0e",
+                  "questionId": "fwz1n7f86qrthf8bgbo77l",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fvtp63nbqpnaq9sri3fv2xh",
+                  "questionId": "fwz1n7f86qrthf8bgbo77l",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fw4u6xigtueb7jvwiag9gih",
+                  "questionId": "fwz1n7f86qrthf8bgbo77l",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/09-servo-motor-precision-control-timers": {
+    "lesson": {
+      "id": "fm8y7sf1f1f7h1w21wk1r",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "09. Servo Motor Precision Control & Timers",
+      "slug": "09-servo-motor-precision-control-timers",
+      "contentMarkdown": "# 09. Servo Motor Precision Control & Timers\n\nControl SG90/MG996R servo motors using Servo.h, 50Hz PWM signals, 1ms-2ms pulse width, and sweep algorithms.\n\n## Overview\nIn this lesson, you will master the principles of **09. Servo Motor Precision Control & Timers** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "#include <Servo.h>\n\nServo myServo;\n\nvoid setup() {\n  myServo.attach(9);\n}\n\nvoid loop() {\n  for (int pos = 0; pos <= 180; pos += 10) {\n    myServo.write(pos);\n    delay(150);\n  }\n  for (int pos = 180; pos >= 0; pos -= 10) {\n    myServo.write(pos);\n    delay(150);\n  }\n}",
+      "solutionCode": "void setup() { Servo s; s.attach(9); s.write(90); }\nvoid loop() {}",
+      "codeLanguage": "cpp",
+      "sortOrder": 9,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fx0edwjjq9ze35iw5m5m1rp",
+          "lessonId": "fm8y7sf1f1f7h1w21wk1r",
+          "title": "Quiz — 09. Servo Motor Precision Control & Timers",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fj4lefgghp9rdmu22dvoh9",
+              "quizId": "fx0edwjjq9ze35iw5m5m1rp",
+              "questionText": "What is the core principle behind 09. Servo Motor Precision Control & Timers?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fq4rxf70kiui1cu9jyyiaml",
+                  "questionId": "fj4lefgghp9rdmu22dvoh9",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fkgr8rj7hcdh05lfp5jmcvuh",
+                  "questionId": "fj4lefgghp9rdmu22dvoh9",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fvmb6segsn3mck7vd52ph2",
+                  "questionId": "fj4lefgghp9rdmu22dvoh9",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/10-dc-motor-control-l298n-h-bridge-driver": {
+    "lesson": {
+      "id": "fkr3uievjoy20tekj3000y",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "10. DC Motor Control with L298N H-Bridge Driver",
+      "slug": "10-dc-motor-control-l298n-h-bridge-driver",
+      "contentMarkdown": "# 10. DC Motor Control with L298N H-Bridge Driver\n\nUnderstand H-Bridge circuitry, direction control (IN1, IN2), speed control (ENA PWM), and dual DC motor driving.\n\n## Overview\nIn this lesson, you will master the principles of **10. DC Motor Control with L298N H-Bridge Driver** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "const int ENA = 9;\nconst int IN1 = 7;\nconst int IN2 = 6;\n\nvoid setup() {\n  pinMode(ENA, OUTPUT);\n  pinMode(IN1, OUTPUT);\n  pinMode(IN2, OUTPUT);\n}\n\nvoid forward(int speed) {\n  digitalWrite(IN1, HIGH);\n  digitalWrite(IN2, LOW);\n  analogWrite(ENA, speed);\n}\n\nvoid loop() {\n  forward(200);\n  delay(2000);\n}",
+      "solutionCode": "void setup() { pinMode(9, OUTPUT); }\nvoid loop() { analogWrite(9, 255); }",
+      "codeLanguage": "cpp",
+      "sortOrder": 10,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fdylatn8272jan6ver42omv",
+          "lessonId": "fkr3uievjoy20tekj3000y",
+          "title": "Quiz — 10. DC Motor Control with L298N H-Bridge Driver",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "f8gozzvv2jzkn5n2lu2y5s",
+              "quizId": "fdylatn8272jan6ver42omv",
+              "questionText": "What is the core principle behind 10. DC Motor Control with L298N H-Bridge Driver?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fbjgjvxjj5qkoywwuune5o",
+                  "questionId": "f8gozzvv2jzkn5n2lu2y5s",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fsxlgd70nhnlbaj72qb0lph",
+                  "questionId": "f8gozzvv2jzkn5n2lu2y5s",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fe2f78w87ztgcueflad6frg",
+                  "questionId": "f8gozzvv2jzkn5n2lu2y5s",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/11-i2c-protocol-lcd-1602-display-interface": {
+    "lesson": {
+      "id": "fv6fijf446zm2b24fqik1",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "11. I2C Protocol & LCD 1602 Display Interface",
+      "slug": "11-i2c-protocol-lcd-1602-display-interface",
+      "contentMarkdown": "# 11. I2C Protocol & LCD 1602 Display Interface\n\nMaster Inter-Integrated Circuit (I2C) communication, SDA/SCL pins, 0x27 address scanning, and LiquidCrystal_I2C display.\n\n## Overview\nIn this lesson, you will master the principles of **11. I2C Protocol & LCD 1602 Display Interface** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "#include <Wire.h>\n#include <LiquidCrystal_I2C.h>\n\nLiquidCrystal_I2C lcd(0x27, 16, 2);\n\nvoid setup() {\n  lcd.init();\n  lcd.backlight();\n  lcd.setCursor(0, 0);\n  lcd.print(\"Code Mentor\");\n  lcd.setCursor(0, 1);\n  lcd.print(\"Arduino PRO\");\n}\n\nvoid loop() {\n  // Static text\n}",
+      "solutionCode": "void setup() { Wire.begin(); }\nvoid loop() {}",
+      "codeLanguage": "cpp",
+      "sortOrder": 11,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fkmxg3gner7sph5l4nhmwi",
+          "lessonId": "fv6fijf446zm2b24fqik1",
+          "title": "Quiz — 11. I2C Protocol & LCD 1602 Display Interface",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fpvd1wtk86ncc6uyaocyp8",
+              "quizId": "fkmxg3gner7sph5l4nhmwi",
+              "questionText": "What is the core principle behind 11. I2C Protocol & LCD 1602 Display Interface?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fo3ljuokcugs4dxkmrvjurm",
+                  "questionId": "fpvd1wtk86ncc6uyaocyp8",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fqg74nt4z7do8xiea8adlu",
+                  "questionId": "fpvd1wtk86ncc6uyaocyp8",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fbat4eqy64o8in45de641gd",
+                  "questionId": "fpvd1wtk86ncc6uyaocyp8",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/12-spi-bus-protocol-microsd-card-storage": {
+    "lesson": {
+      "id": "fyc011eug5sdggwjorqc85",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "12. SPI Bus Protocol & MicroSD Card Storage",
+      "slug": "12-spi-bus-protocol-microsd-card-storage",
+      "contentMarkdown": "# 12. SPI Bus Protocol & MicroSD Card Storage\n\nUnderstand Serial Peripheral Interface (SPI), MOSI, MISO, SCK, CS pins, high-speed bus communication, and SD card file writing.\n\n## Overview\nIn this lesson, you will master the principles of **12. SPI Bus Protocol & MicroSD Card Storage** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "#include <SPI.h>\n#include <SD.h>\n\nconst int chipSelect = 4;\n\nvoid setup() {\n  Serial.begin(9600);\n  if (!SD.begin(chipSelect)) {\n    Serial.println(\"SD Card initialization failed!\");\n    return;\n  }\n  File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\n  if (dataFile) {\n    dataFile.println(\"Sensor Reading: 24.5C\");\n    dataFile.close();\n    Serial.println(\"Data logged successfully.\");\n  }\n}\n\nvoid loop() {}",
+      "solutionCode": "void setup() { SPI.begin(); }\nvoid loop() {}",
+      "codeLanguage": "cpp",
+      "sortOrder": 12,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fpfnhb5p4zws046l2mozv",
+          "lessonId": "fyc011eug5sdggwjorqc85",
+          "title": "Quiz — 12. SPI Bus Protocol & MicroSD Card Storage",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "f7nop15xaljxz23s2qg94",
+              "quizId": "fpfnhb5p4zws046l2mozv",
+              "questionText": "What is the core principle behind 12. SPI Bus Protocol & MicroSD Card Storage?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fd3qjh0kx9m0ftlv5ecb25a",
+                  "questionId": "f7nop15xaljxz23s2qg94",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fu9it3cnsguben8qms25mcu",
+                  "questionId": "f7nop15xaljxz23s2qg94",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f8kv8kyq94qpgy0vxbs3czg",
+                  "questionId": "f7nop15xaljxz23s2qg94",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/13-hardware-interrupts-debouncing-push-buttons": {
+    "lesson": {
+      "id": "fz1cy9bwohbba5uuc4b4nd",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "13. Hardware Interrupts & Debouncing Push Buttons",
+      "slug": "13-hardware-interrupts-debouncing-push-buttons",
+      "contentMarkdown": "# 13. Hardware Interrupts & Debouncing Push Buttons\n\nImplement attachInterrupt(), RISING/FALLING edges, Interrupt Service Routines (ISR), volatile variables, and software debouncing.\n\n## Overview\nIn this lesson, you will master the principles of **13. Hardware Interrupts & Debouncing Push Buttons** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "const byte interruptPin = 2;\nvolatile unsigned long pulseCount = 0;\n\nvoid counterISR() {\n  pulseCount++;\n}\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(interruptPin, INPUT_PULLUP);\n  attachInterrupt(digitalPinToInterrupt(interruptPin), counterISR, FALLING);\n}\n\nvoid loop() {\n  Serial.print(\"Interrupt Pulses: \"); Serial.println(pulseCount);\n  delay(1000);\n}",
+      "solutionCode": "void setup() { attachInterrupt(0, [](){}, RISING); }\nvoid loop() {}",
+      "codeLanguage": "cpp",
+      "sortOrder": 13,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fz3p4bwc42ufeyu9809cuc6",
+          "lessonId": "fz1cy9bwohbba5uuc4b4nd",
+          "title": "Quiz — 13. Hardware Interrupts & Debouncing Push Buttons",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fg5g7wcpyza9io5rh77o9m",
+              "quizId": "fz3p4bwc42ufeyu9809cuc6",
+              "questionText": "What is the core principle behind 13. Hardware Interrupts & Debouncing Push Buttons?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fcl8m70glqt7teg5iu4290j",
+                  "questionId": "fg5g7wcpyza9io5rh77o9m",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fmj0opywa8me263waxa0m8",
+                  "questionId": "fg5g7wcpyza9io5rh77o9m",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f476zz8duhd8f9nh21drsw4",
+                  "questionId": "fg5g7wcpyza9io5rh77o9m",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/14-eeprom-non-volatile-memory-storage": {
+    "lesson": {
+      "id": "fc8kmz84m5kolp18riike6",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "14. EEPROM Non-Volatile Memory Storage",
+      "slug": "14-eeprom-non-volatile-memory-storage",
+      "contentMarkdown": "# 14. EEPROM Non-Volatile Memory Storage\n\nRead & write non-volatile EEPROM byte storage, EEPROM.get(), EEPROM.put(), and preserving configuration across reboots.\n\n## Overview\nIn this lesson, you will master the principles of **14. EEPROM Non-Volatile Memory Storage** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "#include <EEPROM.h>\n\nstruct Config {\n  int deviceID;\n  char name[16];\n};\n\nvoid setup() {\n  Serial.begin(9600);\n  Config settings = {101, \"Arduino_Rover\"};\n  EEPROM.put(0, settings);\n  \n  Config loaded;\n  EEPROM.get(0, loaded);\n  Serial.print(\"Loaded ID: \"); Serial.println(loaded.deviceID);\n}\n\nvoid loop() {}",
+      "solutionCode": "void setup() { EEPROM.write(0, 255); }\nvoid loop() {}",
+      "codeLanguage": "cpp",
+      "sortOrder": 14,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "f31y06rnwyu84q82ho21zx5",
+          "lessonId": "fc8kmz84m5kolp18riike6",
+          "title": "Quiz — 14. EEPROM Non-Volatile Memory Storage",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "f10ll4zocv629ueox9e6sva",
+              "quizId": "f31y06rnwyu84q82ho21zx5",
+              "questionText": "What is the core principle behind 14. EEPROM Non-Volatile Memory Storage?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fbkuexg5rsgfak1adt2fh3",
+                  "questionId": "f10ll4zocv629ueox9e6sva",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fu9hkway8knagigebbvo4jk",
+                  "questionId": "f10ll4zocv629ueox9e6sva",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fiyblsqzhj2i14j41i52mvb",
+                  "questionId": "f10ll4zocv629ueox9e6sva",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "arduino/15-building-autonomous-obstacle-avoiding-rover": {
+    "lesson": {
+      "id": "fzu84st21et52lzs0b1w9p",
+      "moduleId": "far91yeb6l1a186u1cqg9vb",
+      "title": "15. Building an Autonomous Obstacle-Avoiding Rover",
+      "slug": "15-building-autonomous-obstacle-avoiding-rover",
+      "contentMarkdown": "# 15. Building an Autonomous Obstacle-Avoiding Rover\n\nCombine ultrasonic sensor scanning, dual DC motor driving, servo motor head rotation, and obstacle avoidance logic.\n\n## Overview\nIn this lesson, you will master the principles of **15. Building an Autonomous Obstacle-Avoiding Rover** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "#include <Servo.h>\n\nServo scanner;\nconst int TRIG = 9, ECHO = 10;\n\nlong getDistance() {\n  digitalWrite(TRIG, LOW); delayMicroseconds(2);\n  digitalWrite(TRIG, HIGH); delayMicroseconds(10);\n  digitalWrite(TRIG, LOW);\n  return pulseIn(ECHO, HIGH) * 0.0343 / 2;\n}\n\nvoid setup() {\n  pinMode(TRIG, OUTPUT);\n  pinMode(ECHO, INPUT);\n  scanner.attach(11);\n  Serial.begin(9600);\n  Serial.println(\"Autonomous Obstacle Avoidance Rover Initialized.\");\n}\n\nvoid loop() {\n  long dist = getDistance();\n  if (dist < 20) {\n    Serial.println(\"Obstacle detected! Scanning left and right...\");\n  }\n  delay(200);\n}",
+      "solutionCode": "void setup() { Serial.begin(9600); }\nvoid loop() {}",
+      "codeLanguage": "cpp",
+      "sortOrder": 15,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "far91yeb6l1a186u1cqg9vb",
+        "courseId": "f5dyjo9yli1vqv9v68n82wg",
+        "title": "Section 1: Complete Arduino Masterclass",
+        "description": "Master Arduino step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Arduino",
+          "slug": "arduino",
+          "id": "f5dyjo9yli1vqv9v68n82wg"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fmphp6rq8q4dkq6y0eha4b",
+          "lessonId": "fzu84st21et52lzs0b1w9p",
+          "title": "Quiz — 15. Building an Autonomous Obstacle-Avoiding Rover",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "f8bqcit72vzci3jtym7nqy",
+              "quizId": "fmphp6rq8q4dkq6y0eha4b",
+              "questionText": "What is the core principle behind 15. Building an Autonomous Obstacle-Avoiding Rover?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "f94hu5lbaykcdoq8ratwbc8",
+                  "questionId": "f8bqcit72vzci3jtym7nqy",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fc20yipk4rq5h8k45dz3h7b",
+                  "questionId": "f8bqcit72vzci3jtym7nqy",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f8pig31pd2t3a3zi8zhhpo6",
+                  "questionId": "f8bqcit72vzci3jtym7nqy",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/01-foundations-robotics-engineering": {
+    "lesson": {
+      "id": "fwud6z8nczemwlxzg3b0iw9",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "01. Foundations of Robotics Engineering",
+      "slug": "01-foundations-robotics-engineering",
+      "contentMarkdown": "# 01. Foundations of Robotics Engineering\n\nOverview of modern robotics, mobile robots, manipulators, sensors, actuators, and control system loops.\n\n## Overview\nIn this lesson, you will master the principles of **01. Foundations of Robotics Engineering** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "# Python Robotics System Monitor\nclass RobotState:\n    def __init__(self, name):\n        self.name = name\n        self.battery_percent = 98.5\n        self.is_armed = True\n        \n    def status_report(self):\n        return f\"Robot [{self.name}] Armed: {self.is_armed} | Battery: {self.battery_percent}%\"\n\nbot = RobotState(\"Rover-Alpha-01\")\nprint(bot.status_report())",
+      "solutionCode": "print(\"Robotics System Active\")",
+      "codeLanguage": "python",
+      "sortOrder": 1,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fza8juch980b757khf1vbai",
+          "lessonId": "fwud6z8nczemwlxzg3b0iw9",
+          "title": "Quiz — 01. Foundations of Robotics Engineering",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fxtqs1zdcz3jf08m48k8vo",
+              "quizId": "fza8juch980b757khf1vbai",
+              "questionText": "What is the core principle behind 01. Foundations of Robotics Engineering?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fsbdlsl5hueikizczus7c",
+                  "questionId": "fxtqs1zdcz3jf08m48k8vo",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fyyrlim2eiaeelncz6q24bj",
+                  "questionId": "fxtqs1zdcz3jf08m48k8vo",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fvaw4gmrmlbg2kha444tw2y",
+                  "questionId": "fxtqs1zdcz3jf08m48k8vo",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/02-robot-kinematics-forward-inverse": {
+    "lesson": {
+      "id": "fie8kq023a7pqa44x58z6d",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "02. Robot Kinematics: Forward & Inverse Kinematics",
+      "slug": "02-robot-kinematics-forward-inverse",
+      "contentMarkdown": "# 02. Robot Kinematics: Forward & Inverse Kinematics\n\nCalculate 2D/3D robot position using Denavit-Hartenberg (DH) parameters, rotation matrices, and Jacobian matrices.\n\n## Overview\nIn this lesson, you will master the principles of **02. Robot Kinematics: Forward & Inverse Kinematics** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "import numpy as np\n\ndef forward_kinematics_2d(l1, l2, theta1_deg, theta2_deg):\n    t1 = np.radians(theta1_deg)\n    t2 = np.radians(theta2_deg)\n    x = l1 * np.cos(t1) + l2 * np.cos(t1 + t2)\n    y = l1 * np.sin(t1) + l2 * np.sin(t1 + t2)\n    return x, y\n\nx_pos, y_pos = forward_kinematics_2d(1.0, 0.8, 30, 45)\nprint(f\"End Effector Coordinates: X={x_pos:.3f}m, Y={y_pos:.3f}m\")",
+      "solutionCode": "import numpy as np\nprint(\"Kinematics Calculated\")",
+      "codeLanguage": "python",
+      "sortOrder": 2,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "f6ef6l8r8iaukyxtuly5xdc",
+          "lessonId": "fie8kq023a7pqa44x58z6d",
+          "title": "Quiz — 02. Robot Kinematics: Forward & Inverse Kinematics",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "f2g9typh574kju2il0ezq08",
+              "quizId": "f6ef6l8r8iaukyxtuly5xdc",
+              "questionText": "What is the core principle behind 02. Robot Kinematics: Forward & Inverse Kinematics?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "ftvsdrmjknqlabl1yw9x255",
+                  "questionId": "f2g9typh574kju2il0ezq08",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "f2mokifn55ajt4gtag8mx2a",
+                  "questionId": "f2g9typh574kju2il0ezq08",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fl3za562i1u8o1c9vtoe4ee",
+                  "questionId": "f2g9typh574kju2il0ezq08",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/03-intro-ros2-robot-operating-system": {
+    "lesson": {
+      "id": "fc87jqsex7i9nwgm7vqoszf",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "03. Introduction to ROS 2 (Robot Operating System)",
+      "slug": "03-intro-ros2-robot-operating-system",
+      "contentMarkdown": "# 03. Introduction to ROS 2 (Robot Operating System)\n\nUnderstand ROS 2 Humble architecture, DDS middleware, node discovery, workspace creation, and colcon build tool.\n\n## Overview\nIn this lesson, you will master the principles of **03. Introduction to ROS 2 (Robot Operating System)** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "import rclpy\nfrom rclpy.node import Node\n\nclass MinimalRobotNode(Node):\n    def __init__(self):\n        super().__init__('minimal_robot_node')\n        self.get_logger().info('ROS 2 Autonomous Robot Node Active!')\n\ndef main():\n    rclpy.init()\n    node = MinimalRobotNode()\n    rclpy.spin_once(node, timeout_sec=1)\n    node.destroy_node()\n    rclpy.shutdown()\n\nif __name__ == '__main__':\n    main()",
+      "solutionCode": "print(\"ROS 2 Node Ready\")",
+      "codeLanguage": "python",
+      "sortOrder": 3,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "f4ky04jop58453nusu5i7i4",
+          "lessonId": "fc87jqsex7i9nwgm7vqoszf",
+          "title": "Quiz — 03. Introduction to ROS 2 (Robot Operating System)",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fnubrry5o34y3i0dduhgje",
+              "quizId": "f4ky04jop58453nusu5i7i4",
+              "questionText": "What is the core principle behind 03. Introduction to ROS 2 (Robot Operating System)?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fixkx24urj4tskjc50zzgq",
+                  "questionId": "fnubrry5o34y3i0dduhgje",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fdwztd0xgixwalhgt0bcw",
+                  "questionId": "fnubrry5o34y3i0dduhgje",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f0a2j0wm3re4v1yt331j1vmy",
+                  "questionId": "fnubrry5o34y3i0dduhgje",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/04-ros2-nodes-topics-publishers-subscribers": {
+    "lesson": {
+      "id": "fn94tbz9o6civnqsax5ox",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "04. ROS 2 Nodes, Topics, Publishers & Subscribers",
+      "slug": "04-ros2-nodes-topics-publishers-subscribers",
+      "contentMarkdown": "# 04. ROS 2 Nodes, Topics, Publishers & Subscribers\n\nMaster asynchronous pub/sub messaging pattern over ROS 2 topics using std_msgs and geometry_msgs/Twist.\n\n## Overview\nIn this lesson, you will master the principles of **04. ROS 2 Nodes, Topics, Publishers & Subscribers** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "import rclpy\nfrom rclpy.node import Node\nfrom geometry_msgs.msg import Twist\n\nclass VelocityPublisher(Node):\n    def __init__(self):\n        super().__init__('cmd_vel_publisher')\n        self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)\n        \n    def publish_cmd(self):\n        msg = Twist()\n        msg.linear.x = 0.5  # 0.5 m/s forward\n        msg.angular.z = 0.2 # 0.2 rad/s turn\n        self.publisher_.publish(msg)\n        self.get_logger().info(f\"Published Velocity: linear={msg.linear.x}, angular={msg.angular.z}\")\n\nprint(\"ROS 2 Topic Publisher Ready.\")",
+      "solutionCode": "print(\"Publisher Active\")",
+      "codeLanguage": "python",
+      "sortOrder": 4,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fepxtb0i2qhw5s8puprue12",
+          "lessonId": "fn94tbz9o6civnqsax5ox",
+          "title": "Quiz — 04. ROS 2 Nodes, Topics, Publishers & Subscribers",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fyakqcqpuk2jm0288fwmx1",
+              "quizId": "fepxtb0i2qhw5s8puprue12",
+              "questionText": "What is the core principle behind 04. ROS 2 Nodes, Topics, Publishers & Subscribers?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "facnejjuqx0c856c4m0oiwx",
+                  "questionId": "fyakqcqpuk2jm0288fwmx1",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fv9dwy1g4aw1fdmabjpoal",
+                  "questionId": "fyakqcqpuk2jm0288fwmx1",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fsqsbzvb4wqkqyxj91trn",
+                  "questionId": "fyakqcqpuk2jm0288fwmx1",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/05-ros2-custom-messages-services-actions": {
+    "lesson": {
+      "id": "fndpsny3fcyiayk5asj9u",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "05. ROS 2 Custom Messages, Services & Actions",
+      "slug": "05-ros2-custom-messages-services-actions",
+      "contentMarkdown": "# 05. ROS 2 Custom Messages, Services & Actions\n\nDefine custom .msg interface schemas, synchronous Service client/server RPC, and long-running Action goals.\n\n## Overview\nIn this lesson, you will master the principles of **05. ROS 2 Custom Messages, Services & Actions** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "import rclpy\nfrom rclpy.node import Node\n\nclass NavigationService(Node):\n    def __init__(self):\n        super().__init__('nav_service_server')\n        self.get_logger().info(\"Navigation Service Server Ready.\")\n\nprint(\"ROS 2 Service initialized.\")",
+      "solutionCode": "print(\"Service Ready\")",
+      "codeLanguage": "python",
+      "sortOrder": 5,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fata2fp2tgp8hngxm1nsla",
+          "lessonId": "fndpsny3fcyiayk5asj9u",
+          "title": "Quiz — 05. ROS 2 Custom Messages, Services & Actions",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fi6ic93h6zcbm8qw6e2mv6",
+              "quizId": "fata2fp2tgp8hngxm1nsla",
+              "questionText": "What is the core principle behind 05. ROS 2 Custom Messages, Services & Actions?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "f1hoz97amz2bjj72g31ri2",
+                  "questionId": "fi6ic93h6zcbm8qw6e2mv6",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fz77k7n78jmksyq2izjr6r",
+                  "questionId": "fi6ic93h6zcbm8qw6e2mv6",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fm3ms4rg2c79eha30fv1v4w",
+                  "questionId": "fi6ic93h6zcbm8qw6e2mv6",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/06-robot-modeling-urdf-xacro": {
+    "lesson": {
+      "id": "fyl8wrzh18vp154zflfmtvc",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "06. Robot Modeling with URDF & Xacro",
+      "slug": "06-robot-modeling-urdf-xacro",
+      "contentMarkdown": "# 06. Robot Modeling with URDF & Xacro\n\nConstruct 3D robot kinematics models using Unified Robot Description Format (URDF), links, joints, and Xacro macros.\n\n## Overview\nIn this lesson, you will master the principles of **06. Robot Modeling with URDF & Xacro** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "urdf_xml = \"\"\"<?xml version=\"1.0\"?>\n<robot name=\"mobile_rover\">\n  <link name=\"base_link\">\n    <visual>\n      <geometry><box size=\"0.6 0.4 0.2\"/></geometry>\n    </visual>\n  </link>\n</robot>\n\"\"\"\nprint(\"URDF XML Model Validated Successfully:\")\nprint(urdf_xml)",
+      "solutionCode": "print(\"URDF Validated\")",
+      "codeLanguage": "python",
+      "sortOrder": 6,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fo8ynaw25x0ecpsla84fzr8",
+          "lessonId": "fyl8wrzh18vp154zflfmtvc",
+          "title": "Quiz — 06. Robot Modeling with URDF & Xacro",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fza72aid0ikezp92rg7ybol",
+              "quizId": "fo8ynaw25x0ecpsla84fzr8",
+              "questionText": "What is the core principle behind 06. Robot Modeling with URDF & Xacro?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fse6giddx49pa4lyuw0oqnb",
+                  "questionId": "fza72aid0ikezp92rg7ybol",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fwu63ox9rlixehrz8filg9",
+                  "questionId": "fza72aid0ikezp92rg7ybol",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f1awfnjvg3bxc78bczmkty",
+                  "questionId": "fza72aid0ikezp92rg7ybol",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/07-gazebo-3d-physics-simulator-setup": {
+    "lesson": {
+      "id": "fy9o5pbgnh385qfwt1fobu",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "07. Gazebo 3D Physics Simulator & Environment Setup",
+      "slug": "07-gazebo-3d-physics-simulator-setup",
+      "contentMarkdown": "# 07. Gazebo 3D Physics Simulator & Environment Setup\n\nSpawn URDF robots into Gazebo 3D physics engine, configure ODE rigid body friction, gravity, and camera sensors.\n\n## Overview\nIn this lesson, you will master the principles of **07. Gazebo 3D Physics Simulator & Environment Setup** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "print(\"Gazebo 3D Simulation Environment Initialized.\")\nprint(\"World Loaded: indoor_warehouse.world\")",
+      "solutionCode": "print(\"Gazebo Ready\")",
+      "codeLanguage": "python",
+      "sortOrder": 7,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fka95zv3qt9ncf4u42dgv8t",
+          "lessonId": "fy9o5pbgnh385qfwt1fobu",
+          "title": "Quiz — 07. Gazebo 3D Physics Simulator & Environment Setup",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "f4ynmbw8wyj7sudoddltei",
+              "quizId": "fka95zv3qt9ncf4u42dgv8t",
+              "questionText": "What is the core principle behind 07. Gazebo 3D Physics Simulator & Environment Setup?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fsgs6zdwyauc9szd0l7xf16",
+                  "questionId": "f4ynmbw8wyj7sudoddltei",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "f0c5lh8di0ijgkiop4iy9zhs",
+                  "questionId": "f4ynmbw8wyj7sudoddltei",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fj3jieyg2grp7web5bmijox",
+                  "questionId": "f4ynmbw8wyj7sudoddltei",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/08-sensor-fusion-imu-lidar-wheel-encoders": {
+    "lesson": {
+      "id": "f3oj5w3h1g2bs7sildnvc5",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "08. Sensor Fusion: IMU, Lidar & Wheel Encoders",
+      "slug": "08-sensor-fusion-imu-lidar-wheel-encoders",
+      "contentMarkdown": "# 08. Sensor Fusion: IMU, Lidar & Wheel Encoders\n\nCombine noisy IMU accelerometers, Lidar 360-degree point clouds, and optical wheel encoders using Extended Kalman Filter (EKF).\n\n## Overview\nIn this lesson, you will master the principles of **08. Sensor Fusion: IMU, Lidar & Wheel Encoders** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "import numpy as np\n\ndef ekf_predict(x, P, Q):\n    # Simple EKF prediction step\n    P = P + Q\n    return x, P\n\nx_state = np.array([0.0, 0.0])\nP_cov = np.eye(2) * 0.1\nQ_noise = np.eye(2) * 0.01\n\nx_est, P_est = ekf_predict(x_state, P_cov, Q_noise)\nprint(\"EKF State Estimation:\", x_est)",
+      "solutionCode": "print(\"EKF Filter Applied\")",
+      "codeLanguage": "python",
+      "sortOrder": 8,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fx8exp5xgcav513g60ftbm",
+          "lessonId": "f3oj5w3h1g2bs7sildnvc5",
+          "title": "Quiz — 08. Sensor Fusion: IMU, Lidar & Wheel Encoders",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fd4ha4ed8u386hzjrfr30rx",
+              "quizId": "fx8exp5xgcav513g60ftbm",
+              "questionText": "What is the core principle behind 08. Sensor Fusion: IMU, Lidar & Wheel Encoders?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fzyu0ekvlmnb3nzh33mwgqw",
+                  "questionId": "fd4ha4ed8u386hzjrfr30rx",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "f4p2ga9sxp85i6pbjkwjajj",
+                  "questionId": "fd4ha4ed8u386hzjrfr30rx",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f4ah45ej7ztmwf5xrtra3h",
+                  "questionId": "fd4ha4ed8u386hzjrfr30rx",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/09-closed-loop-pid-control-robotic-actuators": {
+    "lesson": {
+      "id": "fghnk3bykcogr60k39d1u7",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "09. Closed-Loop PID Control for Robotic Actuators",
+      "slug": "09-closed-loop-pid-control-robotic-actuators",
+      "contentMarkdown": "# 09. Closed-Loop PID Control for Robotic Actuators\n\nImplement Proportional-Integral-Derivative (PID) control loop algorithm for motor velocity and heading correction.\n\n## Overview\nIn this lesson, you will master the principles of **09. Closed-Loop PID Control for Robotic Actuators** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "class PIDController:\n    def __init__(self, kp, ki, kd):\n        self.kp, self.ki, self.kd = kp, ki, kd\n        self.prev_error = 0.0\n        self.integral = 0.0\n        \n    def compute(self, setpoint, pv, dt):\n        error = setpoint - pv\n        self.integral += error * dt\n        derivative = (error - self.prev_error) / dt\n        self.prev_error = error\n        return (self.kp * error) + (self.ki * self.integral) + (self.kd * derivative)\n\npid = PIDController(kp=1.5, ki=0.1, kd=0.05)\noutput = pid.compute(setpoint=10.0, pv=8.2, dt=0.05)\nprint(f\"PID Control Output Signal: {output:.3f}\")",
+      "solutionCode": "print(\"PID Compute Executed\")",
+      "codeLanguage": "python",
+      "sortOrder": 9,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "f38irb4cgdu6mft1vp2bbwc",
+          "lessonId": "fghnk3bykcogr60k39d1u7",
+          "title": "Quiz — 09. Closed-Loop PID Control for Robotic Actuators",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fts2zrkdu9jrh11kqtpr2b9",
+              "quizId": "f38irb4cgdu6mft1vp2bbwc",
+              "questionText": "What is the core principle behind 09. Closed-Loop PID Control for Robotic Actuators?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fh3apyojxwp9pv4cl7h9wur",
+                  "questionId": "fts2zrkdu9jrh11kqtpr2b9",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fprs4gilk9cwzqqc8lrdoh",
+                  "questionId": "fts2zrkdu9jrh11kqtpr2b9",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f0og77in8evuo6knm9zulkzp",
+                  "questionId": "fts2zrkdu9jrh11kqtpr2b9",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/10-opencv-computer-vision-object-tracking": {
+    "lesson": {
+      "id": "fy4lfq7szt2o5l9eekvm4k",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "10. OpenCV Computer Vision for Object Tracking",
+      "slug": "10-opencv-computer-vision-object-tracking",
+      "contentMarkdown": "# 10. OpenCV Computer Vision for Object Tracking\n\nProcess camera video streams, HSV color space masking, contour detection, and centroid tracking for robotic follow.\n\n## Overview\nIn this lesson, you will master the principles of **10. OpenCV Computer Vision for Object Tracking** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "import numpy as np\n\n# Simulated HSV image thresholding\nhsv_lower = np.array([35, 100, 100])\nhsv_upper = np.array([85, 255, 255])\n\nprint(f\"Color Tracking Mask Configured: Green Target [{hsv_lower} - {hsv_upper}]\")",
+      "solutionCode": "print(\"OpenCV Tracking Active\")",
+      "codeLanguage": "python",
+      "sortOrder": 10,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fx6ln4t9ylt9e9zz52kkog",
+          "lessonId": "fy4lfq7szt2o5l9eekvm4k",
+          "title": "Quiz — 10. OpenCV Computer Vision for Object Tracking",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fcntzozlhj1ogy4ox4hlnan",
+              "quizId": "fx6ln4t9ylt9e9zz52kkog",
+              "questionText": "What is the core principle behind 10. OpenCV Computer Vision for Object Tracking?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "f1w41ed489ib2f511hetc9",
+                  "questionId": "fcntzozlhj1ogy4ox4hlnan",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "f7ycl9fff2vehv40gm1qy4c",
+                  "questionId": "fcntzozlhj1ogy4ox4hlnan",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fn32w6wfr6v474v9v9v60w",
+                  "questionId": "fcntzozlhj1ogy4ox4hlnan",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/11-slam-simultaneous-localization-mapping": {
+    "lesson": {
+      "id": "fb1mq5fcw3x7u0h5b5n87x9",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "11. SLAM (Simultaneous Localization and Mapping)",
+      "slug": "11-slam-simultaneous-localization-mapping",
+      "contentMarkdown": "# 11. SLAM (Simultaneous Localization and Mapping)\n\nGenerate 2D occupancy grid maps using Lidar scan matching, Cartographer, and SLAM Toolbox in ROS 2.\n\n## Overview\nIn this lesson, you will master the principles of **11. SLAM (Simultaneous Localization and Mapping)** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "print(\"SLAM Toolbox Mapping Active: /map OccupancyGrid published at 5Hz.\")",
+      "solutionCode": "print(\"SLAM Active\")",
+      "codeLanguage": "python",
+      "sortOrder": 11,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fm1i445e1ueeh8pkwnna6i7",
+          "lessonId": "fb1mq5fcw3x7u0h5b5n87x9",
+          "title": "Quiz — 11. SLAM (Simultaneous Localization and Mapping)",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fk7xcih960dqnzq3t14h8c",
+              "quizId": "fm1i445e1ueeh8pkwnna6i7",
+              "questionText": "What is the core principle behind 11. SLAM (Simultaneous Localization and Mapping)?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "f62y5gdbq2hw5o97we1yw5",
+                  "questionId": "fk7xcih960dqnzq3t14h8c",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fl65psazyf4az52r1xo0wnq",
+                  "questionId": "fk7xcih960dqnzq3t14h8c",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fkcw6owk85ujj5plqv9t53",
+                  "questionId": "fk7xcih960dqnzq3t14h8c",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/12-autonomous-path-planning-nav2-protocol": {
+    "lesson": {
+      "id": "f5vz0l332q5a3u40v2mkrj6",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "12. Autonomous Path Planning with Nav2 Protocol",
+      "slug": "12-autonomous-path-planning-nav2-protocol",
+      "contentMarkdown": "# 12. Autonomous Path Planning with Nav2 Protocol\n\nConfigure ROS 2 Nav2 stack, A* global costmap path planning, DWB local obstacle avoidance controller, and goal action servers.\n\n## Overview\nIn this lesson, you will master the principles of **12. Autonomous Path Planning with Nav2 Protocol** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "print(\"Nav2 Goal Action Sent: Waypoint X=5.0m, Y=3.2m, Yaw=1.57rad\")",
+      "solutionCode": "print(\"Nav2 Active\")",
+      "codeLanguage": "python",
+      "sortOrder": 12,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fb3o7vors3l63wg7zf338c",
+          "lessonId": "f5vz0l332q5a3u40v2mkrj6",
+          "title": "Quiz — 12. Autonomous Path Planning with Nav2 Protocol",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fdv0s1fc0inq61vurkg959g",
+              "quizId": "fb3o7vors3l63wg7zf338c",
+              "questionText": "What is the core principle behind 12. Autonomous Path Planning with Nav2 Protocol?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fcqo2gozbnbcnpspzncbyso",
+                  "questionId": "fdv0s1fc0inq61vurkg959g",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fgmbvar3r5tgupwnc7s94pn",
+                  "questionId": "fdv0s1fc0inq61vurkg959g",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fmftj1yd89jn6ahhqr76hn",
+                  "questionId": "fdv0s1fc0inq61vurkg959g",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/13-robotic-arm-trajectory-planning-moveit2": {
+    "lesson": {
+      "id": "fxvtb6stl1ulj4dvx15gjjc",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "13. Robotic Arm Trajectory Planning & MoveIt 2",
+      "slug": "13-robotic-arm-trajectory-planning-moveit2",
+      "contentMarkdown": "# 13. Robotic Arm Trajectory Planning & MoveIt 2\n\nPlan collision-free motion trajectories for 6-DOF robotic arms using MoveIt 2, OMPL planners, and inverse kinematics solvers.\n\n## Overview\nIn this lesson, you will master the principles of **13. Robotic Arm Trajectory Planning & MoveIt 2** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "print(\"MoveIt 2 Motion Plan Computed: 6-DOF Arm Trajectory Validated.\")",
+      "solutionCode": "print(\"MoveIt 2 Trajectory Executed\")",
+      "codeLanguage": "python",
+      "sortOrder": 13,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "f350xjizobgcqkxvakot0ii",
+          "lessonId": "fxvtb6stl1ulj4dvx15gjjc",
+          "title": "Quiz — 13. Robotic Arm Trajectory Planning & MoveIt 2",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fdaq1ouxzg3v890m5t3k26w",
+              "quizId": "f350xjizobgcqkxvakot0ii",
+              "questionText": "What is the core principle behind 13. Robotic Arm Trajectory Planning & MoveIt 2?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fuqbj3717ve7yk50lzreod",
+                  "questionId": "fdaq1ouxzg3v890m5t3k26w",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "f9168svu9cjezfuou1jwzr",
+                  "questionId": "fdaq1ouxzg3v890m5t3k26w",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "f8uc8cbg2aejy5p30gkowyf",
+                  "questionId": "fdaq1ouxzg3v890m5t3k26w",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/14-ai-reinforcement-learning-robot-control": {
+    "lesson": {
+      "id": "f6p748gbz3negkh8nvk2w0i",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "14. AI & Reinforcement Learning for Robot Control",
+      "slug": "14-ai-reinforcement-learning-robot-control",
+      "contentMarkdown": "# 14. AI & Reinforcement Learning for Robot Control\n\nTrain deep reinforcement learning agents (PPO / SAC) in Isaac Sim / Gazebo for quadruped walking and manipulation tasks.\n\n## Overview\nIn this lesson, you will master the principles of **14. AI & Reinforcement Learning for Robot Control** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "print(\"PyTorch PPO Policy Evaluation: Episode Reward = 340.5\")",
+      "solutionCode": "print(\"RL Policy Loaded\")",
+      "codeLanguage": "python",
+      "sortOrder": 14,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "fnrcxs5gifsaxprwcndkfua",
+          "lessonId": "f6p748gbz3negkh8nvk2w0i",
+          "title": "Quiz — 14. AI & Reinforcement Learning for Robot Control",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fxuyz5d8bfoejkvmiz7nc9",
+              "quizId": "fnrcxs5gifsaxprwcndkfua",
+              "questionText": "What is the core principle behind 14. AI & Reinforcement Learning for Robot Control?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "fbq1dnqfadj4c765k09zau",
+                  "questionId": "fxuyz5d8bfoejkvmiz7nc9",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "f3n8jp6g4r7yl4augtnxtlb",
+                  "questionId": "fxuyz5d8bfoejkvmiz7nc9",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "fvoplanfodeqnakl1n0jn",
+                  "questionId": "fxuyz5d8bfoejkvmiz7nc9",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "robotics/15-deploying-autonomous-mobile-robots-production": {
+    "lesson": {
+      "id": "fx5jvzkwqusseqi4uffdj0u",
+      "moduleId": "fsulxkzydq4g9ab0ebyt8w7",
+      "title": "15. Deploying Autonomous Mobile Robots in Production",
+      "slug": "15-deploying-autonomous-mobile-robots-production",
+      "contentMarkdown": "# 15. Deploying Autonomous Mobile Robots in Production\n\nDeploy ROS 2 production stack onto Jetson Orin / Raspberry Pi, Docker containerization, RTOS real-time execution, and hardware safety.\n\n## Overview\nIn this lesson, you will master the principles of **15. Deploying Autonomous Mobile Robots in Production** through interactive code exercises and real-world hardware concepts.\n\n## Requirements & Tools\n- Understanding of fundamental programming constructs.\n- Development environment and syntax compiler tools.\n\n## Implementation & Code Explanation\nExamine the starter code below to see how to implement this module in practice.\n\n## Key Takeaways\n1. Always test and verify hardware/software interfaces step-by-step.\n2. Ensure proper pinout or topic mappings before executing control loops.",
+      "starterCode": "print(\"Production Robot Launch Sequence: All Nodes & Safety Watchdogs Operational.\")",
+      "solutionCode": "print(\"Production Launch Complete\")",
+      "codeLanguage": "python",
+      "sortOrder": 15,
+      "estimatedMinutes": 20,
+      "xpReward": 30,
+      "module": {
+        "id": "fsulxkzydq4g9ab0ebyt8w7",
+        "courseId": "fu7umarixhpnmpurm6tw73q",
+        "title": "Section 1: Complete Robotics Engineering & ROS 2 Masterclass",
+        "description": "Master Robotics Engineering & ROS 2 step-by-step from fundamental principles to advanced real-world projects.",
+        "sortOrder": 1,
+        "xpRequired": 0,
+        "course": {
+          "title": "Robotics Engineering & ROS 2",
+          "slug": "robotics",
+          "id": "fu7umarixhpnmpurm6tw73q"
+        }
+      },
+      "quizzes": [
+        {
+          "id": "f1tvzz3o2hcbo8m5jr2tz5n",
+          "lessonId": "fx5jvzkwqusseqi4uffdj0u",
+          "title": "Quiz — 15. Deploying Autonomous Mobile Robots in Production",
+          "passingScore": 70,
+          "timeLimitSeconds": null,
+          "questions": [
+            {
+              "id": "fdpqb1tzxovjcob2il77oml",
+              "quizId": "f1tvzz3o2hcbo8m5jr2tz5n",
+              "questionText": "What is the core principle behind 15. Deploying Autonomous Mobile Robots in Production?",
+              "questionType": "multiple_choice",
+              "codeSnippet": null,
+              "explanation": "Always verify interface parameters and hardware logic before executing control loops.",
+              "points": 10,
+              "sortOrder": 1,
+              "answers": [
+                {
+                  "id": "f403xvoigd2lfx7c40kpbg",
+                  "questionId": "fdpqb1tzxovjcob2il77oml",
+                  "answerText": "Ignore pin configurations and run code directly",
+                  "isCorrect": false,
+                  "sortOrder": 1
+                },
+                {
+                  "id": "fk1pl4ffo5p07mdjevid0ya",
+                  "questionId": "fdpqb1tzxovjcob2il77oml",
+                  "answerText": "Configure proper pinouts/topics and verify logic step-by-step",
+                  "isCorrect": true,
+                  "sortOrder": 2
+                },
+                {
+                  "id": "frh1ndj9thjkdashl26vwqq",
+                  "questionId": "fdpqb1tzxovjcob2il77oml",
+                  "answerText": "Disable all timers and safety interrupts",
+                  "isCorrect": false,
+                  "sortOrder": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   }
 }
