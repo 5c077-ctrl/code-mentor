@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import vm from 'vm';
 
 const JUDGE0_LANGUAGE_IDS: Record<string, number> = {
   python: 71,
@@ -21,38 +20,6 @@ const JUDGE0_LANGUAGE_IDS: Record<string, number> = {
   shell: 46,
 };
 
-function runJSInVm(code: string): string {
-  const logs: string[] = [];
-  const sandbox = {
-    console: {
-      log: (...args: any[]) => logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')),
-      error: (...args: any[]) => logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')),
-      warn: (...args: any[]) => logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')),
-    },
-    Math,
-    Date,
-    JSON,
-    Array,
-    Object,
-    String,
-    Number,
-    Boolean,
-    Set,
-    Map,
-    RegExp,
-  };
-
-  try {
-    const context = vm.createContext(sandbox);
-    // Strip TypeScript simple type annotations if language is typescript
-    const cleanedCode = code.replace(/:\s*(string|number|boolean|any|void|object|unknown|never|string\[\]|number\[\])/g, '');
-    vm.runInContext(cleanedCode, context, { timeout: 3000 });
-    return logs.length > 0 ? logs.join('\n') : 'Code executed successfully (no console output).';
-  } catch (err: any) {
-    return `Runtime Error: ${err.message}`;
-  }
-}
-
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}));
@@ -65,43 +32,41 @@ export async function POST(req: Request) {
     const normalizedLang = String(language).toLowerCase().trim();
     const langId = JUDGE0_LANGUAGE_IDS[normalizedLang];
 
-    // Attempt execution via Judge0 API
-    if (langId) {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 8000);
+    if (!langId) {
+      return NextResponse.json({ error: `Unsupported language: ${normalizedLang}` }, { status: 400 });
+    }
 
-        const res = await fetch('https://ce.judge0.com/submissions?wait=true', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            source_code: code,
-            language_id: langId,
-          }),
-          signal: controller.signal,
-        });
+    // Execute via Judge0 API
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
 
-        clearTimeout(timeoutId);
+    try {
+      const res = await fetch('https://ce.judge0.com/submissions?wait=true', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source_code: code,
+          language_id: langId,
+        }),
+        signal: controller.signal,
+      });
 
-        if (res.ok) {
-          const data = await res.json();
-          const output = data.stdout || data.stderr || data.compile_output || data.status?.description || 'Code executed successfully with no output.';
-          return NextResponse.json({ output });
-        }
-      } catch (judgeErr: any) {
-        console.warn('Judge0 API fallback triggered:', judgeErr.message);
+      clearTimeout(timeoutId);
+
+      if (res.ok) {
+        const data = await res.json();
+        const output = data.stdout || data.stderr || data.compile_output || data.status?.description || 'Code executed successfully with no output.';
+        return NextResponse.json({ output });
+      } else {
+        const errText = await res.text();
+        console.error('Judge0 API error:', errText);
+        return NextResponse.json({ error: `Execution failed with status ${res.status}` }, { status: 500 });
       }
+    } catch (judgeErr: any) {
+      clearTimeout(timeoutId);
+      console.error('Judge0 fetch error:', judgeErr);
+      return NextResponse.json({ error: 'Code execution service is currently unavailable.' }, { status: 500 });
     }
-
-    // Fallback for JavaScript and TypeScript using Node VM
-    if (normalizedLang === 'javascript' || normalizedLang === 'typescript') {
-      const output = runJSInVm(code);
-      return NextResponse.json({ output });
-    }
-
-    return NextResponse.json({
-      output: `Executed ${normalizedLang} code successfully. (Note: Output streaming active)`
-    });
   } catch (error: any) {
     console.error('Run code route error:', error);
     return NextResponse.json({ error: error?.message || 'Failed to execute code' }, { status: 500 });
