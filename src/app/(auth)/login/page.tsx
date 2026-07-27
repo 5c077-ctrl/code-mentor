@@ -60,7 +60,7 @@ export default function LoginPage() {
   return (
     <div style={{
       display: 'flex',
-      justify: 'center',
+      justifyContent: 'center',
       alignItems: 'center',
       minHeight: '75vh',
       padding: '1rem',
