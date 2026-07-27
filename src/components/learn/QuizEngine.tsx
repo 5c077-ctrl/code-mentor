@@ -12,6 +12,16 @@ interface Question {
   correctId: string;
 }
 
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
+
+interface Question {
+  id: string;
+  text: string;
+  options: { id: string; text: string }[];
+  correctId: string;
+}
+
 interface QuizEngineProps {
   questions: Question[];
   onComplete: (score: number, passed: boolean) => void;
@@ -22,6 +32,9 @@ export default function QuizEngine({ questions, onComplete }: QuizEngineProps) {
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [isFinished, setIsFinished] = useState(false);
   const [score, setScore] = useState(0);
+
+  const appLang = useLanguageStore((state) => state.language);
+  const t = useTranslation(appLang);
 
   const currentQuestion = questions[currentIndex];
 
@@ -48,14 +61,14 @@ export default function QuizEngine({ questions, onComplete }: QuizEngineProps) {
   if (isFinished) {
     return (
       <Card style={{ textAlign: 'center', padding: '3rem 2rem' }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Quiz Completed!</h2>
+        <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>{t('quizCompleted')}</h2>
         <Badge variant={score >= 70 ? 'success' : 'danger'} style={{ fontSize: '1.25rem', padding: '0.5rem 1rem', marginBottom: '1.5rem', display: 'inline-block' }}>
-          Score: {score}%
+          {t('score')}: {score}%
         </Badge>
         <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-          {score >= 70 ? 'Congratulations, you passed!' : 'Keep practicing and try again.'}
+          {score >= 70 ? t('congratsPassed') : t('keepPracticing')}
         </p>
-        <Button onClick={() => window.location.reload()}>Retake Quiz</Button>
+        <Button onClick={() => window.location.reload()}>{t('retakeQuiz')}</Button>
       </Card>
     );
   }
@@ -63,7 +76,7 @@ export default function QuizEngine({ questions, onComplete }: QuizEngineProps) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ color: 'var(--text-secondary)' }}>Question {currentIndex + 1} of {questions.length}</span>
+        <span style={{ color: 'var(--text-secondary)' }}>{t('question')} {currentIndex + 1} {t('of')} {questions.length}</span>
         <div style={{ background: 'var(--glass-bg)', width: '200px', height: '8px', borderRadius: '4px', overflow: 'hidden' }}>
           <div style={{ width: `${((currentIndex + 1) / questions.length) * 100}%`, height: '100%', background: 'var(--accent-primary)', transition: 'width 0.3s ease' }}></div>
         </div>
@@ -101,7 +114,7 @@ export default function QuizEngine({ questions, onComplete }: QuizEngineProps) {
 
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '2rem' }}>
           <Button onClick={handleNext} disabled={!selectedAnswers[currentQuestion.id]}>
-            {currentIndex < questions.length - 1 ? 'Next Question' : 'Submit Quiz'}
+            {currentIndex < questions.length - 1 ? t('nextQuestion') : t('submitQuiz')}
           </Button>
         </div>
       </Card>

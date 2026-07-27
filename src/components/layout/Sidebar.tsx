@@ -2,6 +2,9 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLanguageStore } from '@/store/useLanguageStore';
+import { useTranslation } from '@/lib/translations';
+import LanguageSelector from './LanguageSelector';
 import { 
   LayoutDashboard, 
   BookOpen, 
@@ -22,25 +25,27 @@ import styles from './Sidebar.module.css';
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const language = useLanguageStore((state) => state.language);
+  const t = useTranslation(language);
 
   const mainLinks = [
-    { href: '/dashboard', label: 'Dashboard', icon: <LayoutDashboard size={18} /> },
-    { href: '/courses', label: 'All Courses', icon: <BookOpen size={18} /> },
-    { href: '/career', label: 'Big Tech Career Hub', icon: <Briefcase size={18} color="#10b981" /> },
-    { href: '/leaderboard', label: 'Leaderboard', icon: <Trophy size={18} /> },
-    { href: '/faq', label: 'FAQ', icon: <HelpCircle size={18} /> },
-    { href: '/settings', label: 'Settings', icon: <Settings size={18} /> },
+    { href: '/dashboard', label: t('dashboard'), icon: <LayoutDashboard size={18} /> },
+    { href: '/courses', label: t('allCourses'), icon: <BookOpen size={18} /> },
+    { href: '/career', label: t('careerHub'), icon: <Briefcase size={18} color="#10b981" /> },
+    { href: '/leaderboard', label: t('leaderboard'), icon: <Trophy size={18} /> },
+    { href: '/faq', label: t('faq'), icon: <HelpCircle size={18} /> },
+    { href: '/settings', label: t('settings'), icon: <Settings size={18} /> },
   ];
 
   const categoryLinks = [
-    { href: '/courses?category=programming', label: 'Programming', icon: <Code2 size={16} /> },
-    { href: '/courses?category=web-development', label: 'Web Development', icon: <Globe size={16} /> },
-    { href: '/courses?category=devops', label: 'DevOps & Tools', icon: <GitBranch size={16} /> },
-    { href: '/courses?category=databases', label: 'Databases', icon: <Database size={16} /> },
-    { href: '/courses?category=ethical-hacking', label: 'Ethical Hacking', icon: <Shield size={16} /> },
-    { href: '/courses?category=ai-ml', label: 'AI & Machine Learning', icon: <Brain size={16} /> },
-    { href: '/courses?category=mobile-dev', label: 'Mobile Dev', icon: <Smartphone size={16} /> },
-    { href: '/courses?category=cloud', label: 'Cloud Computing', icon: <Cloud size={16} /> },
+    { href: '/courses?category=programming', label: t('programming'), icon: <Code2 size={16} /> },
+    { href: '/courses?category=web-development', label: t('webDev'), icon: <Globe size={16} /> },
+    { href: '/courses?category=devops', label: t('devops'), icon: <GitBranch size={16} /> },
+    { href: '/courses?category=databases', label: t('databases'), icon: <Database size={16} /> },
+    { href: '/courses?category=ethical-hacking', label: t('ethicalHacking'), icon: <Shield size={16} /> },
+    { href: '/courses?category=ai-ml', label: t('aiMl'), icon: <Brain size={16} /> },
+    { href: '/courses?category=mobile-dev', label: t('mobileDev'), icon: <Smartphone size={16} /> },
+    { href: '/courses?category=cloud', label: t('cloud'), icon: <Cloud size={16} /> },
   ];
 
   return (
@@ -51,9 +56,13 @@ export default function Sidebar() {
           <span className={styles.brand}>Code-Mentor</span>
         </Link>
       </div>
+
+      <div style={{ padding: '0 1rem 0.75rem 1rem' }}>
+        <LanguageSelector />
+      </div>
       
       <nav className={styles.nav}>
-        <div className={styles.sectionTitle}>Menu</div>
+        <div className={styles.sectionTitle}>{t('menu')}</div>
         {mainLinks.map((link, idx) => {
           const isActive = pathname === link.href;
           return (
@@ -68,7 +77,7 @@ export default function Sidebar() {
           );
         })}
 
-        <div className={styles.sectionTitle}>Categories</div>
+        <div className={styles.sectionTitle}>{t('categories')}</div>
         {categoryLinks.map((link, idx) => (
           <Link 
             key={idx} 
@@ -84,9 +93,10 @@ export default function Sidebar() {
       <div className={styles.bottom}>
         <div className={styles.streak}>
           <span className={styles.fire}>🔥</span>
-          <span>3 Day Streak!</span>
+          <span>{t('streak')}</span>
         </div>
       </div>
     </aside>
   );
 }
+
